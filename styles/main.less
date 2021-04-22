@@ -1,11 +1,8 @@
-:root {
-    --bg: #EEEEEE;
-    --color: #2E2C24;
-    --h: #2E2C24;
-    --highlight: #6A7FDB;
-    --a: #4A7C59;
-    --ahover: #A22C29;
-}
+@bg: #EEEEEE;
+@text: #2E2C24;
+@highlight: #6A7FDB;
+@link: #4A7C59;
+@linkhover: #A22C29;
 
 html, body {
     margin: 0;
@@ -13,9 +10,9 @@ html, body {
 }
 
 body {
-    background: var(--bg);
+    background: @bg;
     font-family: 'Lato', sans-serif;
-    color: var(--color);
+    color: @text;
 
     display: flex;
     flex-direction: column;
@@ -31,7 +28,6 @@ main {
 h1, h2 {
     font-family: monospace;
     text-align: center;
-    color: var(--h);
 }
 
 h2 {
@@ -39,15 +35,15 @@ h2 {
 }
 
 .highlight {
-    color: var(--highlight);
+    color: @highlight;
 }
 
 a {
-    color: var(--a);
+    color: @link;
 }
 
 a:hover {
-    color: var(--ahover);
+    color: @linkhover;
 }
 
 code {

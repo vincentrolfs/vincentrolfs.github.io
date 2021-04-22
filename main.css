@@ -1,0 +1,38 @@
+* {
+    font-family: 'Lato', sans-serif;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #EEEEEE;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+main {
+    padding: 16px;
+    max-width: 600px;
+}
+
+h1, h2 {
+    font-family: monospace;
+    text-align: center;
+}
+
+h2 {
+    margin-top: 2em;
+}
+
+a {
+    color: cornflowerblue;
+}
+
+code {
+    font-family: monospace;
+}

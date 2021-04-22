@@ -1,5 +1,10 @@
-* {
-    font-family: 'Lato', sans-serif;
+:root {
+    --bg: #EEEEEE;
+    --a: #53B3CB;
+    --ahover: #E01A4F;
+    --color: #000000;
+
+    --yellow: #F9C22E;
 }
 
 html, body {
@@ -8,7 +13,10 @@ html, body {
 }
 
 body {
-    background: #EEEEEE;
+    background: var(--bg);
+    font-family: 'Lato', sans-serif;
+    color: var(--color);
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -30,9 +38,13 @@ h2 {
 }
 
 a {
-    color: cornflowerblue;
+    color: var(--a);
+}
+
+a:hover {
+    color: var(--ahover);
 }
 
 code {
-    font-family: monospace;
+    font-family: "DejaVu Sans Mono", monospace;
 }

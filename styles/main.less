@@ -2,7 +2,13 @@
 @text: #2E2C24;
 @primary: #7AB592;
 @link: #50916A;
-@linkhover: #E6AF2E;
+@link-hover: #E6AF2E;
+@grey: #AAAAAA;
+
+@mobile-width: 700px;
+@main-max-width: 700px;
+
+@bold-weight: 900;
 
 // https://coolors.co/ffffff-2e2c24-7ab592-a3320b-e6af2e
 
@@ -17,7 +23,7 @@ body {
     color: @text;
     font-size: 1.1em;
 
-    padding-top: 32px;
+    padding: 32px 32px 0 32px;
 
     display: flex;
     justify-content: center;
@@ -26,12 +32,17 @@ body {
 #wrapper {
     display: grid;
     grid-template-columns: max-content auto;
+    grid-column-gap: 80px;
+    grid-row-gap: 2em;
+
+    @media (max-width: @mobile-width)  {
+        grid-template-columns: auto;
+    }
 }
 
 header {
     grid-column-start: 1;
     grid-column-end: span 2;
-    margin-bottom: 32px;
 
     h1 {
         display: inline;
@@ -44,12 +55,15 @@ header {
             text-decoration: none;
         }
     }
+
+    @media (max-width: @mobile-width)  {
+        grid-column-end: 1;
+    }
 }
 
 nav {
     display: flex;
     flex-direction: column;
-    padding-right: 80px;
 
     a {
         margin-bottom: 8px;
@@ -67,15 +81,20 @@ nav {
             background: @text;
             color: @bg;
         }
+
+        &.disabled {
+            background: none;
+            color: @grey;
+        }
     }
 }
 
 main {
-    max-width: 700px;
+    max-width: @main-max-width;
 
     p:first-child {
         margin-block-start: 0;
-        font-weight: 900;
+        font-weight: @bold-weight;
 
         img {
             padding-right: 16px;
@@ -96,7 +115,7 @@ main {
         color: @link;
 
         &:hover {
-            color: @linkhover;
+            color: @link-hover;
         }
     }
 
@@ -112,7 +131,7 @@ h1, h2 {
     display: block;
     margin-inline-start: 0;
     margin-inline-end: 0;
-    font-weight: 900;
+    font-weight: @bold-weight;
 }
 
 h1 {

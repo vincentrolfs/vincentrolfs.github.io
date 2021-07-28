@@ -1,8 +1,8 @@
-@bg: #EEEEEE;
+@bg: #FFFFFF;
 @text: #2E2C24;
-@highlight: #4A7C59;
-@link: #6A7FDB;
-@linkhover: #A22C29;
+@primary: #7AB592;
+@link: #858AE3;
+@linkhover: #613DC1;
 
 html, body {
     margin: 0;
@@ -13,40 +13,96 @@ body {
     background: @bg;
     font-family: 'Lato', sans-serif;
     color: @text;
+    font-size: 1.1em;
+
+    padding-top: 32px;
 
     display: flex;
+    justify-content: center;
+}
+
+#wrapper {
+    display: grid;
+    grid-template-columns: max-content auto;
+}
+
+header {
+    grid-column-start: 1;
+    grid-column-end: span 2;
+    margin-bottom: 32px;
+
+    h1 {
+        margin-block-start: 0;
+        margin-block-end: 0;
+    }
+}
+
+nav {
+    display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
+    padding-right: 80px;
+
+    a {
+        margin-bottom: 8px;
+
+        color: @text;
+        text-decoration: none;
+        font-size: 1.5em;
+
+        &.selected {
+            background: @primary;
+            color: @bg;
+        }
+
+        &:hover {
+            background: @text;
+            color: @bg;
+        }
+    }
 }
 
 main {
-    padding: 16px;
     max-width: 700px;
+
+    p:first-child {
+        margin-block-start: 0;
+    }
+
+    .highlight {
+        color: @primary;
+        font-weight: bold;
+    }
+
+    a {
+        color: @link;
+
+        &:hover {
+            color: @linkhover;
+        }
+    }
+
+    code {
+        font-family: "DejaVu Sans Mono", monospace;
+    }
 }
 
+
+
 h1, h2 {
-    font-family: monospace;
-    text-align: center;
+    display: block;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    font-weight: 900;
+}
+
+h1 {
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
 }
 
 h2 {
-    margin-top: 2em;
-}
-
-.highlight {
-    color: @highlight;
-    font-weight: bold;
-}
-
-a {
-    color: @link;
-}
-
-a:hover {
-    color: @linkhover;
-}
-
-code {
-    font-family: "DejaVu Sans Mono", monospace;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
 }

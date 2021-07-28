@@ -3,7 +3,7 @@
 @primary: #7AB592;
 @link: #50916A;
 @link-hover: #E6AF2E;
-@grey: #AAAAAA;
+@light-grey: #EEEEEE;
 
 @mobile-width: 700px;
 @main-max-width: 700px;
@@ -15,6 +15,11 @@
 html, body {
     margin: 0;
     padding: 0;
+}
+
+html {
+    // See https://aykevl.nl/2014/09/fix-jumping-scrollbar
+    overflow-y: scroll;
 }
 
 body {
@@ -81,18 +86,13 @@ nav {
             background: @text;
             color: @bg;
         }
-
-        &.disabled {
-            background: none;
-            color: @grey;
-        }
     }
 }
 
 main {
     max-width: @main-max-width;
 
-    p:first-child {
+    p:first-child, h2:first-child {
         margin-block-start: 0;
         font-weight: @bold-weight;
 
@@ -125,23 +125,60 @@ main {
     }
 }
 
+.work-item {
+    background: @light-grey;
+    padding: 16px;
 
+    margin-block-start: 1.5em;
+    margin-block-end: 1.5em;
 
-h1, h2 {
+    h3 {
+        margin-block-start: 0;
+        margin-block-end: 0.75em;
+    }
+
+    h4 {
+        margin-block-start: 0.75em;
+        margin-block-end: 0;
+    }
+}
+
+h1, h2, h3, p {
     display: block;
     margin-inline-start: 0;
     margin-inline-end: 0;
-    font-weight: @bold-weight;
 }
 
 h1 {
     font-size: 2em;
     margin-block-start: 0.67em;
     margin-block-end: 0.67em;
+    font-weight: @bold-weight;
 }
 
 h2 {
     font-size: 1.5em;
     margin-block-start: 0.83em;
     margin-block-end: 0.83em;
+    font-weight: @bold-weight;
+}
+
+h3 {
+    font-size: 1.17em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    font-weight: @bold-weight;
+}
+
+h4 {
+    font-size: inherit;
+    margin-block-start: 1.33em;
+    margin-block-end: 1.33em;
+    font-weight: @bold-weight;
+}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
 }

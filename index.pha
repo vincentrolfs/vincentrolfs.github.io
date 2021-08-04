@@ -11,7 +11,6 @@ phantom.include("templates/head.html", {
 
 }}
 <body>
-
 <div id="wrapper">
     {{ phantom.include("templates/nav.html", { selection: "index" }) }}
 
@@ -45,6 +44,5 @@ phantom.include("templates/head.html", {
         </p>
     </main>
 </div>
-
 </body>
 </html>

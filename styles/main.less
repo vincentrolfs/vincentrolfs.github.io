@@ -47,6 +47,7 @@ body {
     grid-row-gap: 2em;
 
     @media (max-width: @mobile-width)  {
+        grid-row-gap: 1.5em;
         grid-template-columns: auto;
     }
 }
@@ -55,20 +56,24 @@ header {
     grid-column-start: 1;
     grid-column-end: span 2;
 
-    h1 {
-        display: inline;
-
-        margin-block-start: 0;
-        margin-block-end: 0;
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-    }
-
     @media (max-width: @mobile-width)  {
         grid-column-end: 1;
+    }
+}
+
+header a {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    color: inherit;
+    text-decoration: none;
+
+    h1 {
+        margin-left: 16px;
+        margin-block-start: 0;
+        margin-block-end: 0;
     }
 }
 

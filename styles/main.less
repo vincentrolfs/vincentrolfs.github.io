@@ -1,15 +1,20 @@
 @bg: #FFFFFF;
 @text: #2E2C24;
-@primary: #7AB592;
-@link: #50916A;
-@link-hover: #E6AF2E;
-@light-grey: #EEEEEE;
+@primary: #80232E;
+@secondary: #5E6897;
+@tertiary: #729B79;
+@grey: #EEEEEE;
+
+@link: @secondary;
+@link-hover: @tertiary;
 
 @mobile-width: 960px;
 @main-max-width: 700px;
 
 @bold-weight: 900;
 
+// https://coolors.co/ffffff-2e2c24-80232e-5e6897-729b79
+// https://coolors.co/ffffff-2e2c24-80232e-869d7a-7a82ab
 // https://coolors.co/ffffff-2e2c24-7ab592-a3320b-e6af2e
 
 html, body {
@@ -126,7 +131,9 @@ main {
 }
 
 .work-item {
-    background: @light-grey;
+    border-top: solid 2px @tertiary;
+    border-bottom: solid 2px @tertiary;
+    background: @grey;
     padding: 16px;
 
     margin-block-start: 1.5em;

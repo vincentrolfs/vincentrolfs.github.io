@@ -41,6 +41,10 @@ phantom.include("templates/head.html", {
             <a href="https://arcensus-diagnostics.com/" target="_blank" rel="noopener">arcensus</a>
         </div>
 
+        <span class="work-item-divider">
+            &bull; &bull; &bull;
+        </span>
+
         <div class="work-item">
             <h3>Online training platform (ongoing)</h3>
 
@@ -63,6 +67,10 @@ phantom.include("templates/head.html", {
             <h4>Client</h4>
             <a href="https://www.aeroimpulse.de/" target="_blank" rel="noopener">AeroImpulse</a>
         </div>
+
+        <span class="work-item-divider">
+            &bull; &bull; &bull;
+        </span>
 
         <div class="work-item">
             <h3>Project management platform (2018 &ndash; 2019)</h3>
@@ -88,6 +96,10 @@ phantom.include("templates/head.html", {
             <a href="https://hanseaticconsulting.de/" target="_blank" rel="noopener">Hanseatic Consulting</a>
         </div>
 
+        <span class="work-item-divider">
+            &bull; &bull; &bull;
+        </span>
+
         <div class="work-item">
             <h3>Healthcare startup (2020 &ndash; 2021)</h3>
 
@@ -111,6 +123,10 @@ phantom.include("templates/head.html", {
             2020 &ndash; 2021
         </div>
 
+        <span class="work-item-divider">
+            &bull; &bull; &bull;
+        </span>
+
         <div class="work-item">
             <h3>Tool to visualize math equations (2021)</h3>
 
@@ -131,6 +147,10 @@ phantom.include("templates/head.html", {
             <h4>Time frame</h4>
             2021
         </div>
+
+        <span class="work-item-divider">
+            &bull; &bull; &bull;
+        </span>
 
         <div class="work-item">
             <h3>Riddle game in Pokémon RPG-style (2020)</h3>

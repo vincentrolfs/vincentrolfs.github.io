@@ -18,7 +18,7 @@ phantom.include("templates/head.html", {
         <h2>Contact</h2>
 
         <p>
-            Please email me at <code>vincent.rolfs@gmail.com</code>.
+            Feel free to email me at <a href="mailto:vincent.rolfs@gmail.com">vincent.rolfs@gmail.com</a>.
         </p>
     </main>
 </div>

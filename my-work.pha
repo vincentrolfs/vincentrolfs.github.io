@@ -42,7 +42,7 @@ phantom.include("templates/head.html", {
         </div>
 
         <span class="work-item-divider">
-            &bull; &bull; &bull;
+            &bull;
         </span>
 
         <div class="work-item">
@@ -69,7 +69,7 @@ phantom.include("templates/head.html", {
         </div>
 
         <span class="work-item-divider">
-            &bull; &bull; &bull;
+            &bull;
         </span>
 
         <div class="work-item">
@@ -97,7 +97,7 @@ phantom.include("templates/head.html", {
         </div>
 
         <span class="work-item-divider">
-            &bull; &bull; &bull;
+            &bull;
         </span>
 
         <div class="work-item">
@@ -124,7 +124,7 @@ phantom.include("templates/head.html", {
         </div>
 
         <span class="work-item-divider">
-            &bull; &bull; &bull;
+            &bull;
         </span>
 
         <div class="work-item">
@@ -149,7 +149,7 @@ phantom.include("templates/head.html", {
         </div>
 
         <span class="work-item-divider">
-            &bull; &bull; &bull;
+            &bull;
         </span>
 
         <div class="work-item">

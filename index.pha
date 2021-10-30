@@ -16,7 +16,7 @@ phantom.include("templates/head.html", {
 
     <main>
         <h2>
-            Who I am
+            About me
         </h2>
 
         <p>
@@ -36,7 +36,7 @@ phantom.include("templates/head.html", {
             If you are interested in answering this question together, <a href="/contact.html">feel free to contact me</a>.
         </p>
 
-        <h2>What I do</h2>
+        <h2>Current projects</h2>
 
         <p>
             I am currently building the <a href="https://portal.arcensus-diagnostics.com/" target="_blank" rel="noopener">customer

@@ -4,9 +4,9 @@
 
 phantom.include("templates/head.html", {
     title: "Vincent Rolfs | Contact",
-    description: `Vincent Rolfs' professional software development portfolio.
-    Vincent is an expert on all things React and NodeJS, and has delivered
-    numerous successful web applications to clients.`
+    description: `Contact information of Vincent Rolfs.
+    Vincent is a freelance Software Engineer and IT-Consultant.
+    He has more than ten years experience in developing complex applications on the web.`
 })
 
 }}

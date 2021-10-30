@@ -4,9 +4,8 @@
 
 phantom.include("templates/head.html", {
     title: "Vincent Rolfs | About me",
-    description: `Vincent Rolfs is a freelance Software Engineer and IT-Consultant from Hamburg, Germany.
-    He loves tackling complex problems in order to build applications that are a joy
-    to use and make the user's life better.`
+    description: `Vincent Rolfs is a freelance Software Engineer and IT-Consultant.
+    He has more than ten years experience in developing complex applications on the web.`
 })
 
 }}
@@ -20,7 +19,7 @@ phantom.include("templates/head.html", {
         </h2>
 
         <p>
-            My name is Vincent Rolfs. I have more than ten years experience of developing complex applications on the web.
+            My name is Vincent Rolfs. I have more than ten years experience in developing complex applications on the web.
             I work as a freelance Software Engineer and IT-Consultant, with the goal of helping my clients build software
             that brings them and their users truly forward.
         </p>

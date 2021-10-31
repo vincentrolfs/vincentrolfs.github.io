@@ -32,7 +32,7 @@ phantom.include("templates/head.html", {
         </p>
 
         <p>
-            If you are interested in answering this question together, <a href="/contact.html">feel free to contact me</a>.
+            If you are interested in answering this question together, <a href="/contact">feel free to contact me</a>.
         </p>
 
         <h2>Current projects</h2>
@@ -49,7 +49,7 @@ phantom.include("templates/head.html", {
         </p>
 
         <p>
-            <a href="/my-work.html">Click here to check out other projects I have worked on.</a>
+            <a href="/my-work">Click here to check out other projects I have worked on.</a>
         </p>
     </main>
 </div>

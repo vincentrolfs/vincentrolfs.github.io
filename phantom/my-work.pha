@@ -1,18 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-{{
-
-phantom.include("templates/head.html", {
-    title: "Vincent Rolfs | My work",
-    description: `Vincent Rolfs' professional software development portfolio.
-    Vincent is a freelance Software Engineer and IT-Consultant.
-    He has more than ten years experience in developing complex applications on the web.`
-})
-
-}}
+<script data-phantom>
+    phantom.include("templates/head.html", {
+        title: "Vincent Rolfs | My work",
+        description: `Vincent Rolfs' professional software development portfolio.
+        Vincent is a freelance Software Engineer and IT-Consultant.
+        He has more than ten years experience in developing complex applications on the web.`
+    })
+</script>
 <body>
 <div id="wrapper">
-    {{ phantom.include("templates/nav.html", { selection: "portfolio" }) }}
+    <script data-phantom> phantom.include("templates/nav.html", { selection: "portfolio" }) </script>
 
     <main>
         <h2>My work</h2>

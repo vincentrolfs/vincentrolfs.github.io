@@ -6,6 +6,7 @@
         He has more than ten years experience in developing complex applications on the web.`
     })
 </script>
+
 <div id="wrapper">
     <script data-phantom> phantom.include("templates/nav.html", { selection: "portfolio" }) </script>
 

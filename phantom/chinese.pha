@@ -6,9 +6,12 @@
         He has more than ten years experience in developing complex applications on the web.`
     })
 </script>
+
 <div id="wrapper">
+    <script data-phantom>phantom.include("templates/nav.html", { selection: "chinese" })</script>
+
     <main class="chinese">
-        <h1>写中文</h1>
+        <h2>写中文</h2>
 
         <p>
             这是我写中文的地方。<abbr title="tōngguò: by">通过</abbr>经常写中文，我可以提高得更快。

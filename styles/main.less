@@ -2,9 +2,10 @@
 @black: #2E2C24;
 @red: #80232E;
 @blue: #5E6897;
+@darkblue: #373D58; // Darkened version of #5E6897
 @grey: #EEEEEE;
 
-@nav-bg: @black;
+@nav-bg: @darkblue;
 @link: @blue;
 @link-hover: @red;
 
@@ -12,6 +13,9 @@
 @main-max-width: 700px;
 
 @bold-weight: 900;
+
+@main-font: 'Lato';
+@chinese-font: 'Xiaolai SC';
 
 // unused
 // @dark-grey: #888888;
@@ -36,7 +40,7 @@ html {
 
 body {
     background: @white;
-    font-family: 'Lato', 'Xiaolai SC', sans-serif;
+    font-family: @main-font, sans-serif;
     color: @black;
     font-size: 13.2pt;
 
@@ -65,6 +69,7 @@ body {
 #logo {
     display: flex;
     justify-content: center;
+    align-items: center;
     padding-top: 32px;
 
     @media (max-width: @mobile-width)  {
@@ -77,27 +82,36 @@ body {
     background: @white;
     padding: 32px 0 0 32px;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+    hr {
+        height: 1px;
+        border: 0;
+        border-top: solid 2px @black;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
 
     a {
         color: @black;
         text-decoration: none;
     }
 
-    img {
-        width: 15%;
-        margin-left: auto;
-    }
-
     @media (max-width: @mobile-width)  {
         background: @nav-bg;
         padding: 16px;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
 
         a {
             color: @white;
         }
 
-        img {
+        hr {
             display: none;
         }
     }
@@ -152,7 +166,8 @@ main {
     padding: 32px 0 0 32px;
 
     &.chinese {
-        font-size: 26pt;
+        font-family: @main-font, @chinese-font, sans-serif;
+        font-size: 1.2em;
     }
 
     p:first-child, h2:first-child {

@@ -36,9 +36,9 @@ html {
 
 body {
     background: @white;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Lato', 'Xiaolai SC', sans-serif;
     color: @black;
-    font-size: 1.1em;
+    font-size: 13.2pt;
 
     padding: 0 32px 0 32px;
 
@@ -151,6 +151,10 @@ main {
     min-height: 100vh;
     padding: 32px 0 0 32px;
 
+    &.chinese {
+        font-size: 26pt;
+    }
+
     p:first-child, h2:first-child {
         margin-block-start: 0;
         font-weight: @bold-weight;
@@ -247,4 +251,14 @@ p {
     display: block;
     margin-block-start: 1em;
     margin-block-end: 1em;
+}
+
+abbr {
+    text-decoration: none;
+    border-bottom: solid 1px @red;
+
+    &:hover {
+        background: @red;
+        color: @white;
+    }
 }

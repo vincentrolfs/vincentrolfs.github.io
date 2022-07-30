@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
 <script data-phantom>
     phantom.include("templates/head.html", {
         title: "Vincent Rolfs | Contact",
@@ -8,7 +6,6 @@
         He has more than ten years experience in developing complex applications on the web.`
     })
 </script>
-<body>
 <div id="wrapper">
     <script data-phantom>phantom.include("templates/nav.html", { selection: "contact" })</script>
 
@@ -20,5 +17,4 @@
         </p>
     </main>
 </div>
-</body>
-</html>
+<script data-phantom>phantom.include("templates/foot.html")</script>

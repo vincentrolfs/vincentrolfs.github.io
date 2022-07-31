@@ -72,6 +72,10 @@ body {
     align-items: center;
     padding-top: 32px;
 
+    a {
+        display: flex;
+    }
+
     @media (max-width: @mobile-width)  {
         background: @nav-bg;
         padding: 16px;
@@ -88,31 +92,51 @@ body {
 
     hr {
         height: 1px;
-        border: 0;
-        border-top: solid 2px @black;
-        width: 100%;
-        margin: 0;
+        margin: 1em 0 0 0;
         padding: 0;
+        width: 100%;
+
+        border: 0;
+        border-bottom: solid 2px @black;
     }
 
     a {
-        color: @black;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+
         text-decoration: none;
+
+        h1 {
+            margin: 0;
+            color: @black;
+        }
+
+        div {
+            font-weight: @bold-weight;
+            color: @blue;
+        }
     }
 
     @media (max-width: @mobile-width)  {
         background: @nav-bg;
         padding: 16px;
-        flex-direction: row;
-        justify-content: flex-start;
-        align-items: center;
+        justify-content: center;
 
         a {
-            color: @white;
+            h1, div {
+                color: @grey;
+            }
         }
 
         hr {
             display: none;
+        }
+    }
+
+    @media (max-width: 379px)  {
+        a {
+            align-items: flex-start;
         }
     }
 }

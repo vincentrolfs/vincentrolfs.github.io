@@ -2,10 +2,15 @@
 @black: #2E2C24;
 @red: #80232E;
 @blue: #5E6897;
-@darkblue: #373D58; // Darkened version of #5E6897
+@darkblue: #3B3C42; // Darkened version of #5E6897, https://artincontext.org/color-mixer/
 @grey: #EEEEEE;
 
-@nav-bg: @darkblue;
+
+@dark-grey: #888888;
+@green: #729B79;
+@yellow: #E6AF2E;
+
+@nav-bg: @black;
 @link: @blue;
 @link-hover: @red;
 
@@ -225,20 +230,20 @@ main {
 }
 
 .work-item {
-    border-top: solid 2px @red;
+    //border-top: solid 2px @red;
     background: @grey;
-    padding: 16px;
+    padding: 32px;
+    box-shadow: 8px 8px 0px 0px @black;
 
-    margin-block-start: 1em;
-    margin-block-end: 1em;
+    margin: 24px 0 32px 0;
 
     h3 {
         margin-block-start: 0;
-        margin-block-end: 0.75em;
+        margin-block-end: 1.25em;
     }
 
     h4 {
-        margin-block-start: 0.75em;
+        margin-block-start: 1.5em;
         margin-block-end: 0;
     }
 }
@@ -246,10 +251,13 @@ main {
 .work-item-divider {
     display: flex;
     justify-content: center;
-    color: @black;
 
-    letter-spacing: 0.25rem;
-    font-size: 25px;
+    hr {
+        width: 60%;
+        border: 0;
+        border-bottom: solid 2px @black;
+        margin-top: 8px;
+    }
 }
 
 h1, h2, h3, p {

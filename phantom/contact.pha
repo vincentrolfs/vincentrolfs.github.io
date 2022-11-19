@@ -16,6 +16,10 @@
         <p>
             Feel free to email me at <a href="mailto:vincent.rolfs@gmail.com">vincent.rolfs@gmail.com</a>.
         </p>
+
+        <p>
+            You can follow me on Mastodon at <a href="https://hachyderm.io/@vincentrolfs" target="_blank" rel="noopener">@vincentrolfs@hachyderm.io</a>.
+        </p>
     </main>
 </div>
 <script data-phantom>phantom.include("templates/foot.html")</script>

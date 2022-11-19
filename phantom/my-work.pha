@@ -16,6 +16,10 @@
         <div class="work-item">
             <h3>Customer portal (ongoing)</h3>
 
+            <div class="img-wrapper">
+                <img src="/img/projects/arcensus-portal.png" />
+            </div>
+
             <h4>Project name</h4>
             <a href="https://portal.arcensus-diagnostics.com/" target="_blank" rel="noopener">arcensus Portal</a>
 
@@ -44,6 +48,10 @@
         <div class="work-item">
             <h3>Online training platform (ongoing)</h3>
 
+            <div class="img-wrapper">
+                <img src="/img/projects/cbt.png" />
+            </div>
+
             <h4>Project name</h4>
             <a href="https://www.trainingsimpulse.de/" target="_blank" rel="noopener">TrainingsImpulse</a>
 
@@ -71,6 +79,10 @@
         <div class="work-item">
             <h3>Project management platform (2018 &ndash; 2019)</h3>
 
+            <div class="img-wrapper">
+                <img src="/img/projects/hc-central.png" />
+            </div>
+
             <h4>Project name</h4>
             <a href="https://hc-central.hanseaticconsulting.de/" target="_blank" rel="noopener">HC-Central</a>
 
@@ -90,6 +102,68 @@
 
             <h4>Client</h4>
             <a href="https://hanseaticconsulting.de/" target="_blank" rel="noopener">Hanseatic Consulting</a>
+        </div>
+
+        <div class="work-item-divider">
+            <hr/>
+        </div>
+
+        <div class="work-item">
+            <h3>Tool to create art using math equations. (2021)</h3>
+
+            <div class="img-wrapper">
+                <a href="https://vincentrolfs.github.io/eulerdali/" target="_blank" rel="noopener">
+                    <img src="/img/projects/eulerdali.png" />
+                </a>
+            </div>
+
+            <h4>Project name</h4>
+            <a href="https://vincentrolfs.github.io/eulerdali/" target="_blank" rel="noopener">Eulerdali</a>
+
+            <h4>Description</h4>
+            A tool that lets you create beautiful images from math equations
+
+            <h4>My role</h4>
+            Creator
+
+            <h4>Technologies</h4>
+            TypeScript <br/>
+            <a href="https://github.com/vincentrolfs/eulerdali" target="_blank" rel="noopener">Check out the code on
+                GitHub</a>
+
+            <h4>Time frame</h4>
+            2021
+        </div>
+
+        <div class="work-item-divider">
+            <hr/>
+        </div>
+
+        <div class="work-item">
+            <h3>Riddle RPG (2020)</h3>
+
+            <div class="img-wrapper">
+                <img src="/img/projects/hochzeit.png" />
+            </div>
+
+            <h4>Project name</h4>
+            <a href="https://vincentrolfs.github.io/hochzeit/" target="_blank" rel="noopener">Helena Blache und die
+                Suche nach dem
+                verlorenen Mirco</a>
+
+            <h4>Description</h4>
+            A RPG full of riddles in Pokémon style graphics which I created as a gift for my friend's wedding
+
+            <h4>My role</h4>
+            Creator
+
+            <h4>Technologies</h4>
+            JavaScript, Quintus <br/>
+            <a href="https://github.com/vincentrolfs/hochzeit" target="_blank" rel="noopener">Check out the code on
+                GitHub</a>
+
+            <h4>Time frame</h4>
+            2020, based on earlier work of mine from 2014
         </div>
 
         <div class="work-item-divider">
@@ -117,58 +191,6 @@
 
             <h4>Time frame</h4>
             2020 &ndash; 2021
-        </div>
-
-        <div class="work-item-divider">
-            <hr/>
-        </div>
-
-        <div class="work-item">
-            <h3>Tool to visualize math equations (2021)</h3>
-
-            <h4>Project name</h4>
-            <a href="https://vincentrolfs.github.io/eulerdali/" target="_blank" rel="noopener">Eulerdali</a>
-
-            <h4>Description</h4>
-            A tool that lets you create beautiful images from math equations
-
-            <h4>My role</h4>
-            Everything
-
-            <h4>Technologies</h4>
-            TypeScript <br/>
-            <a href="https://github.com/vincentrolfs/eulerdali" target="_blank" rel="noopener">Check out the code on
-                GitHub</a>
-
-            <h4>Time frame</h4>
-            2021
-        </div>
-
-        <div class="work-item-divider">
-            <hr/>
-        </div>
-
-        <div class="work-item">
-            <h3>Riddle game in Pokémon RPG-style (2020)</h3>
-
-            <h4>Project name</h4>
-            <a href="https://vincentrolfs.github.io/hochzeit/" target="_blank" rel="noopener">Helena Blache und die
-                Suche nach dem
-                verlorenen Mirco</a>
-
-            <h4>Description</h4>
-            A a game full of riddles in Pokémon style graphics which I created as a gift for my friend's wedding
-
-            <h4>My role</h4>
-            Everything
-
-            <h4>Technologies</h4>
-            JavaScript, Quintus <br/>
-            <a href="https://github.com/vincentrolfs/hochzeit" target="_blank" rel="noopener">Check out the code on
-                GitHub</a>
-
-            <h4>Time frame</h4>
-            2020, based on earlier work of mine from 2014
         </div>
     </main>
 </div>

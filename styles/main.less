@@ -222,6 +222,23 @@ main {
         font-size: 12pt;
     }
 
+    .img-homepage {
+        padding: 0 64px;
+        display: flex;
+        align-items: center;
+
+        @media (max-width: @mobile-width)  {
+            padding: 0 10%;
+        }
+    }
+
+    .img-wrapper {
+        img {
+            display: block;
+            width: 100%;
+        }
+    }
+
     @media (max-width: @mobile-width)  {
         padding: 32px 32px 32px 16px;
         grid-column: 1 / span 2;

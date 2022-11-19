@@ -1,0 +1,20 @@
+<script data-phantom>
+    phantom.include("templates/head.html", {
+        title: "Vincent Rolfs | Blog",
+        description: `Blog of Vincent Rolfs.
+        Vincent is a freelance Software Engineer and IT-Consultant.
+        He has more than ten years experience in developing complex applications on the web.`
+    })
+</script>
+
+<div id="wrapper">
+    <script data-phantom>phantom.include("templates/nav.html", { selection: "blog" })</script>
+
+    <main>
+        <h2 class="with-sub">
+            <a href="/blog/sprint">The word "Sprint" in agile development: An unfortunate misnomer</a>
+        </h2>
+        <div class="subcaption">November 19, 2022</div>
+    </main>
+</div>
+<script data-phantom>phantom.include("templates/foot.html")</script>

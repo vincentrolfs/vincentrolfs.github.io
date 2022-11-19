@@ -2,13 +2,11 @@
 @black: #2E2C24;
 @red: #80232E;
 @blue: #5E6897;
-@darkblue: #3B3C42; // Darkened version of #5E6897, https://artincontext.org/color-mixer/
 @grey: #EEEEEE;
-
-
 @dark-grey: #888888;
-@green: #729B79;
-@yellow: #E6AF2E;
+// @darkblue: #3B3C42; // Darkened version of #5E6897, https://artincontext.org/color-mixer/
+// @green: #729B79;
+// @yellow: #E6AF2E;
 
 @nav-bg: @black;
 @link: @blue;
@@ -21,11 +19,6 @@
 
 @main-font: 'Lato';
 @chinese-font: 'Xiaolai SC';
-
-// unused
-// @dark-grey: #888888;
-// @yellow: #E6AF2E;
-// @green: #729b79;
 
 // https://coolors.co/2e2c24-80232e-5e6897-e6af2e-729b79
 // https://coolors.co/ffffff-2e2c24-80232e-5e6897-e6af2e
@@ -194,19 +187,8 @@ main {
     min-height: 100vh;
     padding: 32px 0 0 32px;
 
-    &.chinese {
-        font-family: @main-font, @chinese-font, sans-serif;
-        font-size: 1.2em;
-    }
-
-    p:first-child, h2:first-child {
+    *:first-child {
         margin-block-start: 0;
-        font-weight: @bold-weight;
-    }
-
-    .highlight {
-        color: @red;
-        font-weight: bold;
     }
 
     a {
@@ -217,32 +199,61 @@ main {
         }
     }
 
-    code {
-        font-family: "DejaVu Sans Mono", monospace;
-        font-size: 12pt;
-    }
 
-    .img-homepage {
-        padding: 0 64px;
-        display: flex;
-        align-items: center;
-
-        @media (max-width: @mobile-width)  {
-            padding: 0 10%;
-        }
-    }
-
-    .img-wrapper {
-        img {
-            display: block;
-            width: 100%;
-        }
-    }
 
     @media (max-width: @mobile-width)  {
         padding: 32px 32px 32px 16px;
         grid-column: 1 / span 2;
         width: unset;
+    }
+}
+
+.chinese {
+    font-family: @main-font, @chinese-font, sans-serif;
+    font-size: 1.2em;
+}
+
+.highlight {
+    color: @red;
+    font-weight: bold;
+}
+
+code {
+    font-family: "DejaVu Sans Mono", monospace;
+    font-size: 12pt;
+}
+
+.img-homepage {
+    padding: 0 64px;
+    display: flex;
+    align-items: center;
+
+    @media (max-width: @mobile-width)  {
+        padding: 0 10%;
+    }
+}
+
+.img-wrapper {
+    img {
+        display: block;
+        width: 100%;
+    }
+}
+
+
+.img-wrapper-blog {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: @dark-grey;
+    margin-bottom: 16px;
+    font-size: 12px;
+
+    img {
+        display: block;
+        width: 100%;
+        max-width: 256px;
+        margin-bottom: 8px;
     }
 }
 
@@ -294,6 +305,16 @@ h2 {
     margin-block-start: 0.83em;
     margin-block-end: 0.83em;
     font-weight: @bold-weight;
+
+    &.with-sub {
+        margin-block-end: 0;
+    }
+}
+
+.subcaption {
+    font-size: 0.8em;
+    color: @dark-grey;
+    margin-block-end: 0.83em;
 }
 
 h3 {
@@ -308,6 +329,11 @@ h4 {
     margin-block-start: 1.33em;
     margin-block-end: 1.33em;
     font-weight: @bold-weight;
+}
+
+blockquote {
+    border-left: 0.4rem solid @black;
+    padding: 0 0 0 1rem;
 }
 
 p {

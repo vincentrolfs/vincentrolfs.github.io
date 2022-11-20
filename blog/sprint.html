@@ -30,16 +30,6 @@
 
   
 
-  <script>
-    const goatcounterInterval = setInterval(function() {
-      if (window.goatcounter && window.goatcounter.visit_count) {
-        clearInterval(goatcounterInterval)
-        window.goatcounter.visit_count({ append: '#goatcounter-viewcount' })
-      }
-    }, 100)
-    setTimeout(() => clearInterval(goatcounterInterval), 3000)
-  </script>
-
   <script data-goatcounter="https://vincentrolfs.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>

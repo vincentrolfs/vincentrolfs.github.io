@@ -21,7 +21,8 @@
 
     <main>
         <h2 class="with-sub"><script data-phantom>$.post.title</script></h2>
-        <div class="subcaption"><script data-phantom>$.post.date</script></div>
+        <div class="subcaption"><script data-phantom>$.post.date</script><span id="viewcount"></span></div>
+        <script data-phantom>phantom.include("../templates/loadViewcount.html", { slug: $.post.slug })</script>
 
         <div class="img-wrapper-blog">
             <img src="/img/blog/sprint.jpeg" class="blog"/>

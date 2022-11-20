@@ -17,7 +17,7 @@
 </script>
 
 <div id="wrapper">
-    <script data-phantom>phantom.include("../templates/nav.html", { selection: "blog" })</script>
+    <script data-phantom>phantom.include("../templates/nav.html", { selection: "" })</script>
 
     <main>
         <h2 class="with-sub"><script data-phantom>$.post.title</script></h2>

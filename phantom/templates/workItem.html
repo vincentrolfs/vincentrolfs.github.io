@@ -1,0 +1,41 @@
+<div class="work-item">
+    <h3><script data-phantom>args.title</script></h3>
+
+    <script data-phantom>
+        args.image ? `
+            <div class="img-wrapper">
+                <img src="/img/projects/${args.image}" />
+            </div>
+        ` : ""
+    </script>
+
+    <h4>Project name</h4>
+    <a href="<script data-phantom>args.url</script>" target="_blank" rel="noopener"><script data-phantom>args.name</script></a>
+
+    <h4>Description</h4>
+    <script data-phantom>args.description</script>
+
+    <h4>My role</h4>
+    <script data-phantom>args.role</script>
+
+    <h4>Technologies</h4>
+    <script data-phantom>args.technologies</script>
+
+    <h4>Time frame</h4>
+    <script data-phantom>args.timeframe</script>
+
+    <script data-phantom>
+        args.clientUrl && args.clientName ? `
+            <h4>Client</h4>
+            <a href="${args.clientUrl}" target="_blank" rel="noopener">${args.clientName}</a>
+        ` : ""
+    </script>
+</div>
+
+<script data-phantom>
+    args.divider && `
+            <div class="work-item-divider">
+                <hr/>
+            </div>
+        `
+</script>

@@ -8,73 +8,45 @@
 </script>
 
 <div id="wrapper">
-    <script data-phantom> phantom.include("templates/nav.html", { selection: "portfolio" }) </script>
+    <script data-phantom>phantom.include("templates/nav.html", { selection: "portfolio" })</script>
 
     <main>
         <h2>My work</h2>
 
-        <div class="work-item">
-            <h3>Customer portal (ongoing)</h3>
+        <script data-phantom>phantom.include("templates/workItem.html", {
+            title: "Customer portal (ongoing)",
+            image: "arcensus-portal.png",
+            url: "https://portal.arcensus-diagnostics.com/",
+            name: "arcensus Portal",
+            description: `
+                Online portal where arcensus customers can register patients and view medical reports.
+                The application is connected to arcensus' internal patient management system and has been security certified
+                by Silent Breach.
+            `,
+            role: "Lead developer",
+            technologies: "TypeScript, React, Node, Chakra UI, Blitz.js, Render, AWS",
+            timeframe: "2021 &ndash; ongoing",
+            clientUrl: "https://arcensus-diagnostics.com/",
+            clientName: "arcensus",
+            divider: true
+        })</script>
 
-            <div class="img-wrapper">
-                <img src="/img/projects/arcensus-portal.png" />
-            </div>
-
-            <h4>Project name</h4>
-            <a href="https://portal.arcensus-diagnostics.com/" target="_blank" rel="noopener">arcensus Portal</a>
-
-            <h4>Description</h4>
-            Online portal where arcensus customers can register patients and view medical reports.
-            The application is connected to arcensus' internal patient management system and has been security certified
-            by Silent Breach.
-
-            <h4>My role</h4>
-            Lead developer
-
-            <h4>Technologies</h4>
-            TypeScript, React, Node, Chakra UI, Blitz.js, Render, AWS
-
-            <h4>Time frame</h4>
-            2021 &ndash; ongoing
-
-            <h4>Client</h4>
-            <a href="https://arcensus-diagnostics.com/" target="_blank" rel="noopener">arcensus</a>
-        </div>
-
-        <div class="work-item-divider">
-            <hr/>
-        </div>
-
-        <div class="work-item">
-            <h3>Online training platform (ongoing)</h3>
-
-            <div class="img-wrapper">
-                <img src="/img/projects/cbt.png" />
-            </div>
-
-            <h4>Project name</h4>
-            <a href="https://www.trainingsimpulse.de/" target="_blank" rel="noopener">TrainingsImpulse</a>
-
-            <h4>Description</h4>
-            Online training platform that allows clients to buy, create, schedule and administrate online trainings
-            using a straightforward UI in the browser
-
-            <h4>My role</h4>
-            Lead developer
-
-            <h4>Technologies</h4>
-            JavaScript, React, Material-UI, Laravel, Kubernetes
-
-            <h4>Time frame</h4>
-            2018 &ndash; ongoing
-
-            <h4>Client</h4>
-            <a href="https://www.aeroimpulse.de/" target="_blank" rel="noopener">AeroImpulse</a>
-        </div>
-
-        <div class="work-item-divider">
-            <hr/>
-        </div>
+        <script data-phantom>phantom.include("templates/workItem.html", {
+            title: "Online training platform (ongoing)",
+            image: "cbt.png",
+            url: "https://www.trainingsimpulse.de/",
+            name: "TrainingsImpulse",
+            description: `
+                Online training platform that allows clients to buy, create, schedule and administrate online trainings
+                using a straightforward UI in the browser
+            `,
+            role: "Lead developer",
+            technologies: "JavaScript, React, Material-UI, Laravel, Kubernetes",
+            timeframe: "2018 &ndash; ongoing",
+            clientUrl: "https://www.aeroimpulse.de/",
+            clientName: "AeroImpulse",
+            divider: true
+        })</script>
 
         <div class="work-item">
             <h3>Project management platform (2018 &ndash; 2019)</h3>

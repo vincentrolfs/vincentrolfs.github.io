@@ -11,6 +11,7 @@
     <script data-phantom>phantom.include("templates/nav.html", { selection: "chinese" })</script>
 
     <main class="chinese">
+        &ndash; <span id="goatcounter-viewcount">?</span> views
         <h2>写中文</h2>
 
         <p>

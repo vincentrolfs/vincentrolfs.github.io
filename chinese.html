@@ -28,6 +28,16 @@
 
   
 
+  <script>
+    const goatcounterInterval = setInterval(function() {
+      if (window.goatcounter && window.goatcounter.visit_count) {
+        clearInterval(goatcounterInterval)
+        window.goatcounter.visit_count({ append: '#goatcounter-viewcount' })
+      }
+    }, 100)
+    setTimeout(() => clearInterval(goatcounterInterval), 3000)
+  </script>
+
   <script data-goatcounter="https://vincentrolfs.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
@@ -61,6 +71,7 @@
 </nav>
 
     <main class="chinese">
+        &ndash; <span id="goatcounter-viewcount">?</span> views
         <h2>写中文</h2>
 
         <p>

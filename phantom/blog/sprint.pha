@@ -1,6 +1,15 @@
 <script data-phantom>
-    phantom.include("../templates/head.html", {
+    $.post = globals.post = {
         title: "The word \"Sprint\" in agile development: An unfortunate misnomer",
+        date: "November 19, 2022",
+        slug: "sprint",
+        order: 1,
+    }
+</script>
+
+<script data-phantom>
+    phantom.include("../templates/head.html", {
+        title: $.post.title,
         description: `Blog of Vincent Rolfs.
         Vincent is a freelance Software Engineer and IT-Consultant.
         He has more than ten years experience in developing complex applications on the web.`
@@ -11,8 +20,8 @@
     <script data-phantom>phantom.include("../templates/nav.html", { selection: "blog" })</script>
 
     <main>
-        <h2 class="with-sub">The word "Sprint" in agile development: An unfortunate misnomer</h2>
-        <div class="subcaption">November 19, 2022</div>
+        <h2 class="with-sub"><script data-phantom>$.post.title</script></h2>
+        <div class="subcaption"><script data-phantom>$.post.date</script></div>
 
         <div class="img-wrapper-blog">
             <img src="/img/blog/sprint.jpeg" class="blog"/>

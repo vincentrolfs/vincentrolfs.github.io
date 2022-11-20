@@ -11,10 +11,25 @@
     <script data-phantom>phantom.include("templates/nav.html", { selection: "blog" })</script>
 
     <main>
-        <h2 class="with-sub">
-            <a href="/blog/sprint">The word "Sprint" in agile development: An unfortunate misnomer</a>
-        </h2>
-        <div class="subcaption">November 19, 2022</div>
+        <script data-phantom>
+            (async function(){
+                const fs = await import('fs');
+                const files = await fs.promises.readdir("blog/");
+                const posts = []
+
+                for (const file of files) {
+                    await phantom.run("blog/sprint.pha")
+                    posts.push(globals.post)
+                }
+
+                posts.sort((a, b) => a.order - b.order)
+
+                return posts.map(post => `
+                        <h2 class="with-sub"><a href="/blog/${post.slug}">${post.title}</a></h2>
+                        <div class="subcaption">${post.date}</div>
+                `).join("\n")
+            })()
+        </script>
     </main>
 </div>
 <script data-phantom>phantom.include("templates/foot.html")</script>

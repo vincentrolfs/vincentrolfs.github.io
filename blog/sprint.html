@@ -71,7 +71,7 @@
     r.addEventListener('load', function() {
         document.querySelector('#viewcount').innerHTML = " &ndash; " + JSON.parse(this.responseText).count + " views"
     })
-    r.open('GET', 'https://vincentrolfs.goatcounter.com/counter/' + encodeURIComponent("/blog/" + slug) + '.json')
+    r.open('GET', 'https://vincentrolfs.goatcounter.com/counter/' + encodeURIComponent("/blog/" + slug) + '.json?' + (+Date.now()))
     r.send()
 </script>
 

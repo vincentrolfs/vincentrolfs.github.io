@@ -19,6 +19,7 @@
 
 @main-font: 'Lato';
 @chinese-font: 'Xiaolai SC';
+@font-size: 13.2pt;
 
 // https://coolors.co/2e2c24-80232e-5e6897-e6af2e-729b79
 // https://coolors.co/ffffff-2e2c24-80232e-5e6897-e6af2e
@@ -40,7 +41,7 @@ body {
     background: @white;
     font-family: @main-font, sans-serif;
     color: @black;
-    font-size: 13.2pt;
+    font-size: @font-size;
 
     padding: 0 32px 0 32px;
 
@@ -223,16 +224,6 @@ code {
     font-size: 12pt;
 }
 
-.img-homepage {
-    padding: 0 64px;
-    display: flex;
-    align-items: center;
-
-    @media (max-width: @mobile-width)  {
-        padding: 0 10%;
-    }
-}
-
 .img-wrapper {
     img {
         display: block;
@@ -240,13 +231,28 @@ code {
     }
 }
 
-.img-wrapper-blog {
+.img-full {
+    padding: 0 64px;
+    display: flex;
+    justify-content: center;
+
+    @media (max-width: @mobile-width)  {
+        padding: 0 10%;
+    }
+
+    img {
+        max-width: 500px;
+    }
+}
+
+.img-with-subcaption {
     display: flex;
     flex-direction: column;
     align-items: center;
     color: @dark-grey;
-    margin-bottom: 8px;
-    font-size: 12px;
+    font-size: @font-size;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
 
     img {
         display: block;
@@ -313,7 +319,6 @@ h2 {
 .subcaption {
     font-size: 0.8em;
     color: @dark-grey;
-    margin-block-end: 0.83em;
 }
 
 h3 {

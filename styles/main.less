@@ -28,330 +28,348 @@
 // https://coolors.co/ffffff-2e2c24-7ab592-a3320b-e6af2e
 
 html, body {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 html {
-    // See https://aykevl.nl/2014/09/fix-jumping-scrollbar
-    overflow-y: scroll;
+  // See https://aykevl.nl/2014/09/fix-jumping-scrollbar
+  overflow-y: scroll;
 }
 
 body {
-    background: @white;
-    font-family: @main-font, sans-serif;
-    color: @black;
-    font-size: @font-size;
+  background: @white;
+  font-family: @main-font, sans-serif;
+  color: @black;
+  font-size: @font-size;
 
-    padding: 0 32px 0 32px;
+  padding: 0 32px 0 32px;
 
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 
-    @media (max-width: @mobile-width)  {
-        padding: 0;
-    }
+  @media (max-width: @mobile-width) {
+    padding: 0;
+  }
 }
 
 #wrapper {
-    display: grid;
-    grid-template-columns: max-content auto;
-    grid-column-gap: 80px;
+  display: grid;
+  grid-template-columns: max-content auto;
+  grid-column-gap: 80px;
 
-    @media (max-width: @mobile-width)  {
-        width: 100%;
-        grid-template-columns: auto 1fr;
-        grid-column-gap: 0;
-    }
+  @media (max-width: @mobile-width) {
+    width: 100%;
+    grid-template-columns: auto 1fr;
+    grid-column-gap: 0;
+  }
 }
 
 #logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 32px;
+
+  a {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 32px;
+  }
 
-    a {
-        display: flex;
-    }
-
-    @media (max-width: @mobile-width)  {
-        background: @nav-bg;
-        padding: 16px;
-    }
+  @media (max-width: @mobile-width) {
+    background: @nav-bg;
+    padding: 16px;
+  }
 }
 
 #caption {
-    background: @white;
-    padding: 32px 0 0 32px;
+  background: @white;
+  padding: 32px 0 0 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+
+  #caption-wrap {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+
+    #caption-wrap-img {
+      display: none;
+      height: 100%;
+      aspect-ratio: 1;
+      container-type: inline-size;
+      margin-left: 8px;
+
+      img {
+        height: 100%;
+      }
+    }
+  }
+
+  hr {
+    height: 1px;
+    margin: 1em 0 0 0;
+    padding: 0;
+    width: 100%;
+
+    border: 0;
+    border-bottom: solid 2px @black;
+  }
+
+  a {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
     align-items: flex-end;
 
-    hr {
-        height: 1px;
-        margin: 1em 0 0 0;
-        padding: 0;
-        width: 100%;
+    text-decoration: none;
 
-        border: 0;
-        border-bottom: solid 2px @black;
+    h1 {
+      margin: 0;
+      color: @black;
     }
+
+    div {
+      font-weight: @bold-weight;
+      color: @blue;
+    }
+  }
+
+  @media (max-width: @mobile-width) {
+    background: @nav-bg;
+    padding: 16px;
+    justify-content: center;
 
     a {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-
-        text-decoration: none;
-
-        h1 {
-            margin: 0;
-            color: @black;
-        }
-
-        div {
-            font-weight: @bold-weight;
-            color: @blue;
-        }
+      h1, div {
+        color: @grey;
+      }
     }
 
-    @media (max-width: @mobile-width)  {
-        background: @nav-bg;
-        padding: 16px;
-        justify-content: center;
-
-        a {
-            h1, div {
-                color: @grey;
-            }
-        }
-
-        hr {
-            display: none;
-        }
+    hr {
+      display: none;
     }
+  }
 
-    @media (max-width: 379px)  {
-        a {
-            align-items: flex-start;
-        }
+  @media (max-width: 379px) {
+    a {
+      align-items: flex-start;
     }
+  }
 }
 
 #blackness {
-    background: @nav-bg;
-    height: 100vh;
-    width: 50vw;
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: -1;
+  background: @nav-bg;
+  height: 100vh;
+  width: 50vw;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: -1;
 
-    @media (max-width: @mobile-width)  {
-        display: none;
-    }
+  @media (max-width: @mobile-width) {
+    display: none;
+  }
 }
 
 nav {
-    background: @nav-bg;
-    display: flex;
-    flex-direction: column;
-    padding-top: 32px;
+  background: @nav-bg;
+  display: flex;
+  flex-direction: column;
+  padding-top: 32px;
 
-    a {
-        margin-bottom: 8px;
+  a {
+    margin-bottom: 8px;
 
-        color: @white;
-        text-decoration: none;
-        font-size: 1.5em;
+    color: @white;
+    text-decoration: none;
+    font-size: 1.5em;
 
-        &.selected {
-            background: @blue;
-        }
-
-        &:hover {
-            background: @red;
-        }
+    &.selected {
+      background: @blue;
     }
 
-    @media (max-width: @mobile-width)  {
-        grid-column: 1 / span 2;
-        padding: 16px;
+    &:hover {
+      background: @red;
     }
+  }
+
+  @media (max-width: @mobile-width) {
+    grid-column: 1 / span 2;
+    padding: 16px;
+  }
 }
 
 main {
-    width: @main-max-width;
-    background: @white;
-    min-height: 100vh;
-    padding: 32px 0 0 32px;
+  width: @main-max-width;
+  background: @white;
+  min-height: 100vh;
+  padding: 32px 0 0 32px;
 
-    *:first-child {
-        margin-block-start: 0;
+  *:first-child {
+    margin-block-start: 0;
+  }
+
+  a {
+    color: @link;
+
+    &:hover {
+      color: @link-hover;
     }
-
-    a {
-        color: @link;
-
-        &:hover {
-            color: @link-hover;
-        }
-    }
+  }
 
 
-
-    @media (max-width: @mobile-width)  {
-        padding: 32px 32px 32px 16px;
-        grid-column: 1 / span 2;
-        width: unset;
-    }
+  @media (max-width: @mobile-width) {
+    padding: 32px 32px 32px 16px;
+    grid-column: 1 / span 2;
+    width: unset;
+  }
 }
 
 .chinese {
-    font-family: @main-font, @chinese-font, sans-serif;
-    font-size: 1.2em;
+  font-family: @main-font, @chinese-font, sans-serif;
+  font-size: 1.2em;
 }
 
 .highlight {
-    color: @red;
-    font-weight: bold;
+  color: @red;
+  font-weight: bold;
 }
 
 code {
-    font-family: "DejaVu Sans Mono", monospace;
-    font-size: 12pt;
+  font-family: "DejaVu Sans Mono", monospace;
+  font-size: 12pt;
 }
 
 .img-wrapper {
-    img {
-        display: block;
-        width: 100%;
-    }
+  img {
+    display: block;
+    width: 100%;
+  }
 }
 
 .img-full {
-    padding: 0 64px;
-    display: flex;
-    justify-content: center;
+  padding: 0 64px;
+  display: flex;
+  justify-content: center;
 
-    @media (max-width: @mobile-width)  {
-        padding: 0 10%;
-    }
+  @media (max-width: @mobile-width) {
+    padding: 0 10%;
+  }
 
-    img {
-        max-width: 500px;
-    }
+  img {
+    max-width: 500px;
+  }
 }
 
 .img-with-subcaption {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: @dark-grey;
-    font-size: @font-size;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: @dark-grey;
+  font-size: @font-size;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
 
-    img {
-        display: block;
-        width: 100%;
-        max-width: 256px;
-        margin-bottom: 8px;
-    }
+  img {
+    display: block;
+    width: 100%;
+    max-width: 256px;
+    margin-bottom: 8px;
+  }
 }
 
 .work-item {
-    background: @grey;
-    padding: 32px;
-    box-shadow: 8px 8px 0 0 @dark-grey;
+  background: @grey;
+  padding: 32px;
+  box-shadow: 8px 8px 0 0 @dark-grey;
 
-    margin: 24px 0 32px 0;
+  margin: 24px 0 32px 0;
 
-    h3 {
-        margin-block-start: 0;
-        margin-block-end: 1.25em;
-    }
+  h3 {
+    margin-block-start: 0;
+    margin-block-end: 1.25em;
+  }
 
-    h4 {
-        margin-block-start: 1.5em;
-        margin-block-end: 0;
-    }
+  h4 {
+    margin-block-start: 1.5em;
+    margin-block-end: 0;
+  }
 }
 
 .work-item-divider {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 
-    hr {
-        width: 60%;
-        border: 0;
-        border-bottom: solid 2px @black;
-        margin-top: 8px;
-    }
+  hr {
+    width: 60%;
+    border: 0;
+    border-bottom: solid 2px @black;
+    margin-top: 8px;
+  }
 }
 
 h1, h2, h3, p {
-    display: block;
-    margin-inline-start: 0;
-    margin-inline-end: 0;
+  display: block;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
 }
 
 h1 {
-    font-size: 2em;
-    margin-block-start: 0.67em;
-    margin-block-end: 0.67em;
-    font-weight: @bold-weight;
+  font-size: 2em;
+  margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+  font-weight: @bold-weight;
 }
 
 h2 {
-    font-size: 1.5em;
-    margin-block-start: 0.83em;
-    margin-block-end: 0.83em;
-    font-weight: @bold-weight;
+  font-size: 1.5em;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  font-weight: @bold-weight;
 
-    &.with-sub {
-        margin-block-end: 0;
-    }
+  &.with-sub {
+    margin-block-end: 0;
+  }
 }
 
 .subcaption {
-    font-size: 0.8em;
-    color: @dark-grey;
+  font-size: 0.8em;
+  color: @dark-grey;
 }
 
 h3 {
-    font-size: 1.17em;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    font-weight: @bold-weight;
+  font-size: 1.17em;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  font-weight: @bold-weight;
 }
 
 h4 {
-    font-size: inherit;
-    margin-block-start: 1.33em;
-    margin-block-end: 1.33em;
-    font-weight: @bold-weight;
+  font-size: inherit;
+  margin-block-start: 1.33em;
+  margin-block-end: 1.33em;
+  font-weight: @bold-weight;
 }
 
 blockquote {
-    border-left: 0.4rem solid @black;
-    padding: 0 0 0 1rem;
+  border-left: 0.4rem solid @black;
+  padding: 0 0 0 1rem;
 }
 
 p {
-    display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
 }
 
 abbr {
-    text-decoration: none;
-    border-bottom: solid 1px @red;
+  text-decoration: none;
+  border-bottom: solid 1px @red;
 
-    &:hover {
-        background: @red;
-        color: @white;
-    }
+  &:hover {
+    background: @red;
+    color: @white;
+  }
 }

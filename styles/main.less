@@ -1,17 +1,15 @@
+// https://coolors.co/5e6897-b38a58-f2f2f2-888888-0d1821
 @white: #F2F2F2;
 @black: #0D1821;
-@red: #80232E;
-@blue: #5E6897;
+@primary: #5E6897;
+@secondary: #B38A58;
 
-@grey: #EEEEEE;
+@grey: #E0E0E0;
 @dark-grey: #888888;
-// @darkblue: #3B3C42; // Darkened version of #5E6897, https://artincontext.org/color-mixer/
-// @green: #729B79;
-// @yellow: #E6AF2E;
 
 @nav-bg: @black;
-@link: @blue;
-@link-hover: @red;
+@link: @primary;
+@link-hover: @secondary;
 
 @mobile-width: 960px;
 @main-max-width: 700px;
@@ -133,7 +131,7 @@ body {
 
     div {
       font-weight: @bold-weight;
-      color: @blue;
+      color: @primary;
     }
   }
 
@@ -188,11 +186,11 @@ nav {
     font-size: 1.5em;
 
     &.selected {
-      background: @blue;
+      background: @primary;
     }
 
     &:hover {
-      background: @red;
+      background: @secondary;
     }
   }
 
@@ -234,7 +232,7 @@ main {
 }
 
 .highlight {
-  color: @red;
+  color: @secondary;
   font-weight: bold;
 }
 
@@ -367,10 +365,10 @@ p {
 
 abbr {
   text-decoration: none;
-  border-bottom: solid 1px @red;
+  border-bottom: solid 1px @secondary;
 
   &:hover {
-    background: @red;
+    background: @secondary;
     color: @white;
   }
 }

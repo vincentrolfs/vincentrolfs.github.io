@@ -1,5 +1,5 @@
 <script data-phantom>
-    phantom.include("templates/head.html", {
+    include("templates/head.html", {
         title: "Vincent Rolfs | Blog",
         description: `Blog of Vincent Rolfs.
         Vincent is a freelance Software Engineer and IT-Consultant.
@@ -8,17 +8,19 @@
 </script>
 
 <div id="wrapper">
-    <script data-phantom>phantom.include("templates/nav.html", { selection: "blog" })</script>
+    <script data-phantom>include("templates/nav.html", { selection: "blog" })</script>
 
     <main>
         <script data-phantom>
             (async function(){
                 const fs = await import('fs');
-                const files = await fs.promises.readdir("blog/");
+                const path = await import('path');
+                const baseDir = path.resolve("phantom/blog/")
+                const files = await fs.promises.readdir(baseDir);
                 const posts = []
 
                 for (const file of files) {
-                    await phantom.run("blog/sprint.pha")
+                    await include(`${baseDir}/${file}`)
                     posts.push(globals.post)
                 }
 
@@ -32,4 +34,4 @@
         </script>
     </main>
 </div>
-<script data-phantom>phantom.include("templates/foot.html")</script>
+<script data-phantom>include("templates/foot.html")</script>

@@ -1,5 +1,5 @@
 <script data-phantom>
-    $.post = globals.post = {
+    locals.post = globals.post = {
         title: "The word \"Sprint\" in agile development: An unfortunate misnomer",
         date: "November 19, 2022",
         slug: "sprint",
@@ -8,8 +8,8 @@
 </script>
 
 <script data-phantom>
-    phantom.include("../templates/head.html", {
-        title: $.post.title,
+    include("../templates/head.html", {
+        title: locals.post.title,
         description: `Blog of Vincent Rolfs.
         Vincent is a freelance Software Engineer and IT-Consultant.
         He has more than ten years experience in developing complex applications on the web.`
@@ -17,12 +17,12 @@
 </script>
 
 <div id="wrapper">
-    <script data-phantom>phantom.include("../templates/nav.html", { selection: "" })</script>
+    <script data-phantom>include("../templates/nav.html", { selection: "" })</script>
 
     <main>
-        <h2 class="with-sub"><script data-phantom>$.post.title</script></h2>
-        <div class="subcaption"><script data-phantom>$.post.date</script><span id="viewcount"></span></div>
-        <script data-phantom>phantom.include("../templates/loadViewcount.html", { slug: $.post.slug })</script>
+        <h2 class="with-sub"><script data-phantom>locals.post.title</script></h2>
+        <div class="subcaption"><script data-phantom>locals.post.date</script><span id="viewcount"></span></div>
+        <script data-phantom>include("../templates/loadViewcount.html", { slug: locals.post.slug })</script>
 
         <div class="img-with-subcaption">
             <img src="/img/blog/sprint.jpeg" />
@@ -95,4 +95,5 @@
         </p>
     </main>
 </div>
-<script data-phantom>phantom.include("../templates/foot.html")</script>
+
+<script data-phantom>include("../templates/foot.html")</script>

@@ -1,5 +1,5 @@
 <script data-phantom>
-    phantom.include("templates/head.html", {
+    include("templates/head.html", {
         title: "Vincent Rolfs | My work",
         description: `Vincent Rolfs' professional software development portfolio.
         Vincent is a freelance Software Engineer and IT-Consultant.
@@ -8,12 +8,12 @@
 </script>
 
 <div id="wrapper">
-    <script data-phantom>phantom.include("templates/nav.html", { selection: "portfolio" })</script>
+    <script data-phantom>include("templates/nav.html", { selection: "portfolio" })</script>
 
     <main>
         <h2>My work</h2>
 
-        <script data-phantom>phantom.include("templates/workItem.html", {
+        <script data-phantom>include("templates/workItem.html", {
             title: "Customer portal (ongoing)",
             image: "arcensus-portal.png",
             url: "https://portal.arcensus-diagnostics.com/",
@@ -31,7 +31,7 @@
             divider: true
         })</script>
 
-        <script data-phantom>phantom.include("templates/workItem.html", {
+        <script data-phantom>include("templates/workItem.html", {
             title: "Online training platform (ongoing)",
             image: "cbt.png",
             url: "https://www.trainingsimpulse.de/",
@@ -166,4 +166,4 @@
         </div>
     </main>
 </div>
-<script data-phantom>phantom.include("templates/foot.html")</script>
+<script data-phantom>include("templates/foot.html")</script>

@@ -1,25 +1,22 @@
+{{ slot("content") }}
+<h2>Contact</h2>
+
+<p>
+    Feel free to email me at <a href="mailto:vincent.rolfs@gmail.com">vincent.rolfs@gmail.com</a>.
+</p>
+
+<p>
+    You can follow me on Mastodon at <a href="https://hachyderm.io/@vincentrolfs" target="_blank" rel="noopener">@vincentrolfs@hachyderm.io</a>.
+</p>
+{{ endSlot() }}
+
 <script data-phantom>
-    include("templates/head.html", {
+    include("templates/main.html", {
         title: "Vincent Rolfs | Contact",
         description: `Contact information of Vincent Rolfs.
         Vincent is a freelance Software Engineer and IT-Consultant.
-        He has more than ten years experience in developing complex applications on the web.`
+        He has more than ten years experience in developing complex applications on the web.`,
+        navSelection: "contact",
+        content: slots.content
     })
 </script>
-
-<div id="wrapper">
-    <script data-phantom>include("templates/nav.html", { selection: "contact" })</script>
-
-    <main>
-        <h2>Contact</h2>
-
-        <p>
-            Feel free to email me at <a href="mailto:vincent.rolfs@gmail.com">vincent.rolfs@gmail.com</a>.
-        </p>
-
-        <p>
-            You can follow me on Mastodon at <a href="https://hachyderm.io/@vincentrolfs" target="_blank" rel="noopener">@vincentrolfs@hachyderm.io</a>.
-        </p>
-    </main>
-</div>
-<script data-phantom>include("templates/foot.html")</script>

@@ -182,10 +182,6 @@ main a:hover {
     width: unset;
   }
 }
-.chinese {
-  font-family: 'Lato', 'Xiaolai SC', sans-serif;
-  font-size: 1.2em;
-}
 .highlight {
   color: #B38A58;
   font-weight: bold;

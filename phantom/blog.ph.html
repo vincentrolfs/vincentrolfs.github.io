@@ -1,37 +1,22 @@
+{{ slot("content") }}
 <script data-phantom>
-    include("templates/head.html", {
+    (async function(){
+        const fs = await import('fs');
+        const allPosts = JSON.parse(await fs.promises.readFile("phantom/blog/posts.json"))
+        const allPostsSorted = Object.values(allPosts).sort((a, b) => a.order - b.order)
+
+        return allPostsSorted.map(post => include("templates/blogPostLink.html", { post }))
+    })()
+</script>
+{{ endSlot() }}
+
+<script data-phantom>
+    include("templates/main.html", {
         title: "Vincent Rolfs | Blog",
         description: `Blog of Vincent Rolfs.
         Vincent is a freelance Software Engineer and IT-Consultant.
-        He has more than ten years experience in developing complex applications on the web.`
+        He has more than ten years experience in developing complex applications on the web.`,
+        navSelection: "blog",
+        content: slots.content
     })
 </script>
-
-<div id="wrapper">
-    <script data-phantom>include("templates/nav.html", { selection: "blog" })</script>
-
-    <main>
-        <script data-phantom>
-            (async function(){
-                const fs = await import('fs');
-                const path = await import('path');
-                const baseDir = path.resolve("phantom/blog/")
-                const files = await fs.promises.readdir(baseDir);
-                const posts = []
-
-                for (const file of files) {
-                    await include(`${baseDir}/${file}`)
-                    posts.push(globals.post)
-                }
-
-                posts.sort((a, b) => a.order - b.order)
-
-                return posts.map(post => `
-                        <h2 class="with-sub"><a href="/blog/${post.slug}">${post.title}</a></h2>
-                        <div class="subcaption">${post.date}</div>
-                `).join("\n")
-            })()
-        </script>
-    </main>
-</div>
-<script data-phantom>include("templates/foot.html")</script>

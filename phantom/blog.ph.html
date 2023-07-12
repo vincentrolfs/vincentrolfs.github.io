@@ -1,22 +1,28 @@
-{{ slot("content") }}
+{{ $slot("content") }}
 <script data-phantom>
-    (async function(){
-        const fs = await import('fs');
-        const allPosts = JSON.parse(await fs.promises.readFile("phantom/blog/posts.json"))
-        const allPostsSorted = Object.values(allPosts).sort((a, b) => a.order - b.order)
+  (async function () {
+    const fs = await import("fs");
+    const allPosts = JSON.parse(
+      await fs.promises.readFile("phantom/blog/posts.json")
+    );
+    const allPostsSorted = Object.values(allPosts).sort(
+      (a, b) => a.order - b.order
+    );
 
-        return allPostsSorted.map(post => include("templates/blogPostLink.html", { post }))
-    })()
+    return allPostsSorted.map((post) =>
+      $include("templates/blogPostLink.html", { post })
+    );
+  })();
 </script>
-{{ endSlot() }}
+{{ $endSlot() }}
 
 <script data-phantom>
-    include("templates/main.html", {
-        title: "Vincent Rolfs | Blog",
-        description: `Blog of Vincent Rolfs.
+  $include("templates/main.html", {
+    title: "Vincent Rolfs | Blog",
+    description: `Blog of Vincent Rolfs.
         Vincent is a freelance Software Engineer and IT-Consultant.
         He has more than ten years experience in developing complex applications on the web.`,
-        navSelection: "blog",
-        content: slots.content
-    })
+    navSelection: "blog",
+    content: $slots.content,
+  });
 </script>

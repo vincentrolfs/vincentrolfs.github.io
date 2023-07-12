@@ -1,39 +1,56 @@
 <div class="work-item">
-    <h3><script data-phantom>args.title</script></h3>
-
+  <h3>
     <script data-phantom>
-        args.image ? `
+      $props.title;
+    </script>
+  </h3>
+
+  <script data-phantom>
+    $props.image
+      ? `
             <div class="img-wrapper">
-                <img src="/img/projects/${args.image}" />
+                <img src="/img/projects/${$props.image}" />
             </div>
-        ` : ""
-    </script>
+        `
+      : "";
+  </script>
 
-    <p>
-        <script data-phantom>args.description</script>
-    </p>
-
-    <h4>Languages</h4>
-    <script data-phantom>args.languages</script>
-
-    <h4>Technologies</h4>
-    <script data-phantom>args.technologies</script>
-
-    <h4>Time frame</h4>
-    <script data-phantom>args.timeframe</script>
-
+  <p>
     <script data-phantom>
-        args.clientUrl && args.clientName ? `
-            <h4>Client</h4>
-            <a href="${args.clientUrl}" target="_blank" rel="noopener">${args.clientName}</a>
-        ` : ""
+      $props.description;
     </script>
+  </p>
+
+  <h4>Languages</h4>
+  <script data-phantom>
+    $props.languages;
+  </script>
+
+  <h4>Technologies</h4>
+  <script data-phantom>
+    $props.technologies;
+  </script>
+
+  <h4>Time frame</h4>
+  <script data-phantom>
+    $props.timeframe;
+  </script>
+
+  <script data-phantom>
+    $props.clientUrl && $props.clientName
+      ? `
+            <h4>Client</h4>
+            <a href="${$props.clientUrl}" target="_blank" rel="noopener">${$props.clientName}</a>
+        `
+      : "";
+  </script>
 </div>
 
 <script data-phantom>
-    args.divider && `
+  $props.divider &&
+    `
             <div class="work-item-divider">
                 <hr/>
             </div>
-        `
+        `;
 </script>

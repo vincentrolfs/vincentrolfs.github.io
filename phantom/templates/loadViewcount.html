@@ -1,5 +1,5 @@
 <script>
-    const slug = "<script data-phantom>args.slug</script>"
+    const slug = "<script data-phantom>$props.slug</script>"
     const r = new XMLHttpRequest();
     r.addEventListener('load', function() {
         document.querySelector('#viewcount').innerHTML = " &ndash; " + JSON.parse(this.responseText).count + " views"

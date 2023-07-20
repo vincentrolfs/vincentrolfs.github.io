@@ -84,7 +84,7 @@ body {
   color: #5e6897;
 }
 #caption a div:hover {
-  color: #b38a58;
+  color: #501537;
 }
 @media (max-width: 960px) {
   #caption {
@@ -139,7 +139,7 @@ nav a.selected .decoration {
   color: #f2f2f2;
 }
 nav a:hover {
-  background: #b38a58;
+  background: #501537;
 }
 nav a:hover .decoration {
   color: #f2f2f2;
@@ -163,7 +163,7 @@ main a {
   color: #5e6897;
 }
 main a:hover {
-  color: #b38a58;
+  color: #501537;
 }
 @media (max-width: 960px) {
   main {
@@ -173,7 +173,7 @@ main a:hover {
   }
 }
 .highlight {
-  color: #b38a58;
+  color: #501537;
   font-weight: bold;
 }
 code {
@@ -276,7 +276,7 @@ h4 {
   font-weight: 900;
 }
 blockquote {
-  border-left: 0.4rem solid #0d1821;
+  border-left: 4px solid #5e6897;
   padding: 0 0 0 1rem;
 }
 p {
@@ -286,9 +286,9 @@ p {
 }
 abbr {
   text-decoration: none;
-  border-bottom: solid 1px #b38a58;
+  border-bottom: solid 1px #501537;
 }
 abbr:hover {
-  background: #b38a58;
+  background: #501537;
   color: #f2f2f2;
 }

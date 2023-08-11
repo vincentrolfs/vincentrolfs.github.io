@@ -224,11 +224,11 @@ code {
   margin-block-start: 1.5em;
   margin-block-end: 0;
 }
-.work-item-divider {
+.divider {
   display: flex;
   justify-content: center;
 }
-.work-item-divider hr {
+.divider hr {
   width: 60%;
   border: 0;
   border-bottom: solid 2px #0d1821;

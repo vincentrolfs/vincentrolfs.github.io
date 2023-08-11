@@ -1,18 +1,27 @@
 {{ $slot("content") }}
 <script data-phantom>
-  (async function () {
+  async () => {
     const fs = await import("fs");
-    const allPosts = JSON.parse(
-      await fs.promises.readFile("phantom/blog/posts.json")
-    );
-    const allPostsSorted = Object.values(allPosts).sort(
-      (a, b) => a.order - b.order
+
+    const blogPosts = [];
+    const blogPostFiles = await fs.promises.readdir("phantom/blog");
+
+    await Promise.all(
+      blogPostFiles.map(
+        (filename) =>
+          filename.endsWith(".ph.html") &&
+          $include(`blog/${filename}`, {
+            callback(post) {
+              blogPosts.push(post);
+            },
+          })
+      )
     );
 
-    return allPostsSorted.map((post) =>
-      $include("templates/blogPostLink.html", { post })
-    );
-  })();
+    return blogPosts
+      .sort((a, b) => a.order - b.order)
+      .map((post) => $include("blog/components/blogPostLink.html", { post }));
+  };
 </script>
 {{ $endSlot() }}
 

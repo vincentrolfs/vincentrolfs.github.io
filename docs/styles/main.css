@@ -83,9 +83,6 @@ body {
   font-weight: 900;
   color: #5e6897;
 }
-#caption a div:hover {
-  color: #0d1821;
-}
 @media (max-width: 960px) {
   #caption {
     background: #0d1821;

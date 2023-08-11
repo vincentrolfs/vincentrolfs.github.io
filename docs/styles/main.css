@@ -212,10 +212,9 @@ code {
   margin-bottom: 8px;
 }
 .work-item {
-  background: #e0e0e0;
-  padding: 32px;
-  box-shadow: 8px 8px 0 0 #888888;
-  margin: 24px 0 32px 0;
+  background: none;
+  padding: 0;
+  margin-bottom: 24px;
 }
 .work-item h3 {
   margin-block-start: 0;

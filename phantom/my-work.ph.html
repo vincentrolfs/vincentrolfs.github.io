@@ -64,92 +64,82 @@ For example, I introduced Redux in the frontend, which greatly simplified the ha
     technologies: "React, Laravel, PostgreSQL, Bootstrap",
     timeframe: "May 2017 &ndash; March 2019",
     clientName: "HCP - Hanseatic Consulting Projektgesellschaft",
-    divider: false,
+    divider: true,
   });
 </script>
 
-<div class="work-item-divider">
-  <hr />
-</div>
-
-<div class="work-item">
-  <h3>Tool to create art using math equations. (2021)</h3>
-
-  <div class="img-wrapper">
-    <a
-      href="https://vincentrolfs.github.io/eulerdali/"
-      target="_blank"
-      rel="noopener"
-    >
-      <img src="/img/projects/eulerdali.png" />
-    </a>
-  </div>
-
-  <h4>Project name</h4>
+{{ $slot("eulerdali") }}
+<p>
+  Eulerdali — a tool that lets you create beautiful images from math equations.
+</p>
+<p>
   <a
     href="https://vincentrolfs.github.io/eulerdali/"
     target="_blank"
     rel="noopener"
-    >Eulerdali</a
   >
-
-  <h4>Description</h4>
-  A tool that lets you create beautiful images from math equations
-
-  <h4>My role</h4>
-  Creator
-
-  <h4>Technologies</h4>
-  TypeScript <br />
+    Open Eulerdali
+  </a>
+</p>
+<p>
   <a
     href="https://github.com/vincentrolfs/eulerdali"
     target="_blank"
     rel="noopener"
-    >Check out the code on GitHub</a
   >
+    Check out the code on GitHub
+  </a>
+</p>
+{{ $slot("content") }}
 
-  <h4>Time frame</h4>
-  2021
-</div>
+<script data-phantom>
+  $include("my-work/components/workItem.html", {
+    title: "Tool to create art using math equations. (2021)",
+    image: "eulerdali.png",
+    description: $slots.eulerdali,
+    languages: "TypeScript",
+    technologies: "HTML Canvas",
+    timeframe: "2021",
+    divider: true,
+  });
+</script>
 
-<div class="work-item-divider">
-  <hr />
-</div>
-
-<div class="work-item">
-  <h3>Riddle RPG (2020)</h3>
-
-  <div class="img-wrapper">
-    <img src="/img/projects/hochzeit.png" />
-  </div>
-
-  <h4>Project name</h4>
+{{ $slot("weddingGame") }}
+<p>
+  A RPG full of riddles in Pokémon style graphics. I created it as a gift for my
+  friend's wedding.
+</p>
+<p>
   <a
     href="https://vincentrolfs.github.io/hochzeit/"
     target="_blank"
     rel="noopener"
-    >Helena Blache und die Suche nach dem verlorenen Mirco</a
   >
-
-  <h4>Description</h4>
-  A RPG full of riddles in Pokémon style graphics which I created as a gift for
-  my friend's wedding
-
-  <h4>My role</h4>
-  Creator
-
-  <h4>Technologies</h4>
-  JavaScript, Quintus <br />
+    Play "Helena Blache und die Suche nach dem verlorenen Mirco"
+  </a>
+</p>
+<p>
   <a
     href="https://github.com/vincentrolfs/hochzeit"
     target="_blank"
     rel="noopener"
-    >Check out the code on GitHub</a
   >
+    Check out the code on GitHub (very old, bad code, but fun!)
+  </a>
+</p>
+{{ $slot("content") }}
 
-  <h4>Time frame</h4>
-  2020, based on earlier work of mine from 2014
-</div>
+<script data-phantom>
+  $include("my-work/components/workItem.html", {
+    title: "Riddle RPG (2020)",
+    image: "hochzeit.png",
+    description: $slots.weddingGame,
+    languages: "JavaScript",
+    technologies: "Quintus game engine",
+    timeframe: "2020, based on earlier work of mine from 2014",
+    divider: false,
+  });
+</script>
 {{ $endSlot() }}
 
 <script data-phantom>

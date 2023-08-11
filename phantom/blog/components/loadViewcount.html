@@ -1,9 +1,16 @@
 <script>
-    const slug = "<script data-phantom>$props.slug</script>"
-    const r = new XMLHttpRequest();
-    r.addEventListener('load', function() {
-        document.querySelector('#viewcount').innerHTML = " &ndash; " + JSON.parse(this.responseText).count + " views"
-    })
-    r.open('GET', 'https://vincentrolfs.goatcounter.com/counter/' + encodeURIComponent("/blog/" + slug) + '.json?' + (+Date.now()))
-    r.send()
+  const slug = "{{ $props.slug }}";
+  const r = new XMLHttpRequest();
+  r.addEventListener("load", function () {
+    document.querySelector("#viewcount").innerHTML =
+      " &ndash; " + JSON.parse(this.responseText).count + " views";
+  });
+  r.open(
+    "GET",
+    "https://vincentrolfs.goatcounter.com/counter/" +
+      encodeURIComponent("/blog/" + slug) +
+      ".json?" +
+      +Date.now()
+  );
+  r.send();
 </script>

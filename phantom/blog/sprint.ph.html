@@ -110,35 +110,13 @@
   </div>
 </div>
 
-<div class="divider">
-  <hr />
-</div>
-
-<p>
-  Discuss this article on
-  <a
-    href="https://www.reddit.com/r/programming/comments/yznwbh/the_word_sprint_in_agile_development_an/"
-    target="_blank"
-    rel="noopener"
-    >Reddit</a
-  >
-  or
-  <a
-    href="https://news.ycombinator.com/item?id=33675469"
-    target="_blank"
-    rel="noopener"
-    >Hacker News</a
-  >.
-</p>
-
-<p>
-  Feel free to email me at
-  <a href="mailto:vincent.rolfs@gmail.com">vincent.rolfs@gmail.com</a>. Or you
-  can follow me on Mastodon at
-  <a href="https://hachyderm.io/@vincentrolfs" target="_blank" rel="noopener"
-    >@vincentrolfs@hachyderm.io</a
-  >.
-</p>
+<script data-phantom>
+  $include("components/blogPostFooter.html", {
+    reddit:
+      "https://www.reddit.com/r/programming/comments/yznwbh/the_word_sprint_in_agile_development_an/",
+    hackerNews: "https://news.ycombinator.com/item?id=33675469",
+  });
+</script>
 {{ $endSlot() }}
 
 <script data-phantom>

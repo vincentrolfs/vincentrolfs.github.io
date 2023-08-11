@@ -120,14 +120,22 @@
   <span id="viewcount"></span>
 </div>
 <script>
-    const slug = "sprint"
-    const r = new XMLHttpRequest();
-    r.addEventListener('load', function() {
-        document.querySelector('#viewcount').innerHTML = " &ndash; " + JSON.parse(this.responseText).count + " views"
-    })
-    r.open('GET', 'https://vincentrolfs.goatcounter.com/counter/' + encodeURIComponent("/blog/" + slug) + '.json?' + (+Date.now()))
-    r.send()
+  const slug = "sprint";
+  const r = new XMLHttpRequest();
+  r.addEventListener("load", function () {
+    document.querySelector("#viewcount").innerHTML =
+      " &ndash; " + JSON.parse(this.responseText).count + " views";
+  });
+  r.open(
+    "GET",
+    "https://vincentrolfs.goatcounter.com/counter/" +
+      encodeURIComponent("/blog/" + slug) +
+      ".json?" +
+      +Date.now()
+  );
+  r.send();
 </script>
+
 
 <p>
   The other day David Whitney made an interesting comment about the word
@@ -218,17 +226,9 @@
 
 <p>
   Discuss this article on
-  <a
-    href="https://www.reddit.com/r/programming/comments/yznwbh/the_word_sprint_in_agile_development_an/"
-    target="_blank"
-    rel="noopener"
-    >Reddit</a
-  >
+  <a href="https://www.reddit.com/r/programming/comments/yznwbh/the_word_sprint_in_agile_development_an/" target="_blank" rel="noopener">Reddit</a>
   or
-  <a
-    href="https://news.ycombinator.com/item?id=33675469"
-    target="_blank"
-    rel="noopener"
+  <a href="https://news.ycombinator.com/item?id=33675469" target="_blank" rel="noopener"
     >Hacker News</a
   >.
 </p>
@@ -241,6 +241,7 @@
     >@vincentrolfs@hachyderm.io</a
   >.
 </p>
+
 </main>
     </div>
   </body>

@@ -1,0 +1,58 @@
+<script data-phantom>
+  () => {
+    $props.callback?.($props);
+  };
+</script>
+
+{{ $slot("content") }}
+<h2 class="with-sub">
+  <script data-phantom>
+    $props.title;
+  </script>
+</h2>
+<div class="subcaption">
+  <script data-phantom>
+    $props.date;
+  </script>
+  <span id="viewcount"></span>
+</div>
+
+<script data-phantom>
+  $include("loadViewcount.html", { slug: $props.slug });
+</script>
+
+{{ $props.content }}
+
+<div class="divider">
+  <hr />
+</div>
+
+<p>
+  Discuss this article on
+  <a href="{{ $props.links.reddit }}" target="_blank" rel="noopener">Reddit</a>
+  or
+  <a href="{{ $props.links.hackerNews }}" target="_blank" rel="noopener"
+    >Hacker News</a
+  >.
+</p>
+
+<p>
+  Feel free to email me at
+  <a href="mailto:vincent.rolfs@gmail.com">vincent.rolfs@gmail.com</a>. Or you
+  can follow me on Mastodon at
+  <a href="https://hachyderm.io/@vincentrolfs" target="_blank" rel="noopener"
+    >@vincentrolfs@hachyderm.io</a
+  >.
+</p>
+{{ $endSlot() }}
+
+<script data-phantom>
+  $include("../../core/components/main.html", {
+    title: $props.title,
+    description: `Blog of Vincent Rolfs.
+        Vincent is a freelance Software Engineer and IT-Consultant.
+        He has more than ten years experience in developing complex applications on the web.`,
+    navSelection: "",
+    content: $slots.content,
+  });
+</script>

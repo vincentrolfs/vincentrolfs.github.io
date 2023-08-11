@@ -1,32 +1,4 @@
-<script data-phantom>
-  () => {
-    $.post = {
-      title: 'The word "Sprint" in agile development: An unfortunate misnomer',
-      date: "November 19, 2022",
-      slug: "sprint",
-      order: 1,
-    };
-
-    $props.callback?.($.post);
-  };
-</script>
-
 {{ $slot("content") }}
-<h2 class="with-sub">
-  <script data-phantom>
-    $.post.title;
-  </script>
-</h2>
-<div class="subcaption">
-  <script data-phantom>
-    $.post.date;
-  </script>
-  <span id="viewcount"></span>
-</div>
-<script data-phantom>
-  $include("components/loadViewcount.html", { slug: $.post.slug });
-</script>
-
 <p>
   The other day David Whitney made an interesting comment about the word
   "Sprint":
@@ -109,23 +81,20 @@
     An abstract painting interpreting the word Sprint in agile development
   </div>
 </div>
-
-<script data-phantom>
-  $include("components/blogPostFooter.html", {
-    reddit:
-      "https://www.reddit.com/r/programming/comments/yznwbh/the_word_sprint_in_agile_development_an/",
-    hackerNews: "https://news.ycombinator.com/item?id=33675469",
-  });
-</script>
 {{ $endSlot() }}
 
 <script data-phantom>
-  $include("../core/components/main.html", {
-    title: $.post.title,
-    description: `Blog of Vincent Rolfs.
-        Vincent is a freelance Software Engineer and IT-Consultant.
-        He has more than ten years experience in developing complex applications on the web.`,
-    navSelection: "",
+  $include("components/blogPost.html", {
+    title: 'The word "Sprint" in agile development: An unfortunate misnomer',
+    date: "November 19, 2022",
+    slug: "sprint",
+    order: 1,
+    links: {
+      reddit:
+        "https://www.reddit.com/r/programming/comments/yznwbh/the_word_sprint_in_agile_development_an/",
+      hackerNews: "https://news.ycombinator.com/item?id=33675469",
+    },
     content: $slots.content,
+    callback: $props.callback,
   });
 </script>

@@ -1,0 +1,18 @@
+{{ $slot("content") }}
+<p>?</p>
+{{ $endSlot() }}
+
+<script data-phantom>
+  $include("components/blogPost.html", {
+    title: "Why the TypeScript developers prefer to use var instead of const",
+    date: "August 11, 2023",
+    slug: "typescript-uses-var",
+    order: 2,
+    links: {
+      reddit: "",
+      hackerNews: "",
+    },
+    content: $slots.content,
+    callback: $props.callback,
+  });
+</script>

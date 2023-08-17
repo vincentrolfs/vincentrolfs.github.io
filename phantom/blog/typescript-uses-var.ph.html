@@ -1,3 +1,12 @@
+<script data-phantom>
+  () => {
+    $.ExternalLink = async (text, href) =>
+      (
+        await $include("../core/components/externalLink.html", { text, href })
+      ).trim();
+  };
+</script>
+
 {{ $slot("content") }}
 
 <p>
@@ -10,7 +19,7 @@
 
 <p>
   One example of this is having a culture of preferring constant variables
-  (oxymoron?) to reassignable variables. const was introduced to JS developers
+  [[oxymoron?]] to reassignable variables. const was introduced to JS developers
   with ECMAScript 2015, and nowadays most new projects seem to default to const
   instead of let or var. The benefits are clear: Most variables do not need to
   be reassigned, so by choosing const by default, developers prevent accidental
@@ -52,26 +61,13 @@
   without problems:
   <code> xyz = 123; console.log(xyz); </code>
   Welcome to JavaScript development! If you are not using
-  <a
-    href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode"
-    target="_blank"
-    rel="noopener"
-  >
-    strict mode
-  </a>
+  {{$.ExternalLink("strict mode",
+  "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode")}}
   (and strict mode isn't the default), then you always have the ability to
   create and modify global variables willy-nilly by referring to them without
   prior declaration. Needless to say that this practice should be avoided, and
   you should be using strict mode whenever possible.
 </p>
-
-<script>
-  (function () {
-    "use strict";
-    xyz = 123;
-    console.log(xyz);
-  })();
-</script>
 
 {{ $endSlot() }}
 

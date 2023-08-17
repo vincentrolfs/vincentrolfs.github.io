@@ -1,3 +1,12 @@
+<script data-phantom>
+  () => {
+    $.ExternalLink = async (text, href) =>
+      (
+        await $include("core/components/externalLink.html", { text, href })
+      ).trim();
+  };
+</script>
+
 {{ $slot("content") }}
 <h2>My work</h2>
 
@@ -73,22 +82,20 @@ For example, I introduced Redux in the frontend, which greatly simplified the ha
   Eulerdali — a tool that lets you create beautiful images from math equations.
 </p>
 <p>
-  <a
-    href="https://vincentrolfs.github.io/eulerdali/"
-    target="_blank"
-    rel="noopener"
-  >
-    Open Eulerdali
-  </a>
+  <script data-phantom>
+    $.ExternalLink(
+      "Open Eulerdali",
+      "https://vincentrolfs.github.io/eulerdali"
+    );
+  </script>
 </p>
 <p>
-  <a
-    href="https://github.com/vincentrolfs/eulerdali"
-    target="_blank"
-    rel="noopener"
-  >
-    Check out the code on GitHub
-  </a>
+  <script data-phantom>
+    $.ExternalLink(
+      "Check out the code on GitHub",
+      "https://github.com/vincentrolfs/eulerdali"
+    );
+  </script>
 </p>
 {{ $slot("content") }}
 
@@ -110,22 +117,20 @@ For example, I introduced Redux in the frontend, which greatly simplified the ha
   friend's wedding.
 </p>
 <p>
-  <a
-    href="https://vincentrolfs.github.io/hochzeit/"
-    target="_blank"
-    rel="noopener"
-  >
-    Play "Helena Blache und die Suche nach dem verlorenen Mirco"
-  </a>
+  <script data-phantom>
+    $.ExternalLink(
+      'Play "Helena Blache und die Suche nach dem verlorenen Mirco"',
+      "https://vincentrolfs.github.io/hochzeit"
+    );
+  </script>
 </p>
 <p>
-  <a
-    href="https://github.com/vincentrolfs/hochzeit"
-    target="_blank"
-    rel="noopener"
-  >
-    Check out the code on GitHub (very old, bad code, but fun!)
-  </a>
+  <script data-phantom>
+    $.ExternalLink(
+      "Check out the code on GitHub (very old, bad code, but fun!)",
+      "https://github.com/vincentrolfs/hochzeit"
+    );
+  </script>
 </p>
 {{ $slot("content") }}
 

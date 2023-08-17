@@ -1,5 +1,13 @@
-{{ $slot("content") }}
+<script data-phantom>
+  () => {
+    $.ExternalLink = async (text, href) =>
+      (
+        await $include("core/components/externalLink.html", { text, href })
+      ).trim();
+  };
+</script>
 
+{{ $slot("content") }}
 <figure>
   <blockquote>
     <p>
@@ -10,7 +18,7 @@
   </blockquote>
   <figcaption>
     —Björn Lilleike, Head of Digital Solution Development at
-    <a href="https://ecoworks.tech/" target="_blank" rel="noopener">ecoworks</a>
+    {{$.ExternalLink("ecoworks","https://ecoworks.tech")}}
   </figcaption>
 </figure>
 
@@ -23,9 +31,7 @@
   </blockquote>
   <figcaption>
     —Ralph Mouarkech, Director of IT at
-    <a href="https://arcensus-diagnostics.com/" target="_blank" rel="noopener"
-      >Arcensus</a
-    >
+    {{$.ExternalLink("Arcensus","https://arcensus-diagnostics.com")}}
   </figcaption>
 </figure>
 

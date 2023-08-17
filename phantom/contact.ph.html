@@ -1,3 +1,12 @@
+<script data-phantom>
+  () => {
+    $.ExternalLink = async (text, href) =>
+      (
+        await $include("core/components/externalLink.html", { text, href })
+      ).trim();
+  };
+</script>
+
 {{ $slot("content") }}
 <h2>Contact</h2>
 
@@ -8,9 +17,7 @@
 
 <p>
   You can follow me on Mastodon at
-  <a href="https://hachyderm.io/@vincentrolfs" target="_blank" rel="noopener"
-    >@vincentrolfs@hachyderm.io</a
-  >.
+  {{$.ExternalLink("@vincentrolfs@hachyderm.io","https://hachyderm.io/@vincentrolfs")}}.
 </p>
 {{ $endSlot() }}
 

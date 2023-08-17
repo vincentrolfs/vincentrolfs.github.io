@@ -123,20 +123,25 @@
 </div>
 
 <script>
+  "use strict";
+
   const slug = "sprint";
-  const r = new XMLHttpRequest();
-  r.addEventListener("load", function () {
+  const request = new XMLHttpRequest();
+
+  request.addEventListener("load", function () {
     document.querySelector("#viewcount").innerHTML =
       " &ndash; " + JSON.parse(this.responseText).count + " views";
   });
-  r.open(
+
+  request.open(
     "GET",
     "https://vincentrolfs.goatcounter.com/counter/" +
       encodeURIComponent("/blog/" + slug) +
       ".json?" +
       +Date.now()
   );
-  r.send();
+  
+  request.send();
 </script>
 
 

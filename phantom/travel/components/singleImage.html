@@ -1,0 +1,18 @@
+<script data-phantom>
+  async () => {
+    const PUBLIC_URL = "https://filedn.com/lvt0TjH7ya4YFhTVqOl1ymS";
+    const { cityName, image } = $props;
+
+    $.imageUrl = `${PUBLIC_URL}/${cityName}/${image.name}`;
+    $.thumbnailUrl = `${PUBLIC_URL}/${cityName}/thumbnail-${image.name}`;
+  };
+</script>
+
+<a
+  href="{{$.imageUrl}}"
+  data-pswp-width="{{$props.image.width}}"
+  data-pswp-height="{{$props.image.height}}"
+  target="_blank"
+>
+  <img src="{{$.thumbnailUrl}}" alt="" />
+</a>

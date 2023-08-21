@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Trier",
+    "pos": [49.749992, 6.637143],
+    "visits": [{
+        "from": "2023-02-12",
+        "to": "2023-03-19"
+    }],
+    "images": [
+      {
+        "name": "mmexport1676732658648.jpg",
+        "width": 1170,
+        "height": 2080
+      },
+      {
+        "name": "mmexport1676732689306.jpg",
+        "width": 1170,
+        "height": 2080
+      },
+      {
+        "name": "mmexport1676732697377.jpg",
+        "width": 1170,
+        "height": 2080
+      },
+      {
+        "name": "mmexport1676732655531.jpg",
+        "width": 1170,
+        "height": 2080
+      },
+      {
+        "name": "mmexport1676732712188.jpg",
+        "width": 1170,
+        "height": 2080
+      }
+    ]
+  },
+  {
+    "name": "Oberharmersbach",
+    "pos": [48.373322, 8.12662],
+    "images": []
+  }
+]

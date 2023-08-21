@@ -1,0 +1,14 @@
+<h3>{{$props.city.name}}</h3>
+
+<div id="travel-images">
+  <script data-phantom>
+    const { name, images } = $props.city;
+
+    images.map((image) =>
+      $include("singleImage.html", {
+        cityName: name,
+        image,
+      })
+    );
+  </script>
+</div>

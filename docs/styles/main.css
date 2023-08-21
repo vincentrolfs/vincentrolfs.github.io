@@ -155,7 +155,7 @@ main {
   min-height: 100vh;
   padding: 32px 0 0 32px;
 }
-main *:first-child {
+main > *:first-child {
   margin-block-start: 0;
 }
 main a {

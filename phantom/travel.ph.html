@@ -1,9 +1,9 @@
 {{ $slot("head") }}
 <script data-phantom>
-  const CITIES_PATH = "phantom/travel/data/cities.json";
+  const CITIES_PATH = $path("travel/data/cities.json");
 
   async () => {
-    const { promises: fs } = await import("fs");
+    const fs = await import("node:fs/promises");
 
     const cities = JSON.parse(
       await fs.readFile(CITIES_PATH, { encoding: "utf8" })

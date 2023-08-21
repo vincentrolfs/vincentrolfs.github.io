@@ -3,9 +3,10 @@ const PCLOUD_PATH = "/home/vincentrolfs/pCloudDrive/Public Folder";
 const REDO_ALL = true;
 
 (async () => {
-  const { promises: fs } = await import("fs");
-  const { promisify } = await import("util");
-  const exec = promisify((await import("child_process")).exec);
+  const fs = await import("node:fs/promises");
+  const exec = (await import("node:util")).promisify(
+    (await import("child_process")).exec
+  );
 
   const cities = JSON.parse(
     await fs.readFile(CITIES_PATH, { encoding: "utf8" })

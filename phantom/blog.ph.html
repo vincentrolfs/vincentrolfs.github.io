@@ -1,10 +1,10 @@
 {{ $slot("content") }}
 <script data-phantom>
   async () => {
-    const fs = await import("fs");
+    const fs = await import("node:fs/promises");
 
     const blogPosts = [];
-    const blogPostFiles = await fs.promises.readdir("phantom/blog");
+    const blogPostFiles = await fs.readdir("phantom/blog");
 
     await Promise.all(
       blogPostFiles.map(

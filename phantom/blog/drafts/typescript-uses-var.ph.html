@@ -2,7 +2,10 @@
   () => {
     $.ExternalLink = async (text, href) =>
       (
-        await $include("../core/components/externalLink.html", { text, href })
+        await $include("../../core/components/externalLink.html", {
+          text,
+          href,
+        })
       ).trim();
   };
 </script>
@@ -72,7 +75,7 @@
 {{ $endSlot() }}
 
 <script data-phantom>
-  $include("components/blogPost.html", {
+  $include("../components/blogPost.html", {
     title:
       'Why the TypeScript compiler developers use "var" instead of "const"',
     date: "August 11, 2023",

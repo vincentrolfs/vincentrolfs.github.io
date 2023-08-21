@@ -11,7 +11,33 @@
                 "to": "2023-03-19"
             }
         ],
-        "images": []
+        "images": [
+            {
+                "name": "mmexport1676732655531.jpg",
+                "width": 1170,
+                "height": 2080
+            },
+            {
+                "name": "mmexport1676732689306.jpg",
+                "width": 1170,
+                "height": 2080
+            },
+            {
+                "name": "mmexport1676732712188.jpg",
+                "width": 1170,
+                "height": 2080
+            },
+            {
+                "name": "mmexport1676732658648.jpg",
+                "width": 1170,
+                "height": 2080
+            },
+            {
+                "name": "mmexport1676732697377.jpg",
+                "width": 1170,
+                "height": 2080
+            }
+        ]
     },
     {
         "name": "Oberharmersbach (Baden-Württemberg)",

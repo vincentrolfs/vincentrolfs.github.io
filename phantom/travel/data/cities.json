@@ -1,50 +1,132 @@
 [
-  {
-    "name": "Trier",
-    "pos": [49.749992, 6.637143],
-    "visits": [
-      {
-        "from": "2023-02-12",
-        "to": "2023-03-19"
-      }
-    ],
-    "images": [
-      {
-        "name": "mmexport1676732658648.jpg",
-        "width": 1170,
-        "height": 2080
-      },
-      {
-        "name": "mmexport1676732689306.jpg",
-        "width": 1170,
-        "height": 2080
-      },
-      {
-        "name": "mmexport1676732697377.jpg",
-        "width": 1170,
-        "height": 2080
-      },
-      {
-        "name": "mmexport1676732655531.jpg",
-        "width": 1170,
-        "height": 2080
-      },
-      {
-        "name": "mmexport1676732712188.jpg",
-        "width": 1170,
-        "height": 2080
-      }
-    ]
-  },
-  {
-    "name": "Oberharmersbach",
-    "pos": [48.373322, 8.12662],
-    "visits": [
-      {
-        "from": "2023-02-12",
-        "to": "2023-02-12"
-      }
-    ],
-    "images": []
-  }
+    {
+        "name": "Trier (Rheinland-Pfalz)",
+        "pos": [
+            49.749992,
+            6.637143
+        ],
+        "visits": [
+            {
+                "from": "2023-02-12",
+                "to": "2023-03-19"
+            }
+        ],
+        "images": []
+    },
+    {
+        "name": "Oberharmersbach (Baden-Württemberg)",
+        "pos": [
+            48.373322,
+            8.12662
+        ],
+        "visits": [
+            {
+                "from": "2023-05-24",
+                "to": "2023-02-29"
+            }
+        ],
+        "images": []
+    },
+    {
+        "name": "Marpingen (Saarland)",
+        "pos": [
+            49.451279,
+            7.0569
+        ],
+        "visits": [
+            {
+                "from": "2023-07-31",
+                "to": "2023-08-14"
+            }
+        ],
+        "images": []
+    },
+    {
+        "name": "Strasbourg",
+        "pos": [
+            48.573406,
+            7.752111
+        ],
+        "visits": [
+            {
+                "from": "2023-07-31",
+                "to": "2023-07-31"
+            },
+            {
+                "from": "2023-08-19",
+                "to": "2023-08-19"
+            }
+        ],
+        "images": []
+    },
+    {
+        "name": "Colmar",
+        "pos": [
+            48.08062,
+            7.35995
+        ],
+        "visits": [
+            {
+                "from": "2023-08-19",
+                "to": "2023-08-19"
+            }
+        ],
+        "images": []
+    },
+    {
+        "name": "Hannover (Niedersachsen)",
+        "pos": [
+            52.375893,
+            9.73201
+        ],
+        "visits": [
+            {
+                "from": "2023-05-29",
+                "to": "2023-06-03"
+            }
+        ],
+        "images": []
+    },
+    {
+        "name": "Lecce",
+        "pos": [
+            40.353291,
+            18.174009
+        ],
+        "visits": [
+            {
+                "from": "2023-05-09",
+                "to": "2023-05-16"
+            }
+        ],
+        "images": []
+    },
+    {
+        "name": "Apulia",
+        "pos": [
+            40.32335662841797,
+            18.3778076171875
+        ],
+        "visits": [
+            {
+                "from": "2023-05-16",
+                "to": "2023-05-24"
+            }
+        ],
+        "images": []
+    },
+    {
+        "name": "Heide (Schleswig-Holstein)",
+        "pos": [
+            54.1948456,
+            9.0929015
+        ],
+        "visits": [
+            {
+                "from": "2023-06-03",
+                "to": "2023-06-15"
+            }
+        ],
+        "images": []
+    }
 ]

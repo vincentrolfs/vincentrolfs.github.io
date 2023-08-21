@@ -1,8 +1,7 @@
 <script data-phantom>
   async () => {
-    const { resolve } = await import("node:path");
     const { formatDate } = await import(
-      resolve("phantom/core/utils/dateUtils.mjs")
+      $resolve("phantom/core/utils/dateUtils.mjs")
     );
 
     $.date = formatDate($props.post.date);

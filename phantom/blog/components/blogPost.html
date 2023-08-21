@@ -1,19 +1,14 @@
 <script data-phantom>
-  () => {
+  async () => {
     $props.callback?.($props);
+    $.dateUtils = await import(resolve("phantom/core/utils/dateUtils.mjs"));
   };
 </script>
 
 {{ $slot("content") }}
-<h2 class="with-sub">
-  <script data-phantom>
-    $props.title;
-  </script>
-</h2>
+<h2 class="with-sub">{{$props.title}}</h2>
 <div class="subcaption">
-  <script data-phantom>
-    $props.date;
-  </script>
+  {{$.dateUtils.formatDate($props.date)}}
   <span id="viewcount"></span>
 </div>
 

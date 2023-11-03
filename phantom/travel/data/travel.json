@@ -7,7 +7,13 @@
         ],
         "from": "2023-10-29",
         "to": "2023-11-05",
-        "images": [],
+        "images": [
+            {
+                "name": "IMG_20231103_182618.jpg",
+                "width": 5760,
+                "height": 2592
+            }
+        ],
         "tag": "2023-10-29_coimbra"
     },
     {
@@ -238,7 +244,118 @@
         ],
         "from": "2023-03-30",
         "to": "2023-05-09",
-        "images": [],
+        "images": [
+            {
+                "name": "IMG-20230401-WA0001.jpg",
+                "width": 768,
+                "height": 1024
+            },
+            {
+                "name": "IMG-20230401-WA0003.jpg",
+                "width": 473,
+                "height": 1024
+            },
+            {
+                "name": "IMG-20230401-WA0002.jpg",
+                "width": 473,
+                "height": 1024
+            },
+            {
+                "name": "mmexport1680266841029.jpg",
+                "width": 1279,
+                "height": 1706
+            },
+            {
+                "name": "IMG-20230401-WA0011.jpg",
+                "width": 1152,
+                "height": 2048
+            },
+            {
+                "name": "IMG-20230401-WA0000.jpg",
+                "width": 768,
+                "height": 1024
+            },
+            {
+                "name": "IMG-20230401-WA0012.jpg",
+                "width": 1152,
+                "height": 2048
+            },
+            {
+                "name": "IMG-20230401-WA0016.jpg",
+                "width": 1152,
+                "height": 2048
+            },
+            {
+                "name": "IMG-20230401-WA0015.jpg",
+                "width": 1152,
+                "height": 2048
+            },
+            {
+                "name": "IMG-20230401-WA0017.jpg",
+                "width": 1152,
+                "height": 2048
+            },
+            {
+                "name": "IMG-20230401-WA0018.jpg",
+                "width": 1152,
+                "height": 2048
+            },
+            {
+                "name": "IMG-20230401-WA0013.jpg",
+                "width": 1152,
+                "height": 2048
+            },
+            {
+                "name": "IMG-20230401-WA0010.jpg",
+                "width": 1536,
+                "height": 2048
+            },
+            {
+                "name": "IMG-20230401-WA0019.jpg",
+                "width": 1152,
+                "height": 2048
+            },
+            {
+                "name": "IMG-20230401-WA0008.jpg",
+                "width": 1536,
+                "height": 2048
+            },
+            {
+                "name": "IMG_20230331_144634.jpg",
+                "width": 5760,
+                "height": 2592
+            },
+            {
+                "name": "IMG_20230331_155004.jpg",
+                "width": 2592,
+                "height": 5760
+            },
+            {
+                "name": "IMG_20230401_172351.jpg",
+                "width": 5760,
+                "height": 2592
+            },
+            {
+                "name": "IMG_20230401_172326.jpg",
+                "width": 5760,
+                "height": 2592
+            },
+            {
+                "name": "IMG_20230401_190534.jpg",
+                "width": 5760,
+                "height": 2592
+            },
+            {
+                "name": "IMG_20230401_191321.jpg",
+                "width": 5760,
+                "height": 2592
+            },
+            {
+                "name": "IMG_20230401_190514.jpg",
+                "width": 2592,
+                "height": 5760
+            }
+        ],
         "comment": "Actually we were not only in Rethymno.",
         "tag": "2023-03-30_rethymno"
     },
@@ -251,7 +368,28 @@
         ],
         "from": "2023-03-19",
         "to": "2023-03-30",
-        "images": []
+        "images": [
+            {
+                "name": "mmexport1679830635299.jpg",
+                "width": 3024,
+                "height": 4032
+            },
+            {
+                "name": "mmexport1679830803268.jpg",
+                "width": 3024,
+                "height": 4032
+            },
+            {
+                "name": "IMG_20230326_170200.jpg",
+                "width": 2592,
+                "height": 5760
+            },
+            {
+                "name": "IMG_20230328_190744.jpg",
+                "width": 2592,
+                "height": 5760
+            }
+        ]
     },
     {
         "name": "Trier (Rheinland-Pfalz, Germany)",
@@ -269,7 +407,7 @@
                 "height": 2080
             },
             {
-                "name": "mmexport1676732655531.jpg",
+                "name": "mmexport1676732689306.jpg",
                 "width": 1170,
                 "height": 2080
             },
@@ -279,7 +417,7 @@
                 "height": 2080
             },
             {
-                "name": "mmexport1676732689306.jpg",
+                "name": "mmexport1676732655531.jpg",
                 "width": 1170,
                 "height": 2080
             },

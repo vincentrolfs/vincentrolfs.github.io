@@ -1,27 +1,17 @@
 {{ $slot("head") }}
 <script data-phantom>
-  const CITIES_PATH = $path("travel/data/cities.json");
-
   async () => {
     const fs = await import("node:fs/promises");
 
-    const cities = JSON.parse(
-      await fs.readFile(CITIES_PATH, { encoding: "utf8" })
-    );
-    $.cities = await Promise.all(
-      cities.map(async (city) => {
-        return {
-          ...city,
-          html: await $include("travel/components/city.html", {
-            city,
-          }),
-        };
-      })
+    const TRAVEL_JSON_PATH = $path("travel/data/travel.json");
+
+    $.visits = JSON.parse(
+      await fs.readFile(TRAVEL_JSON_PATH, { encoding: "utf8" })
     );
 
     return `
     <${"script"}>
-      const cities = ${JSON.stringify($.cities)}
+      const visits = ${JSON.stringify($.visits)}
     </${"script"}>
     `;
   };
@@ -31,10 +21,14 @@
 <link rel="stylesheet" href="/include/photoswipe-5.3.8/photoswipe.css" />
 
 <style>
-  #travel-images {
+  #travel {
+    max-height: 500px;
+    overflow-y: scroll;
+  }
+  .travel-images {
     margin: 16px;
   }
-  #travel-images a {
+  .travel-images a {
     margin: 8px;
     text-decoration: none;
   }
@@ -44,39 +38,67 @@
 
 <div id="map" style="width: 100%; height: 400px"></div>
 
-<div id="travel"></div>
+<div id="travel">
+  <script data-phantom>
+    $.visits.map((visit) =>
+      $include("travel/components/visit.html", { visit })
+    );
+  </script>
+</div>
 
 <script type="module">
-  import PhotoSwipeLightbox from "/include/photoswipe-5.3.8/photoswipe-lightbox.esm.min.js";
-  import PhotoSwipe from "/include/photoswipe-5.3.8/photoswipe.esm.min.js";
-
   const map = L.map("map").setView([51.165691, 10.451526], 5);
-
   const tiles = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 8,
     attribution:
       '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
   }).addTo(map);
-
   const markers = {};
 
-  cities.forEach(({ name, pos }) => {
-    const markers = L.marker(pos).addTo(map);
-    markers.on("click", () => onCitySelect(name));
-    markers.bindPopup(name);
+  visits.forEach(({ name, tag, pos }) => {
+    if (!tag) {
+      return;
+    }
+
+    const posStr = JSON.stringify(pos);
+    if (markers[posStr]) {
+      return;
+    }
+
+    const marker = L.marker(pos).addTo(map);
+    marker.on("click", () => scrollToVisit(tag));
+    marker.bindPopup(name);
+
+    markers[posStr] = marker;
   });
 
-  function onCitySelect(name) {
-    const city = cities.find((c) => c.name === name);
-    document.querySelector("#travel").innerHTML = city.html;
+  function scrollToVisit(tag) {
+    console.log(`travel-heading-${tag}`);
+    document.getElementById(`travel-heading-${tag}`).scrollIntoView({
+      behavior: "smooth",
+    });
+  }
 
+  function openMarker(pos) {
+    markers[JSON.stringify(pos)]?.openPopup();
+  }
+</script>
+
+<script type="module">
+  import PhotoSwipeLightbox from "/include/photoswipe-5.3.8/photoswipe-lightbox.esm.min.js";
+  import PhotoSwipe from "/include/photoswipe-5.3.8/photoswipe.esm.min.js";
+
+  visits.forEach(({ tag }) => {
+    if (!tag) {
+      return;
+    }
     const lightbox = new PhotoSwipeLightbox({
-      gallery: "#travel-images",
+      gallery: `#travel-images-${tag}`,
       children: "a",
       pswpModule: PhotoSwipe,
     });
     lightbox.init();
-  }
+  });
 </script>
 {{ $endSlot() }}
 

@@ -1,10 +1,11 @@
 <script data-phantom>
   async () => {
-    const PUBLIC_URL = "https://filedn.com/lvt0TjH7ya4YFhTVqOl1ymS";
-    const { cityName, image } = $props;
+    const PUBLIC_URL =
+      "https://filedn.com/lvt0TjH7ya4YFhTVqOl1ymS/travel-images";
+    const { tag, image } = $props;
 
-    $.imageUrl = `${PUBLIC_URL}/${cityName}/${image.name}`;
-    $.thumbnailUrl = `${PUBLIC_URL}/${cityName}/thumbnail-${image.name}`;
+    $.imageUrl = `${PUBLIC_URL}/${tag}/${image.name}`;
+    $.thumbnailUrl = `${PUBLIC_URL}/${tag}/thumbnail-${image.name}`;
   };
 </script>
 

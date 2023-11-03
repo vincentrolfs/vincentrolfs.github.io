@@ -1,0 +1,37 @@
+<script data-phantom>
+  () => {
+    const { tag } = $props.visit;
+    $.headingId = tag ? `travel-heading-${tag}` : "";
+    $.imagesId = tag ? `travel-images-${tag}` : "";
+  };
+</script>
+
+<h3 class="with-sub" id="{{$.headingId}}">{{$props.visit.name}}</h3>
+<div class="subcaption">
+  <script data-phantom>
+    async () => {
+      const { formatDate } = await import(
+        $resolve("phantom/core/utils/dateUtils.mjs")
+      );
+
+      const { from, to } = $props.visit;
+
+      return from === to
+        ? formatDate(from)
+        : `${formatDate(from)} to ${formatDate(to)}`;
+    };
+  </script>
+</div>
+
+<div class="travel-images" id="{{$.imagesId}}">
+  <script data-phantom>
+    const { tag, images } = $props.visit;
+
+    images.map((image) =>
+      $include("singleImage.html", {
+        tag,
+        image,
+      })
+    );
+  </script>
+</div>

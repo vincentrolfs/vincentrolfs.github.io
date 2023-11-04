@@ -24,6 +24,10 @@
   #travel {
     max-height: 500px;
     overflow-y: scroll;
+    position: relative;
+  }
+  .travel-heading {
+    cursor: pointer;
   }
   .travel-images {
     margin: 16px;
@@ -66,22 +70,22 @@
     }
 
     const marker = L.marker(pos).addTo(map);
-    marker.on("click", () => scrollToVisit(tag));
+    marker.on("click", () => window.scrollToVisit(tag));
     marker.bindPopup(name);
 
     markers[posStr] = marker;
   });
 
-  function scrollToVisit(tag) {
-    console.log(`travel-heading-${tag}`);
-    document.getElementById(`travel-heading-${tag}`).scrollIntoView({
-      behavior: "smooth",
-    });
-  }
+  window.scrollToVisit = (tag) => {
+    console.log(document.getElementById(`travel-heading-${tag}`).offsetTop);
+    document.getElementById("travel").scrollTop = document.getElementById(
+      `travel-heading-${tag}`
+    ).offsetTop;
+  };
 
-  function openMarker(pos) {
+  window.openMarker = (pos) => {
     markers[JSON.stringify(pos)]?.openPopup();
-  }
+  };
 </script>
 
 <script type="module">

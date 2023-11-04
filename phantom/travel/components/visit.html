@@ -3,10 +3,16 @@
     const { tag } = $props.visit;
     $.headingId = tag ? `travel-heading-${tag}` : "";
     $.imagesId = tag ? `travel-images-${tag}` : "";
+
+    $.onclick = `onclick="window.openMarker(${JSON.stringify(
+      $props.visit.pos
+    )})"`;
   };
 </script>
 
-<h3 class="with-sub" id="{{$.headingId}}">{{$props.visit.name}}</h3>
+<h3 class="travel-heading with-sub" id="{{$.headingId}}" {{$.onclick}}>
+  {{$props.visit.name}}
+</h3>
 <div class="subcaption">
   <script data-phantom>
     async () => {

@@ -37,6 +37,14 @@ const REDO_ALL = false;
             return;
           }
 
+          if (fileName.endsWith(".mp4")) {
+            return;
+          }
+
+          if (fileName.endsWith(".mov")) {
+            return;
+          }
+
           if (visit.images.find((img) => img.name === fileName)) {
             return;
           }

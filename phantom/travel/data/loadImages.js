@@ -1,7 +1,7 @@
 const TRAVEL_JSON_PATH = "phantom/travel/data/travel.json";
 const PCLOUD_PATH =
   "/home/vincentrolfs/pCloudDrive/Public Folder/travel-images";
-const REDO_ALL = true;
+const REDO_ALL = false;
 
 (async () => {
   const fs = await import("node:fs/promises");

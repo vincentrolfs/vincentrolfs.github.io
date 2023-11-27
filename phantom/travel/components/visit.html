@@ -33,7 +33,7 @@
   <script data-phantom>
     const { tag, images } = $props.visit;
 
-    images.map((image) =>
+    images?.map((image) =>
       $include("singleImage.html", {
         tag,
         image,

@@ -276,8 +276,11 @@ h4 {
   margin-block-end: 1.33em;
   font-weight: 900;
 }
+figure {
+  margin: 0;
+}
 blockquote {
-  border-left: 4px solid #5e6897;
+  border-left: 3px solid #5e6897;
   padding: 0 0 0 1rem;
 }
 p {

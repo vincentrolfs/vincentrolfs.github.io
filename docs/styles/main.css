@@ -181,7 +181,7 @@ code {
 }
 .img-wrapper img {
   display: block;
-  width: 100%;
+  width: 75%;
 }
 .img-full {
   padding: 0 64px;
@@ -225,11 +225,9 @@ code {
   margin-block-end: 0;
 }
 .divider {
-  display: flex;
-  justify-content: center;
+  width: 100%;
 }
 .divider hr {
-  width: 60%;
   border: 0;
   border-bottom: solid 2px #0d1821;
   margin-top: 8px;

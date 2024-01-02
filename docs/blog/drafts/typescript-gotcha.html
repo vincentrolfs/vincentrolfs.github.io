@@ -1,0 +1,333 @@
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>The meanest TypeScript gotcha I know"</title>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Blog of Vincent Rolfs.
+        Vincent is a freelance Software Engineer and IT-Consultant.
+        He has more than ten years experience in developing complex applications on the web." />
+    
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;900&display=swap"
+      rel="stylesheet"
+    />
+    <link href="/styles/main.css" rel="stylesheet" />
+
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/img/icons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/img/icons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/img/icons/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/img/icons/site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="/img/icons/safari-pinned-tab.svg"
+      color="#80232E"
+    />
+    <link rel="shortcut icon" href="/img/icons/favicon.ico" />
+    <meta name="msapplication-TileColor" content="#b91d47" />
+    <meta name="msapplication-config" content="/img/icons/browserconfig.xml" />
+    <meta name="theme-color" content="#ffffff" />
+
+    
+
+    <script
+      data-goatcounter="https://vincentrolfs.goatcounter.com/count"
+      async
+      src="//gc.zgo.at/count.js"
+    ></script>
+
+    
+  </head>
+  <body>
+    <div id="blackness"></div>
+
+    <div id="wrapper">
+      <div id="logo">
+  <a href="/">
+    <img
+      src="/img/vincent-circle.png"
+      alt="A picture of Vincent Rolfs"
+      width="100"
+    />
+  </a>
+</div>
+
+<div id="caption">
+  <div id="caption-wrap">
+    <a href="/">
+      <h1>Vincent Rolfs</h1>
+
+      <div>Software Engineer</div>
+    </a>
+  </div>
+
+  <hr />
+</div>
+
+<nav>
+  <a
+    class=""
+    href="/"
+  >
+    About me
+  </a>
+  <a
+    class=""
+    href="/my-work"
+  >
+    My work</a
+  >
+  <a
+    class=""
+    href="/blog"
+  >
+    Blog
+  </a>
+  <a
+    class=""
+    href="/contact"
+  >
+    Contact
+  </a>
+</nav>
+
+
+      <main>
+<h2 class="with-sub">The meanest TypeScript gotcha I know"</h2>
+<div class="subcaption">
+  December 12, 2023
+  <span id="viewcount"></span>
+</div>
+
+<script>
+  "use strict";
+
+  const slug = "typescript-gotcha";
+  const request = new XMLHttpRequest();
+
+  request.addEventListener("load", function () {
+    document.querySelector("#viewcount").innerHTML =
+      " &ndash; " + JSON.parse(this.responseText).count + " views";
+  });
+
+  request.open(
+    "GET",
+    "https://vincentrolfs.goatcounter.com/counter/" +
+      encodeURIComponent("/blog/" + slug) +
+      ".json?" +
+      +Date.now()
+  );
+  
+  request.send();
+</script>
+
+
+
+
+<p>
+  TypeScript is one of those technologies I trust a lot. If your TypeScript code
+  compiles and you didn't do anything particularly weird, chances are that your
+  code will behave as you expected. That's bascially the main appeal of
+  TypeScript -- it saves us from unexpected surprises.
+</p>
+
+<p>
+  But recently, I encountered a particular gotcha were TypeScript left me
+  hanging. Unfortunately, it isn't even a very complicated setup to get there.
+</p>
+
+<p>
+  Imagine you are teaching JavaScript to your second cousin twice removed, and
+  he shows you this code he wrote recently:
+</p>
+
+<pre><code>const data = {
+  entries: [
+    { category: "Basketball", score: 100, name: "Michael Jordan" },
+    { category: "Tennis", score: 95, name: "Serena Williams" },
+    { category: "Soccer", score: 98, name: "Lionel Messi" },
+    { category: "Golf", score: 90, name: "Tiger Woods" },
+    { category: "Basketball", score: 99, name: "LeBron James" },
+    { category: "Soccer", score: 94, name: "Cristiano Ronaldo" },
+  ],
+};
+
+// Remove the winner from the dataset and return their name
+function extractCategoryWinner(data, category) {
+  let winner = undefined;
+
+  data.entries = data.entries.filter((entry) => {
+    // Keep the entry if the category doesn't match, or there is already a winner
+    const keepEntry = entry.category !== category || !!winner;
+
+    if (!keepEntry) {
+      winner = entry;
+    }
+
+    return keepEntry;
+  });
+
+  if (!winner) {
+    throw new Error(`Found no entries for category ${category}`);
+  }
+
+  // Mistake here, should have been winner.name
+  return winner;
+}
+
+function callOut(name) {
+  alert(name.toUpperCase());
+}
+
+// Should alert "MICHAEL JORDAN"
+callOut(extractCategoryWinner(data, "Basketball"));
+// Should alert "LEBRON JAMES"
+callOut(extractCategoryWinner(data, "Basketball"));</code></pre>
+
+<p>
+  Unlucky -- he wrote <code>winner.toUpperCase()</code> instead of
+  <code>winner.name.toUpperCase()</code>. It could happen to everybody. But this
+  type of bug is exactly why TypeScript exists, right? We could rewrite it in
+  TypeScript and it would catch the bug for us, right?
+</p>
+
+<p>...right?</p>
+
+<pre><code>const data = {
+  entries: [
+    { category: "Basketball", score: 100, name: "Michael Jordan" },
+    { category: "Tennis", score: 95, name: "Serena Williams" },
+    { category: "Soccer", score: 98, name: "Lionel Messi" },
+    { category: "Golf", score: 90, name: "Tiger Woods" },
+    { category: "Basketball", score: 99, name: "LeBron James" },
+    { category: "Soccer", score: 94, name: "Cristiano Ronaldo" },
+  ],
+};
+
+// Remove the winner from the dataset and return their name
+function extractCategoryWinner(data, category) {
+  let winner = undefined;
+
+  data.entries = data.entries.filter((entry) => {
+    // Keep the entry if the category doesn't match, or there is already a winner
+    const keepEntry = entry.category !== category || !!winner;
+
+    if (!keepEntry) {
+      winner = entry;
+    }
+
+    return keepEntry;
+  });
+
+  if (!winner) {
+    throw new Error(`Found no entries for category ${category}`);
+  }
+
+  // Mistake here, should have been winner.name
+  return winner;
+}
+
+function callOut(name) {
+  alert(name.toUpperCase());
+}
+
+// Should alert "MICHAEL JORDAN"
+callOut(extractCategoryWinner(data, "Basketball"));
+// Should alert "LEBRON JAMES"
+callOut(extractCategoryWinner(data, "Basketball"));</code></pre>
+
+<script> const data = {
+  entries: [
+    { category: "Basketball", score: 100, name: "Michael Jordan" },
+    { category: "Tennis", score: 95, name: "Serena Williams" },
+    { category: "Soccer", score: 98, name: "Lionel Messi" },
+    { category: "Golf", score: 90, name: "Tiger Woods" },
+    { category: "Basketball", score: 99, name: "LeBron James" },
+    { category: "Soccer", score: 94, name: "Cristiano Ronaldo" },
+  ],
+};
+
+// Remove the winner from the dataset and return their name
+function extractCategoryWinner(data, category) {
+  let winner = undefined;
+
+  data.entries = data.entries.filter((entry) => {
+    // Keep the entry if the category doesn't match, or there is already a winner
+    const keepEntry = entry.category !== category || !!winner;
+
+    if (!keepEntry) {
+      winner = entry;
+    }
+
+    return keepEntry;
+  });
+
+  if (!winner) {
+    throw new Error(`Found no entries for category ${category}`);
+  }
+
+  // Mistake here, should have been winner.name
+  return winner;
+}
+
+function callOut(name) {
+  alert(name.toUpperCase());
+}
+
+// Should alert "MICHAEL JORDAN"
+callOut(extractCategoryWinner(data, "Basketball"));
+// Should alert "LEBRON JAMES"
+callOut(extractCategoryWinner(data, "Basketball")); </script> 
+
+<div class="divider">
+  <hr />
+</div>
+
+<p>
+  Discuss this article on
+  <a href="" target="_blank" rel="noopener">Reddit</a>
+  or
+  <a href="" target="_blank" rel="noopener"
+    >Hacker News</a
+  >.
+</p>
+
+<p>
+  Feel free to email me at
+  <a href="mailto:vincent.rolfs@gmail.com">vincent.rolfs@gmail.com</a>. Or you
+  can follow me on Mastodon at
+  <a href="https://hachyderm.io/@vincentrolfs" target="_blank" rel="noopener"
+    >@vincentrolfs@hachyderm.io</a
+  >.
+</p>
+</main>
+    </div>
+  </body>
+</html>
+
+

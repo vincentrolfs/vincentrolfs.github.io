@@ -1,0 +1,61 @@
+<script data-phantom>
+  () => {
+    $.ExternalLink = async (text, href) =>
+      (
+        await $include("../../core/components/externalLink.html", {
+          text,
+          href,
+        })
+      ).trim();
+  };
+</script>
+
+{{ $slot("content") }}
+
+<p>
+  TypeScript is one of those technologies I trust a lot. If your TypeScript code
+  compiles and you didn't do anything particularly weird, chances are that your
+  code will behave as you expected. That's bascially the main appeal of
+  TypeScript -- it saves us from unexpected surprises.
+</p>
+
+<p>
+  But recently, I encountered a particular gotcha were TypeScript left me
+  hanging. Unfortunately, it isn't even a very complicated setup to get there.
+</p>
+
+<p>
+  Imagine you are teaching JavaScript to your second cousin twice removed, and
+  he shows you this code he wrote recently:
+</p>
+
+<pre><code>{{ $include("typescript-gotcha/bug.js") }}</code></pre>
+
+<p>
+  Unlucky -- he wrote <code>winner.toUpperCase()</code> instead of
+  <code>winner.name.toUpperCase()</code>. It could happen to everybody. But this
+  type of bug is exactly why TypeScript exists, right? We could rewrite it in
+  TypeScript and it would catch the bug for us, right?
+</p>
+
+<p>...right?</p>
+
+<pre><code>{{ $include("typescript-gotcha/bug.js") }}</code></pre>
+
+{{ `<${"script"}>` }} {{ $include("typescript-gotcha/bug.js") }} {{
+`<${"/script"}>` }} {{ $endSlot() }}
+
+<script data-phantom>
+  $include("../components/blogPost.html", {
+    title: 'The meanest TypeScript gotcha I know"',
+    date: "December 12, 2023",
+    slug: "typescript-gotcha",
+    order: 2,
+    links: {
+      reddit: "",
+      hackerNews: "",
+    },
+    content: $slots.content,
+    callback: $props.callback,
+  });
+</script>

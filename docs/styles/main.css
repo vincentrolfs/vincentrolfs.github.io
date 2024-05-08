@@ -7,59 +7,76 @@ html {
   overflow-y: scroll;
 }
 body {
+  display: flex;
+  justify-content: center;
   background: #f2f2f2;
   font-family: "Lato", sans-serif;
   color: #0d1821;
   font-size: 13.2pt;
-  padding: 0 32px 0 32px;
-  display: flex;
-  justify-content: center;
-}
-@media (max-width: 960px) {
-  body {
-    padding: 0;
-  }
 }
 #wrapper {
-  display: grid;
-  grid-template-columns: max-content auto;
-  grid-column-gap: 64px;
+  width: 850px;
+  padding: 0 32px;
 }
-@media (max-width: 960px) {
+@media (max-width: 800px) {
   #wrapper {
-    width: 100%;
-    grid-template-columns: auto 1fr;
-    grid-column-gap: 0;
+    width: unset;
+    padding: 0 16px;
+  }
+}
+@media (max-width: 450px) {
+  #wrapper {
+    width: unset;
+    padding: 0 8px;
   }
 }
 #logo {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 32px;
+  padding-right: 16px;
 }
 #logo a {
   display: flex;
 }
-@media (max-width: 960px) {
-  #logo {
-    background: #0d1821;
-    padding: 16px;
+#logo a img {
+  width: 96px;
+}
+@media (max-width: 450px) {
+  #logo a img {
+    width: 62px;
   }
 }
 #caption {
-  background: #f2f2f2;
-  padding: 32px 0 0 32px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-end;
+  padding-top: 32px;
+  padding-bottom: 32px;
 }
 #caption #caption-wrap {
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: flex-start;
+  align-items: center;
+}
+@media (max-width: 800px) {
+  #caption #caption-wrap {
+    flex-direction: column;
+    row-gap: 16px;
+  }
+}
+@media (max-width: 450px) {
+  #caption #caption-wrap {
+    font-size: 90%;
+  }
+}
+@media (max-width: 370px) {
+  #caption #caption-wrap {
+    font-size: 65%;
+  }
 }
 #caption hr {
   height: 1px;
@@ -83,77 +100,42 @@ body {
   font-weight: 900;
   color: #5e6897;
 }
-@media (max-width: 960px) {
-  #caption {
-    background: #0d1821;
-    padding: 16px;
-    justify-content: center;
-  }
-  #caption a h1,
-  #caption a div {
-    color: #e0e0e0;
-  }
-  #caption hr {
-    display: none;
-  }
-}
-@media (max-width: 379px) {
-  #caption a {
-    align-items: flex-start;
-  }
-}
-#blackness {
-  background: #0d1821;
-  height: 100vh;
-  width: 50vw;
-  position: fixed;
-  left: 0;
-  top: 0;
-  z-index: -1;
-}
-@media (max-width: 960px) {
-  #blackness {
-    display: none;
-  }
-}
-nav {
-  background: #0d1821;
+#caption nav {
   display: flex;
-  flex-direction: column;
-  padding-top: 32px;
+  flex-direction: row;
+  margin-left: auto;
 }
-nav a {
-  margin-bottom: 8px;
-  padding: 0 16px;
-  color: #f2f2f2;
+@media (max-width: 800px) {
+  #caption nav {
+    margin-left: unset;
+  }
+}
+#caption nav a {
+  color: #0d1821;
   text-decoration: none;
   font-size: 1.5em;
+  margin: 0 8px;
 }
-nav a.selected {
-  background: #5e6897;
-  color: #f2f2f2;
+#caption nav a.selected {
+  font-weight: 900;
 }
-nav a.selected .decoration {
-  color: #f2f2f2;
+#caption nav a:hover {
+  color: #5e6897;
 }
-nav a:hover {
-  background: #f2f2f2;
-  color: #0d1821;
-}
-nav a:hover .decoration {
-  color: #0d1821;
-}
-@media (max-width: 960px) {
-  nav {
-    grid-column: 1 / span 2;
-    padding: 16px;
+@media (max-width: 450px) {
+  #caption nav a {
+    margin: 0 4px;
   }
 }
+#caption nav a:first-of-type {
+  margin-left: 0;
+}
+#caption nav a:last-of-type {
+  margin-right: 0;
+}
 main {
-  width: 700px;
   background: #f2f2f2;
   min-height: 100vh;
-  padding: 32px 0 0 32px;
 }
 main > *:first-child {
   margin-block-start: 0;
@@ -163,13 +145,6 @@ main a {
 }
 main a:hover {
   color: #0d1821;
-}
-@media (max-width: 960px) {
-  main {
-    padding: 32px 32px 32px 16px;
-    grid-column: 1 / span 2;
-    width: unset;
-  }
 }
 .highlight {
   color: #0d1821;
@@ -188,7 +163,7 @@ code {
   display: flex;
   justify-content: center;
 }
-@media (max-width: 960px) {
+@media (max-width: 800px) {
   .img-full {
     padding: 0 10%;
   }
@@ -246,6 +221,12 @@ h3.with-sub,
 p.with-sub {
   margin-block-end: 0;
 }
+h1.link,
+h2.link,
+h3.link,
+p.link {
+  font-weight: normal;
+}
 h1 {
   font-size: 2em;
   margin-block-start: 0.67em;
@@ -280,6 +261,12 @@ figure {
 blockquote {
   border-left: 3px solid #5e6897;
   padding: 0 0 0 1rem;
+  margin: 0 0 0 16px;
+}
+@media (max-width: 450px) {
+  blockquote {
+    margin: 0;
+  }
 }
 p {
   display: block;

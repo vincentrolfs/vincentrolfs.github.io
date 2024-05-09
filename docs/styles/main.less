@@ -12,9 +12,9 @@
 @link-hover: @secondary;
 
 @content-width: 850px;
-@tablet-width: 800px;
+@tablet-width: 850px;
 @small-width: 450px;
-@tiny-width: 370px;
+@tiny-width: 388px;
 
 @bold-weight: 900;
 
@@ -57,7 +57,7 @@ body {
     padding: 0 16px;
   }
 
-  @media (max-width: @small-width) {
+  @media (max-width: @tiny-width) {
     width: unset;
     padding: 0 8px;
   }
@@ -105,7 +105,7 @@ body {
     }
 
     @media (max-width: @small-width) {
-      font-size: 90%;
+      font-size: 85%;
     }
 
     @media (max-width: @tiny-width) {
@@ -148,6 +148,8 @@ body {
 
     @media (max-width: @tablet-width) {
       margin-left: unset;
+      justify-content: space-evenly;
+      width: 100%;
     }
 
     a {

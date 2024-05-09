@@ -14,19 +14,18 @@
 
 <p>
   TypeScript is one of those technologies I trust a lot. If your TypeScript code
-  compiles and you didn't do anything particularly weird, chances are that your
-  code will behave as you expected. That's bascially the main appeal of
-  TypeScript -- it saves us from unexpected surprises.
+  compiles, chances are that it will behave as you expected. That's bascially
+  the main appeal of TypeScript -- it saves us from unexpected surprises.
 </p>
 
 <p>
   But recently, I encountered a particular gotcha were TypeScript left me
-  hanging. Unfortunately, it isn't even a very complicated setup to get there.
+  hanging. Unfortunately, the required setup isn't even very complicated.
 </p>
 
 <p>
-  Imagine you are teaching JavaScript to your second cousin twice removed, and
-  he shows you this code he wrote recently:
+  Imagine you are teaching JavaScript to your friend, and they show you this
+  code they wrote recently:
 </p>
 
 <pre><code>{{ $include("typescript-gotcha/bug.js") }}</code></pre>
@@ -47,8 +46,8 @@
 
 <script data-phantom>
   $include("../components/blogPost.html", {
-    title: 'The meanest TypeScript gotcha I know"',
-    date: "December 12, 2023",
+    title: "When TypeScript lets you down",
+    date: "May 08, 2024",
     slug: "typescript-gotcha",
     order: 2,
     links: {

@@ -134,8 +134,8 @@ body {
   margin-right: 0;
 }
 main {
-  background: #f2f2f2;
   min-height: 100vh;
+  line-height: 1.5;
 }
 main > *:first-child {
   margin-block-start: 0;

@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>The meanest TypeScript gotcha I know"</title>
+    <title>When TypeScript lets you down</title>
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -116,9 +116,9 @@
 
 
       <main>
-<h2 class="with-sub">The meanest TypeScript gotcha I know"</h2>
+<h2 class="with-sub">When TypeScript lets you down</h2>
 <div class="subcaption">
-  December 12, 2023
+  May 8, 2024
   <span id="viewcount"></span>
 </div>
 
@@ -149,19 +149,18 @@
 
 <p>
   TypeScript is one of those technologies I trust a lot. If your TypeScript code
-  compiles and you didn't do anything particularly weird, chances are that your
-  code will behave as you expected. That's bascially the main appeal of
-  TypeScript -- it saves us from unexpected surprises.
+  compiles, chances are that it will behave as you expected. That's bascially
+  the main appeal of TypeScript -- it saves us from unexpected surprises.
 </p>
 
 <p>
   But recently, I encountered a particular gotcha were TypeScript left me
-  hanging. Unfortunately, it isn't even a very complicated setup to get there.
+  hanging. Unfortunately, the required setup isn't even very complicated.
 </p>
 
 <p>
-  Imagine you are teaching JavaScript to your second cousin twice removed, and
-  he shows you this code he wrote recently:
+  Imagine you are teaching JavaScript to your friend, and they show you this
+  code they wrote recently:
 </p>
 
 <pre><code>const data = {

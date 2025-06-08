@@ -1,6 +1,7 @@
-#!/usr/bin/fish
+#!/usr/bin/env fish
 
 set dir (pwd)
-konsole --new-tab --workdir="$dir/docs" -e "$SHELL -c \"python3 server.py\""
-nohup vivaldi "http://localhost:8099" >/dev/null 2>&1 &
+echo "Starting..."
+osascript -e "tell application \"Terminal\" to do script \"cd $dir/docs; python3 server.py\""
+open http://localhost:8099
 ./scripts/watch.fish

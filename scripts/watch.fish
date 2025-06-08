@@ -1,6 +1,12 @@
-#!/usr/bin/fish
+#!/usr/bin/env fish
 
-phantom phantom/ docs/
-inotifywait -m -r -e modify,create,delete,moved_to,moved_from phantom/ |
-    while read dir event file; phantom phantom/ docs/;
+node -v
+
+function run
+    phantom phantom/ docs/
+end
+
+run
+fswatch -o phantom/ | while read f
+    run
 end

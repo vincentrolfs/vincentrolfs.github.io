@@ -149,17 +149,17 @@
 
 <p>
   If you have been working with JavaScript for a while, you probably know there
-  are a couple of different ways to a initialize a variable. Nowadays we usually
+  are a couple of different ways to initialize a variable. Nowadays we usually
   use
 </p>
-<pre><code> const password = "hunter2" </code></pre>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> password <span class="token operator">=</span> <span class="token string">"hunter2"</span></code></pre>
 <p>and only occasionally, if you need some mutable state:</p>
-<pre><code> let password = "hunter2" </code></pre>
+<pre class="language-js"><code class="language-js"><span class="token keyword">let</span> password <span class="token operator">=</span> <span class="token string">"hunter2"</span></code></pre>
 <p>
   These declarations have been around for a while and they have reasonable block
   scoping rules:
 </p>
-<pre><code class="language-js"><span class="token keyword">function</span> <span class="token function">example</span><span class="token punctuation">(</span><span class="token parameter">measurement</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">example</span><span class="token punctuation">(</span><span class="token parameter">measurement</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>calculation<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// ReferenceError</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>anotherCalc<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// ReferenceError</span>
 
@@ -182,25 +182,25 @@
   every variable mutable, with no way to enforce immutability, but to make
   matters worse, <code>var</code> leaks beyond block scope:
 </p>
-<pre><code>function example(measurement) {
-  console.log(calculation); // undefined - accessible! calculation leaked out
-  console.log(i); // undefined - accessible! i leaked out
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">example</span><span class="token punctuation">(</span><span class="token parameter">measurement</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>calculation<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// undefined - accessible! calculation leaked out</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// undefined - accessible! i leaked out</span>
 
-  if (measurement > 1) {
-    var calculation = measurement + 1;
-    // ...
-  } else {
-    // ...
-  }
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>measurement <span class="token operator">></span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> calculation <span class="token operator">=</span> measurement <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token comment">// ...</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token comment">// ...</span>
+  <span class="token punctuation">}</span>
 
-  console.log(calculation); // 1 - accessible! calculation leaked out
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>calculation<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 1 - accessible! calculation leaked out</span>
 
-  for (var i = 0; i < 3; i++) {
-    // ...
-  }
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">3</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// ...</span>
+  <span class="token punctuation">}</span>
 
-  console.log(i); // 3 - accessible! i leaked out
-}
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 3 - accessible! i leaked out</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <p>Terrible!</p>
 <p>
@@ -211,62 +211,62 @@
   littered with var statements like it's 2003
 </a>:
 </p>
-<pre><code>/** @internal */
-export function createSourceMapGenerator(
-  host: EmitHost,
-  file: string,
-  sourceRoot: string,
-  sourcesDirectoryPath: string,
-  generatorOptions: SourceMapGeneratorOptions
-): SourceMapGenerator {
-  /* eslint-disable no-var */
-  var { enter, exit } = generatorOptions.extendedDiagnostics
-    ? performance.createTimer("Source Map", "beforeSourcemap", "afterSourcemap")
-    : performance.nullTimer;
+<pre class="language-ts"><code class="language-ts"><span class="token comment">/** @internal */</span>
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">createSourceMapGenerator</span><span class="token punctuation">(</span>
+  host<span class="token operator">:</span> EmitHost<span class="token punctuation">,</span>
+  file<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>
+  sourceRoot<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>
+  sourcesDirectoryPath<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>
+  generatorOptions<span class="token operator">:</span> SourceMapGeneratorOptions
+<span class="token punctuation">)</span><span class="token operator">:</span> SourceMapGenerator <span class="token punctuation">{</span>
+  <span class="token comment">/* eslint-disable no-var */</span>
+  <span class="token keyword">var</span> <span class="token punctuation">{</span> enter<span class="token punctuation">,</span> exit <span class="token punctuation">}</span> <span class="token operator">=</span> generatorOptions<span class="token punctuation">.</span>extendedDiagnostics
+    <span class="token operator">?</span> performance<span class="token punctuation">.</span><span class="token function">createTimer</span><span class="token punctuation">(</span><span class="token string">"Source Map"</span><span class="token punctuation">,</span> <span class="token string">"beforeSourcemap"</span><span class="token punctuation">,</span> <span class="token string">"afterSourcemap"</span><span class="token punctuation">)</span>
+    <span class="token operator">:</span> performance<span class="token punctuation">.</span>nullTimer<span class="token punctuation">;</span>
 
-  // Current source map file and its index in the sources list
-  var rawSources: string[] = [];
-  var sources: string[] = [];
-  var sourceToSourceIndexMap = new Map<string, number>();
-  var sourcesContent: (string | null)[] | undefined; // eslint-disable-line no-restricted-syntax
+  <span class="token comment">// Current source map file and its index in the sources list</span>
+  <span class="token keyword">var</span> rawSources<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token keyword">var</span> sources<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token keyword">var</span> sourceToSourceIndexMap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map<span class="token operator">&lt;</span><span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token builtin">number</span><span class="token operator">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">var</span> sourcesContent<span class="token operator">:</span> <span class="token punctuation">(</span><span class="token builtin">string</span> <span class="token operator">|</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">|</span> <span class="token keyword">undefined</span><span class="token punctuation">;</span> <span class="token comment">// eslint-disable-line no-restricted-syntax</span>
 
-  var names: string[] = [];
-  var nameToNameIndexMap: Map<string, number> | undefined;
-  var mappingCharCodes: number[] = [];
-  var mappings = "";
+  <span class="token keyword">var</span> names<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token keyword">var</span> nameToNameIndexMap<span class="token operator">:</span> Map<span class="token operator">&lt;</span><span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token builtin">number</span><span class="token operator">></span> <span class="token operator">|</span> <span class="token keyword">undefined</span><span class="token punctuation">;</span>
+  <span class="token keyword">var</span> mappingCharCodes<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token keyword">var</span> mappings <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
 
-  // Last recorded and encoded mappings
-  var lastGeneratedLine = 0;
-  var lastGeneratedCharacter = 0;
-  var lastSourceIndex = 0;
-  var lastSourceLine = 0;
-  var lastSourceCharacter = 0;
-  var lastNameIndex = 0;
-  var hasLast = false;
+  <span class="token comment">// Last recorded and encoded mappings</span>
+  <span class="token keyword">var</span> lastGeneratedLine <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token keyword">var</span> lastGeneratedCharacter <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token keyword">var</span> lastSourceIndex <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token keyword">var</span> lastSourceLine <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token keyword">var</span> lastSourceCharacter <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token keyword">var</span> lastNameIndex <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token keyword">var</span> hasLast <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
 
-  // ... etc
-}
+  <span class="token comment">// ... etc</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <p>
-  The reason has to to with what is called the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#temporal_dead_zone_tdz" target="_blank" rel="noopener noreferrer">
+  The reason has to do with what is called the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#temporal_dead_zone_tdz" target="_blank" rel="noopener noreferrer">
   Temporal Dead
   Zone (TDZ)
 </a>. For each variable in your code, there is a zone where the variable is
   declared but not initialized. The following example makes this clear:
 </p>
-<pre><code>function example() {
-  const result = Math.random() < 0.5 ? useX() : 1; // 50% probability of a ReferenceError
-  const x = 10;
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">example</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> result <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">0.5</span> <span class="token operator">?</span> <span class="token function">useX</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment">// 50% probability of a ReferenceError</span>
+  <span class="token keyword">const</span> x <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
 
-  return result;
+  <span class="token keyword">return</span> result<span class="token punctuation">;</span>
 
-  function useX() {
-    return x;
-  }
-}
+  <span class="token keyword">function</span> <span class="token function">useX</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> x<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <p>
-  In the above example, it it totally valis to declare <code>g</code> at the
+  In the above example, it is totally valid to declare <code>g</code> at the
   bottom of the function. The trouble comes when you call it before
   <code>x</code> has been initialized - in other words, when the interpreter is
   still in the TDZ of <code>x</code>. The interpreter refuses to let you access
@@ -277,18 +277,18 @@ export function createSourceMapGenerator(
   <code>const</code> in this example, there would be no error and the function
   would simply return undefined!
 </p>
-<pre><code>function example() {
-  var result = useX(); // undefined
-  var x = 10;
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">example</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> result <span class="token operator">=</span> <span class="token function">useX</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// undefined</span>
+  <span class="token keyword">var</span> x <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
 
-  return result; // undefined
+  <span class="token keyword">return</span> result<span class="token punctuation">;</span> <span class="token comment">// undefined</span>
 
-  function useX() {
-    return x;
-  }
-}
+  <span class="token keyword">function</span> <span class="token function">useX</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> x<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-console.log(example()); // undefined
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">example</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// undefined</span>
 </code></pre>
 <p>Terrible!</p>
 <p>
@@ -299,7 +299,7 @@ console.log(example()); // undefined
 <p>
   Figuring out whether it is in a variable's TDZ is a lot of work for the
   interpreter. As you can see above, it cannot be done statically, but depends
-  on nondeterministic runtime behaviour. That brings a penalty which was
+  on nondeterministic runtime behavior. That brings a penalty which was
   significant for the TypeScript codebase. After migrating a decent amount of
   their statements to <code>var</code>, <a href="https://github.com/microsoft/TypeScript/issues/52924" target="_blank" rel="noopener noreferrer">
   they saw an 8%
@@ -312,6 +312,19 @@ console.log(example()); // undefined
   migrate their codebase to Go
 </a>.
 </p>
+
+<div class="img-with-subcaption">
+  <img src="/img/blog/ts-var.jpeg" class="blog" />
+  <div class="subcaption">
+    Image generated by
+    <a href="https://stablediffusionweb.com" target="_blank" rel="noopener noreferrer">
+  Stable Diffusion
+</a>
+    <br />
+    An abstract painting interpreting the use of the var keyword in JavaScript
+    codebases
+  </div>
+</div>
 
 
 <div class="divider">

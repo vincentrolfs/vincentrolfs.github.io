@@ -279,34 +279,19 @@ abbr:hover {
   background: #0d1821;
   color: #f2f2f2;
 }
-/* Shared code styling */
-code,
-pre {
-  font-family: "Monaco", "Menlo", "Ubuntu Mono", monospace;
-  background-color: #e0e0e0;
-  border: 1px solid #5e6897;
-  border-radius: 3px;
-  color: #0d1821;
-}
 /* Inline code */
-code {
+code:not(pre > code) {
+  border-radius: 3px;
   padding: 0px 4px;
   font-size: 0.9em;
 }
 /* Code blocks */
-pre {
+pre:has(> code) {
+  border-radius: 6px;
   padding: 16px;
   overflow: auto;
   font-size: 14px;
   line-height: 1.45;
-  margin: 16px 0;
-  border-radius: 6px;
-}
-/* Reset styles for code inside pre blocks */
-pre code {
-  background: none;
-  border: none;
-  padding: 0;
-  color: inherit;
-  font-size: inherit;
+  max-width: 80vw;
+  margin: 0 auto;
 }

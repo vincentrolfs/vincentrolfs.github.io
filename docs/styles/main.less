@@ -204,11 +204,6 @@ main {
   font-weight: bold;
 }
 
-code {
-  font-family: "DejaVu Sans Mono", monospace;
-  font-size: 12pt;
-}
-
 .img-wrapper {
   img {
     display: block;
@@ -352,4 +347,39 @@ abbr {
     background: @secondary;
     color: @white;
   }
+}
+
+/* Shared code styling */
+code,
+pre {
+  font-family: "Monaco", "Menlo", "Ubuntu Mono", monospace;
+  background-color: @grey;
+  border: 1px solid @primary;
+  border-radius: 3px;
+  color: @black;
+}
+
+/* Inline code */
+code {
+  padding: 0px 4px;
+  font-size: 0.9em;
+}
+
+/* Code blocks */
+pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 14px;
+  line-height: 1.45;
+  margin: 16px 0;
+  border-radius: 6px;
+}
+
+/* Reset styles for code inside pre blocks */
+pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
 }

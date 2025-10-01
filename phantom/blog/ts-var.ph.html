@@ -1,9 +1,16 @@
 <script data-phantom>
-  () => {
-    $.ExternalLink = async (text, href) =>
-      (
-        await $include("../core/components/externalLink.html", { text, href })
-      ).trim();
+  async () => {
+    $.externalLink = (text, href) =>
+      $include("../core/components/externalLink.html", { text, href }).then(
+        (it) => it.trim()
+      );
+    const Prism = (await import("prismjs")).default;
+    $.code = (src) =>
+      $include(src)
+        .then((it) =>
+          Prism.highlight(it, Prism.languages.javascript, "javascript")
+        )
+        .then((it) => `<pre><code class="language-js">${it}</code></pre>`);
   };
 </script>
 
@@ -20,7 +27,7 @@
   These declarations have been around for a while and they have reasonable block
   scoping rules:
 </p>
-<pre><code>{{ $include("assets/ts-var/scoping-good.js") }}</code></pre>
+{{ $.code("assets/ts-var/scoping-good.js") }}
 <p>
   But if you have been working with JS for a <strong>really</strong> long while,
   you might remember the time when neither of these declarations were possible.
@@ -32,22 +39,18 @@
 <p>Terrible!</p>
 <p>
   So it was a big surprise to me to find out that the TypeScript codebase (which
-  is itself written in TypeScript &mdash;
-  <a href="https://devblogs.microsoft.com/typescript/typescript-native-port/"
-    >for now</a
-  >) is
-  <a
-    href="https://github.com/microsoft/TypeScript/blob/968d5deb8b5fd4af3ce85433872bdefc1eb17f10/src/compiler/scanner.ts#L1033"
-    >littered with var statements like it's 2003</a
-  >:
+  is itself written in TypeScript &mdash; {{ $.externalLink(`for now`,
+  `https://devblogs.microsoft.com/typescript/typescript-native-port/`) }}) is {{
+  $.externalLink(`littered with var statements like it's 2003`,
+  `https://github.com/microsoft/TypeScript/blob/968d5deb8b5fd4af3ce85433872bdefc1eb17f10/src/compiler/scanner.ts#L1033`)
+  }}:
 </p>
 <pre><code>{{ $include("assets/ts-var/ts-codebase.ts") }}</code></pre>
 <p>
-  The reason has to to with what is called the
-  <a
-    href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#temporal_dead_zone_tdz"
-    >Temporal Dead Zone (TDZ)</a
-  >. For each variable in your code, there is a zone where the variable is
+  The reason has to to with what is called the {{ $.externalLink(`Temporal Dead
+  Zone (TDZ)`,
+  `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#temporal_dead_zone_tdz`)
+  }}. For each variable in your code, there is a zone where the variable is
   declared but not initialized. The following example makes this clear:
 </p>
 <pre><code>{{ $include("assets/ts-var/tdz.js") }}</code></pre>
@@ -75,17 +78,15 @@
   interpreter. As you can see above, it cannot be done statically, but depends
   on nondeterministic runtime behaviour. That brings a penalty which was
   significant for the TypeScript codebase. After migrating a decent amount of
-  their statements to <code>var</code>,
-  <a href="https://github.com/microsoft/TypeScript/issues/52924"
-    >they saw an 8% performance improvement across some benchmarks</a
-  >.
+  their statements to <code>var</code>, {{ $.externalLink(`they saw an 8%
+  performance improvement across some benchmarks`,
+  `https://github.com/microsoft/TypeScript/issues/52924`) }}.
 </p>
 <p>
   I for one am very happy that I don't have to use <code>var</code> anymore. And
-  for TypeScript, I'm sure it's just another reason to
-  <a href="https://devblogs.microsoft.com/typescript/typescript-native-port/"
-    >migrate their codebase to Go</a
-  >.
+  for TypeScript, I'm sure it's just another reason to {{
+  $.externalLink(`migrate their codebase to Go`,
+  `https://devblogs.microsoft.com/typescript/typescript-native-port/`) }}.
 </p>
 {{ $endSlot() }}
 
@@ -96,6 +97,7 @@
     date: "2025-10-01",
     slug: "ts-var",
     order: 2,
+    prism: true,
     links: {
       // reddit:
       //   "https://www.reddit.com/r/programming/comments/yznwbh/the_word_sprint_in_agile_development_an/",

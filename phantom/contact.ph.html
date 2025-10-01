@@ -1,6 +1,6 @@
 <script data-phantom>
   () => {
-    $.ExternalLink = async (text, href) =>
+    $.externalLink = async (text, href) =>
       (
         await $include("core/components/externalLink.html", { text, href })
       ).trim();
@@ -17,7 +17,7 @@
 
 <p>
   You can follow me on Mastodon at
-  {{$.ExternalLink("@vincentrolfs@hachyderm.io","https://hachyderm.io/@vincentrolfs")}}.
+  {{$.externalLink("@vincentrolfs@hachyderm.io","https://hachyderm.io/@vincentrolfs")}}.
 </p>
 {{ $endSlot() }}
 

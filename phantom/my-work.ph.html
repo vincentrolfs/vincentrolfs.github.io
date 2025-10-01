@@ -1,6 +1,6 @@
 <script data-phantom>
   () => {
-    $.ExternalLink = async (text, href) =>
+    $.externalLink = async (text, href) =>
       (
         await $include("core/components/externalLink.html", { text, href })
       ).trim();
@@ -124,7 +124,7 @@ security certified by Silent Breach.
 </p>
 <p>
   <script data-phantom>
-    $.ExternalLink(
+    $.externalLink(
       "Open Eulerdali",
       "https://vincentrolfs.github.io/eulerdali"
     );
@@ -132,7 +132,7 @@ security certified by Silent Breach.
 </p>
 <p>
   <script data-phantom>
-    $.ExternalLink(
+    $.externalLink(
       "Check out the code on GitHub",
       "https://github.com/vincentrolfs/eulerdali"
     );
@@ -159,7 +159,7 @@ security certified by Silent Breach.
 </p>
 <p>
   <script data-phantom>
-    $.ExternalLink(
+    $.externalLink(
       'Play "Helena Blache und die Suche nach dem verlorenen Mirco"',
       "https://vincentrolfs.github.io/hochzeit"
     );
@@ -167,7 +167,7 @@ security certified by Silent Breach.
 </p>
 <p>
   <script data-phantom>
-    $.ExternalLink(
+    $.externalLink(
       "Check out the code on GitHub (very old, bad code, but fun!)",
       "https://github.com/vincentrolfs/hochzeit"
     );

@@ -3,7 +3,7 @@
 node -v
 
 function run
-    phantom phantom/ docs/
+    npm run phantom
 end
 
 run

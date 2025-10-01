@@ -62,7 +62,7 @@
       src="//gc.zgo.at/count.js"
     ></script>
 
-    
+    	<link href="/include/prism/prism.css" rel="stylesheet" />
   </head>
   <body>
     <div id="wrapper">
@@ -159,21 +159,21 @@
   These declarations have been around for a while and they have reasonable block
   scoping rules:
 </p>
-<pre><code>function example(measurement) {
-  console.log(calculation); // ReferenceError
-  console.log(anotherCalc); // ReferenceError
+<pre><code class="language-js"><span class="token keyword">function</span> <span class="token function">example</span><span class="token punctuation">(</span><span class="token parameter">measurement</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>calculation<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// ReferenceError</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>anotherCalc<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// ReferenceError</span>
 
-  if (measurement > 1) {
-    const calculation = measurement + 1;
-    let anotherCalc = measurement * 2;
-    // ...
-  } else {
-    // ...
-  }
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>measurement <span class="token operator">></span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> calculation <span class="token operator">=</span> measurement <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> anotherCalc <span class="token operator">=</span> measurement <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">;</span>
+    <span class="token comment">// ...</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token comment">// ...</span>
+  <span class="token punctuation">}</span>
 
-  console.log(calculation); // ReferenceError
-  console.log(anotherCalc); // ReferenceError
-}
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>calculation<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// ReferenceError</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>anotherCalc<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// ReferenceError</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <p>
   But if you have been working with JS for a <strong>really</strong> long while,
@@ -205,14 +205,11 @@
 <p>Terrible!</p>
 <p>
   So it was a big surprise to me to find out that the TypeScript codebase (which
-  is itself written in TypeScript &mdash;
-  <a href="https://devblogs.microsoft.com/typescript/typescript-native-port/"
-    >for now</a
-  >) is
-  <a
-    href="https://github.com/microsoft/TypeScript/blob/968d5deb8b5fd4af3ce85433872bdefc1eb17f10/src/compiler/scanner.ts#L1033"
-    >littered with var statements like it's 2003</a
-  >:
+  is itself written in TypeScript &mdash; <a href="https://devblogs.microsoft.com/typescript/typescript-native-port/" target="_blank" rel="noopener noreferrer">
+  for now
+</a>) is <a href="https://github.com/microsoft/TypeScript/blob/968d5deb8b5fd4af3ce85433872bdefc1eb17f10/src/compiler/scanner.ts#L1033" target="_blank" rel="noopener noreferrer">
+  littered with var statements like it's 2003
+</a>:
 </p>
 <pre><code>/** @internal */
 export function createSourceMapGenerator(
@@ -251,11 +248,10 @@ export function createSourceMapGenerator(
 }
 </code></pre>
 <p>
-  The reason has to to with what is called the
-  <a
-    href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#temporal_dead_zone_tdz"
-    >Temporal Dead Zone (TDZ)</a
-  >. For each variable in your code, there is a zone where the variable is
+  The reason has to to with what is called the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#temporal_dead_zone_tdz" target="_blank" rel="noopener noreferrer">
+  Temporal Dead
+  Zone (TDZ)
+</a>. For each variable in your code, there is a zone where the variable is
   declared but not initialized. The following example makes this clear:
 </p>
 <pre><code>function example() {
@@ -305,17 +301,16 @@ console.log(example()); // undefined
   interpreter. As you can see above, it cannot be done statically, but depends
   on nondeterministic runtime behaviour. That brings a penalty which was
   significant for the TypeScript codebase. After migrating a decent amount of
-  their statements to <code>var</code>,
-  <a href="https://github.com/microsoft/TypeScript/issues/52924"
-    >they saw an 8% performance improvement across some benchmarks</a
-  >.
+  their statements to <code>var</code>, <a href="https://github.com/microsoft/TypeScript/issues/52924" target="_blank" rel="noopener noreferrer">
+  they saw an 8%
+  performance improvement across some benchmarks
+</a>.
 </p>
 <p>
   I for one am very happy that I don't have to use <code>var</code> anymore. And
-  for TypeScript, I'm sure it's just another reason to
-  <a href="https://devblogs.microsoft.com/typescript/typescript-native-port/"
-    >migrate their codebase to Go</a
-  >.
+  for TypeScript, I'm sure it's just another reason to <a href="https://devblogs.microsoft.com/typescript/typescript-native-port/" target="_blank" rel="noopener noreferrer">
+  migrate their codebase to Go
+</a>.
 </p>
 
 

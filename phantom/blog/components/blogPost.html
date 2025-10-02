@@ -22,14 +22,24 @@
   <hr />
 </div>
 
-<p>
-  Discuss this article on
-  <a href="{{ $props.links.reddit }}" target="_blank" rel="noopener">Reddit</a>
-  or
-  <a href="{{ $props.links.hackerNews }}" target="_blank" rel="noopener"
-    >Hacker News</a
-  >.
-</p>
+<script data-phantom>
+  () => {
+    const hnLink =
+      $props.links.hackerNews &&
+      `<a href="${$props.links.hackerNews}" target="_blank" rel="noopener">Hacker News</a>`;
+    const redditLink =
+      $props.links.reddit &&
+      `<a href="${$props.links.reddit}" target="_blank" rel="noopener">Reddit</a>`;
+
+    const links = [hnLink, redditLink].filter((it) => it);
+
+    if (!links.length) {
+      return null;
+    }
+
+    return `<p>Discuss this article on ${links.join(", ")}.</p>`;
+  };
+</script>
 
 <p>
   Feel free to email me at

@@ -1,0 +1,44 @@
+{{ $slot("content") }}
+<h2>写中文</h2>
+
+<p>
+  这是我写中文的地方。<abbr title="tōngguò: by">通过</abbr
+  >经常写中文，我可以提高得更快。 我真的要能好好说中文，因为我觉得在<abbr
+    title="wèilái: coming, approaching"
+    >未来</abbr
+  >几年 中文的<abbr title="zhòngyàoxìng: importance">重要性</abbr>会<abbr
+    title="zēngjiā: to raise / to increase"
+    >增加</abbr
+  >。
+</p>
+
+<p>
+  我刚刚找到一个新的中文<abbr title="zìtǐ: font">字体</abbr>。我没有把它<abbr
+    title="tiānjiā: to add"
+    >添加</abbr
+  >到<abbr title="wǎngzhàn: website">网站</abbr>上， 因为字体<abbr
+    title="wénjiàn: file"
+    >文件</abbr
+  >很大。如果你<abbr title="ānzhuāng: to install">安装</abbr>了字体“小<abbr
+    title="Lài"
+    >赖</abbr
+  >”，你可以看到它。
+</p>
+
+<p>
+  我<abbr title="yìshí: to realize">意识</abbr>到有很多中文字体。我觉得<abbr
+    title="dàduōshù: the majority"
+    >大多数</abbr
+  >网站都用<abbr title="xiāngtóng: the same">相同</abbr>的字体。
+  在未来可能这会<abbr title="gǎibiàn: to change">改变</abbr>。
+</p>
+{{ $endSlot() }}
+
+<script data-phantom>
+  $include("core/components/main.html", {
+    title: "Vincent Rolfs | 中文",
+    description: "",
+    blockIndexing: true,
+    content: $slots.content,
+  });
+</script>

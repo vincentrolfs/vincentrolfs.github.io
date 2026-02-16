@@ -1,0 +1,42 @@
+{{ $slot("content") }}
+
+<!--
+In order to become a better programmer, I need to become
+a better writer. Unfortunately, in order to be a good writer, one first needs to
+be a bad writer. So here it goes.
+-->
+
+<script data-phantom>
+  async () => {
+    const fs = await import("node:fs/promises");
+
+    const blogPosts = [];
+    const blogPostFiles = await fs.readdir("phantom/blog");
+
+    await Promise.all(
+      blogPostFiles.map(
+        (filename) =>
+          filename.endsWith(".ph.html") &&
+          $include(`blog/${filename}`, {
+            callback(post) {
+              blogPosts.push(post);
+            },
+          }),
+      ),
+    );
+
+    return blogPosts
+      .sort((a, b) => b.order - a.order)
+      .map((post) => $include("blog/components/blogPostLink.html", { post }));
+  };
+</script>
+{{ $endSlot() }}
+
+<script data-phantom>
+  $include("core/components/main.html", {
+    title: "Vincent Rolfs | Blog",
+    description: `Blog of Vincent Rolfs.`,
+    navSelection: "blog",
+    content: $slots.content,
+  });
+</script>

@@ -1,0 +1,21 @@
+<script>
+  "use strict";
+
+  const slug = "{{ $props.slug }}";
+  const request = new XMLHttpRequest();
+
+  request.addEventListener("load", function () {
+    document.querySelector("#viewcount").innerHTML =
+      " &ndash; " + JSON.parse(this.responseText).count + " views";
+  });
+
+  request.open(
+    "GET",
+    "https://vincentrolfs.goatcounter.com/counter/" +
+      encodeURIComponent("/blog/" + slug) +
+      ".json?" +
+      +Date.now()
+  );
+  
+  request.send();
+</script>

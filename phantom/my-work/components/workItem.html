@@ -1,0 +1,56 @@
+<h3>
+  <script data-phantom>
+    $props.title;
+  </script>
+</h3>
+
+<div class="work-item">
+  <script data-phantom>
+    $props.image
+      ? `
+            <div class="img-wrapper">
+                <img src="/img/projects/${$props.image}" />
+            </div>
+        `
+      : "";
+  </script>
+
+  <p>
+    <script data-phantom>
+      $props.description;
+    </script>
+  </p>
+
+  <h4>Languages</h4>
+  <script data-phantom>
+    $props.languages;
+  </script>
+
+  <h4>Technologies</h4>
+  <script data-phantom>
+    $props.technologies;
+  </script>
+
+  <h4>Time frame</h4>
+  <script data-phantom>
+    $props.timeframe;
+  </script>
+
+  <script data-phantom>
+    $props.clientUrl && $props.clientName
+      ? `
+            <h4>Client</h4>
+            <a href="${$props.clientUrl}" target="_blank" rel="noopener">${$props.clientName}</a>
+        `
+      : "";
+  </script>
+</div>
+
+<script data-phantom>
+  $props.divider &&
+    `
+            <div class="divider">
+                <hr/>
+            </div>
+        `;
+</script>

@@ -1,0 +1,175 @@
+{{ $slot("content") }}
+<h2>🔒 Encrypt a message for me</h2>
+
+<div style="display: flex; flex-direction: column; row-gap: 12px">
+  <label for="inputText">Enter your message to encrypt:</label>
+  <textarea
+    id="inputText"
+    placeholder="Type your secret message here..."
+    maxlength="10000"
+    rows="10"
+  ></textarea>
+
+  <button id="encryptBtn" onclick="encryptText()">🔐 Encrypt</button>
+
+  <div id="status" style="font-style: italic"></div>
+
+  <label for="outputText">Encrypted message:</label>
+  <textarea
+    id="outputText"
+    readonly
+    placeholder="Your encrypted message will appear here..."
+    rows="10"
+  ></textarea>
+</div>
+
+<script>
+  const publicKeyArmored = `-----BEGIN PGP PUBLIC KEY BLOCK-----
+
+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
+bllj3Q==
+=XXdE
+-----END PGP PUBLIC KEY BLOCK-----`;
+
+  async function encryptText() {
+    const inputText = document.getElementById("inputText").value;
+    const outputTextarea = document.getElementById("outputText");
+    const statusDiv = document.getElementById("status");
+    const encryptBtn = document.getElementById("encryptBtn");
+
+    outputTextarea.value = "";
+
+    if (!inputText.trim()) {
+      statusDiv.innerHTML =
+        '<span class="error">Please enter some text to encrypt.</span>';
+      return;
+    }
+
+    try {
+      // Disable button and show loading
+      encryptBtn.disabled = true;
+      statusDiv.innerHTML = "Encrypting message...";
+
+      // Read the public key
+      const publicKey = await openpgp.readKey({ armoredKey: publicKeyArmored });
+
+      // Create message
+      const message = await openpgp.createMessage({ text: inputText });
+
+      // Encrypt the message
+      const encrypted = await openpgp.encrypt({
+        message: message,
+        encryptionKeys: publicKey,
+      });
+
+      // Display the encrypted message
+      outputTextarea.value = encrypted;
+      statusDiv.innerHTML =
+        '<span class="success">✅ Message encrypted successfully! Copy the encrypted text below and send it to me.</span>';
+
+      // Auto-select the output text for easy copying
+      outputTextarea.select();
+      outputTextarea.setSelectionRange(0, 99999); // For mobile devices
+    } catch (error) {
+      console.error("Encryption error:", error);
+      statusDiv.innerHTML =
+        '<span class="error">❌ Encryption failed. Please check the public key format.</span>';
+      outputTextarea.value = "";
+    } finally {
+      encryptBtn.disabled = false;
+    }
+  }
+
+  // Allow Enter key to trigger encryption (Ctrl+Enter since Enter is needed for new lines)
+  document
+    .getElementById("inputText")
+    .addEventListener("keydown", function (event) {
+      if (event.ctrlKey && event.key === "Enter") {
+        encryptText();
+      }
+    });
+
+  // Auto-copy functionality when clicking on output textarea
+  document.getElementById("outputText").addEventListener("click", function () {
+    if (this.value) {
+      this.select();
+      this.setSelectionRange(0, 99999);
+      try {
+        document.execCommand("copy");
+        document.getElementById("status").innerHTML =
+          '<span class="success">📋 Encrypted message copied to clipboard!</span>';
+      } catch (err) {
+        console.log("Copy failed:", err);
+      }
+    }
+  });
+</script>
+{{ $endSlot() }}
+
+<script data-phantom>
+  $include("core/components/main.html", {
+    title: "Vincent Rolfs | Encryption tool",
+    description: "",
+    blockIndexing: true,
+    content: $slots.content,
+    head: `<script src="/include/openpgp-5.11.0/openpgp.min.js"></${"script"}><style>
+
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: monospace;
+    box-sizing: border-box;
+}
+
+      </style>
+      `,
+  });
+</script>

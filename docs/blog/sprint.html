@@ -1,0 +1,244 @@
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>The word "Sprint" in agile development: An unfortunate misnomer</title>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Blog of Vincent Rolfs. Vincent is a freelance Software Engineer and IT-Consultant. He has more than ten years experience in developing complex applications on the web."
+    />
+    
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;900&display=swap"
+      rel="stylesheet"
+    />
+    <link href="/styles/main.css" rel="stylesheet" />
+
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/img/icons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/img/icons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/img/icons/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/img/icons/site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="/img/icons/safari-pinned-tab.svg"
+      color="#80232E"
+    />
+    <link rel="shortcut icon" href="/img/icons/favicon.ico" />
+    <meta name="msapplication-TileColor" content="#b91d47" />
+    <meta name="msapplication-config" content="/img/icons/browserconfig.xml" />
+    <meta name="theme-color" content="#ffffff" />
+
+    
+
+    <script
+      data-goatcounter="https://vincentrolfs.goatcounter.com/count"
+      async
+      src="//gc.zgo.at/count.js"
+    ></script>
+
+    
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="caption">
+  <div id="caption-wrap">
+    <div id="logo">
+      <a href="/">
+        <img
+          src="/img/vincent-circle.png"
+          alt="A picture of Vincent Rolfs"
+          width="100"
+        />
+      </a>
+    </div>
+
+    <a href="/">
+      <h1>Vincent Rolfs</h1>
+
+      <div>Software Engineer</div>
+    </a>
+
+    <nav>
+      <a
+        class=""
+        href="/"
+      >
+        About me
+      </a>
+      <a
+        class=""
+        href="/my-work"
+      >
+        Portfolio</a
+      >
+      <a
+        class=""
+        href="/blog"
+      >
+        Blog
+      </a>
+      <a
+        class=""
+        href="/contact"
+      >
+        Contact
+      </a>
+    </nav>
+  </div>
+
+  <hr />
+</div>
+
+
+      <main>
+<h2 class="with-sub">The word "Sprint" in agile development: An unfortunate misnomer</h2>
+<div class="subcaption">
+  November 19, 2022
+  <span id="viewcount"></span>
+</div>
+
+<script>
+  "use strict";
+
+  const slug = "sprint";
+  const request = new XMLHttpRequest();
+
+  request.addEventListener("load", function () {
+    document.querySelector("#viewcount").innerHTML =
+      " &ndash; " + JSON.parse(this.responseText).count + " views";
+  });
+
+  request.open(
+    "GET",
+    "https://vincentrolfs.goatcounter.com/counter/" +
+      encodeURIComponent("/blog/" + slug) +
+      ".json?" +
+      +Date.now()
+  );
+  
+  request.send();
+</script>
+
+
+
+<p>
+  The other day David Whitney made an interesting comment about the word
+  "Sprint":
+</p>
+
+<blockquote>
+  <p>
+    I kind of rue the day scrum normalised the term "sprint" for the
+    connotations it carries.
+  </p>
+  <p>
+    <a href="https://mastodon.social/@david_whitney/109358975192675187" target="_blank" rel="noopener noreferrer">
+  <em>@david_whitney@mastodon.social</em>
+</a>
+  </p>
+</blockquote>
+
+<p>
+  It made me realize that I always found the term Sprint highly misleading. In
+  fact, when I first learned about agile software development, I thought that a
+  Sprint is something you do when you struggle to meet a deadline and you
+  scramble to deliver something to your stakeholders. Of course, nothing could
+  be further from the truth! In fact, the official
+  <a href="https://www.scrum.org/resources/scrum-glossary" target="_blank" rel="noopener noreferrer">
+  Scrum Glossary
+</a>
+  writes: "Sprints are done consecutively, without intermediate gaps".
+</p>
+
+<p>
+  Have you ever sprinted consecutively many times in a row, without intermediate
+  gaps? Sounds like hell. Actually, a Sprint kind of sounds like the opposite of
+  what it describes, which is a steady run of work, repeated week after week. On
+  Mastodon I
+  <a href="https://hachyderm.io/@vincentrolfs/109359088982735858" target="_blank" rel="noopener noreferrer">
+  proposed
+</a>
+  the term "Lap", as in a lap of a marathon. This seems to fit the meaning much
+  better &ndash; at least one can imagine running many laps in a row.
+</p>
+
+<p>
+  But all of this made me curious about the origin of the word. "Sprints" were
+  apparently coined by Jeff Sutherland, who
+  <a href="https://pm.stackexchange.com/questions/27932/why-is-scrum-iteration-called-a-sprint" target="_blank" rel="noopener noreferrer">
+  writes
+</a>:
+</p>
+<blockquote>
+  <p>
+    And so my team embarked on what we called "Sprints". We called them that
+    because the name evoked a quality of intensity. We were going to work all
+    out for a short period of time and then stop to see where we were.
+  </p>
+  <p>
+    <em
+      >Jeff Sutherland in Scrum: The Art of Doing Twice the Work in Half the
+      Time</em
+    >
+  </p>
+</blockquote>
+
+<p>
+  Looking back, I guess this makes sense if you consider Sprint reviews and
+  retrospectives apart from the Sprint itself. Nowadays most people work in a
+  way where those things are seen as part of the Sprint, which only ends once
+  the next one starts.
+</p>
+
+<p>
+  And so our Sprints have become never ending, an ongoing toil with no
+  respite...
+</p>
+
+
+<div class="divider">
+  <hr />
+</div>
+
+<p>Discuss this article on <a href="https://news.ycombinator.com/item?id=45446351" target="_blank" rel="noopener">Hacker News</a>, <a href="https://www.reddit.com/r/programming/comments/yznwbh/the_word_sprint_in_agile_development_an/" target="_blank" rel="noopener">Reddit</a>.</p>
+
+<p>
+  Feel free to email me at
+  <a href="mailto:mail@vincentrolfs.dev">mail@vincentrolfs.dev</a>. Or you can
+  follow me on Mastodon at
+  <a href="https://hachyderm.io/@vincentrolfs" target="_blank" rel="noopener"
+    >@vincentrolfs@hachyderm.io</a
+  >.
+</p>
+</main>
+    </div>
+  </body>
+</html>
+
+

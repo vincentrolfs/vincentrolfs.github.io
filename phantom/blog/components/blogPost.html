@@ -1,0 +1,64 @@
+<script data-phantom>
+  async () => {
+    $props.callback?.($props);
+    $.dateUtils = await import($resolve("phantom/core/utils/dateUtils.mjs"));
+  };
+</script>
+
+{{ $slot("content") }}
+<h2 class="with-sub">{{$props.title}}</h2>
+<div class="subcaption">
+  {{$.dateUtils.formatDate($props.date)}}
+  <span id="viewcount"></span>
+</div>
+
+<script data-phantom>
+  $include("loadViewcount.html", { slug: $props.slug });
+</script>
+
+{{ $props.content }}
+
+<div class="divider">
+  <hr />
+</div>
+
+<script data-phantom>
+  () => {
+    const hnLink =
+      $props.links.hackerNews &&
+      `<a href="${$props.links.hackerNews}" target="_blank" rel="noopener">Hacker News</a>`;
+    const redditLink =
+      $props.links.reddit &&
+      `<a href="${$props.links.reddit}" target="_blank" rel="noopener">Reddit</a>`;
+
+    const links = [hnLink, redditLink].filter((it) => it);
+
+    if (!links.length) {
+      return null;
+    }
+
+    return `<p>Discuss this article on ${links.join(", ")}.</p>`;
+  };
+</script>
+
+<p>
+  Feel free to email me at
+  <a href="mailto:mail@vincentrolfs.dev">mail@vincentrolfs.dev</a>. Or you can
+  follow me on Mastodon at
+  <a href="https://hachyderm.io/@vincentrolfs" target="_blank" rel="noopener"
+    >@vincentrolfs@hachyderm.io</a
+  >.
+</p>
+{{ $endSlot() }}
+
+<script data-phantom>
+  $include("../../core/components/main.html", {
+    title: $props.title,
+    description: `Blog of Vincent Rolfs.`,
+    navSelection: "",
+    content: $slots.content,
+    head: $props.prism
+      ? `	<link href="/include/prism/prism.css" rel="stylesheet" />`
+      : undefined,
+  });
+</script>

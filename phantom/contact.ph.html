@@ -1,0 +1,31 @@
+<script data-phantom>
+  () => {
+    $.externalLink = async (text, href) =>
+      (
+        await $include("core/components/externalLink.html", { text, href })
+      ).trim();
+  };
+</script>
+
+{{ $slot("content") }}
+<h2>Contact</h2>
+
+<p>
+  Feel free to email me at
+  <a href="mailto:mail@vincentrolfs.dev">mail@vincentrolfs.dev</a>.
+</p>
+
+<p>
+  You can follow me on Mastodon at
+  {{$.externalLink("@vincentrolfs@hachyderm.io","https://hachyderm.io/@vincentrolfs")}}.
+</p>
+{{ $endSlot() }}
+
+<script data-phantom>
+  $include("core/components/main.html", {
+    title: "Vincent Rolfs | Contact",
+    description: `Contact information of Vincent Rolfs.`,
+    navSelection: "contact",
+    content: $slots.content,
+  });
+</script>

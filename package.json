@@ -1,0 +1,18 @@
+{
+  "name": "vincentrolfs",
+  "version": "1.0.0",
+  "type": "commonjs",
+  "scripts": {
+    "prepare": "relative-deps",
+    "phantom": "./node_modules/phantom-templating/src/index.js phantom/ docs/"
+  },
+  "dependencies": {
+    "prismjs": "^1.30.0"
+  },
+  "relativeDependencies": {
+    "phantom-templating": "../phantom"
+  },
+  "devDependencies": {
+    "relative-deps": "^1.0.0"
+  }
+}

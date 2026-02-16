@@ -1,0 +1,15 @@
+<script data-phantom>
+  async () => {
+    const { formatDate } = await import(
+      $resolve("phantom/core/utils/dateUtils.mjs")
+    );
+
+    $.date = formatDate($props.post.date);
+  };
+</script>
+
+<h2 class="with-sub link">
+  <a href="/blog/{{$props.post.slug}}">{{$props.post.title}}</a>
+</h2>
+
+<div class="subcaption">{{$.date}}</div>

@@ -1,0 +1,198 @@
+<script data-phantom>
+  () => {
+    $.externalLink = async (text, href) =>
+      (
+        await $include("core/components/externalLink.html", { text, href })
+      ).trim();
+  };
+</script>
+
+{{ $slot("content") }}
+
+<h2>Professional projects</h2>
+
+<script data-phantom>
+  $include("my-work/components/workItem.html", {
+    title: "CTO at Renaldo GmbH",
+    description: `
+    I joined Renaldo as CTO in 2025, with the goal of providing technicial guidance and focusing on automating internal and external processes. In a couple of years, we aim to be the biggest player for planning and managing house renovations in Germany, which requires us the strive for never before seen efficiency. With a combination of bespoke software components and clever AI-supported tools we are working hard on achieving that.
+    `,
+    languages: "TypeScript, SQL, Bash",
+    technologies: "Node.JS, PostgreSQL, NestJS, Prisma ORM, React",
+    timeframe: "January 2025 &ndash; Ongoing",
+    clientUrl: "https://www.renaldo.de",
+    clientName: "Renaldo",
+    divider: true,
+  });
+</script>
+
+<script data-phantom>
+  $include("my-work/components/workItem.html", {
+    title: "Senior Software Developer for Hawle Austria Group",
+    description: `
+    I am supporting the Hawle Group in building a new IOT backend, which processes real-time data
+from appliances used by engineers throughout Austria. As part of this, I am responsible for
+planning the software architecture and carrying out code reviews, especially from a performance
+and security perspective. As part of the work, I am developing an integration testing module for
+the Hawle Group, which is used for testing the app's interactions with the database, email services
+and webhooks.
+    `,
+    languages: "TypeScript, SQL, Bash",
+    technologies: "Node.JS, PostgreSQL, NestJS, Prisma ORM",
+    timeframe: "September 2023 &ndash; Ongoing",
+    clientUrl: "https://www.hawle.com",
+    clientName: "Hawle Austria Group",
+    divider: true,
+  });
+</script>
+
+<script data-phantom>
+  $include("my-work/components/workItem.html", {
+    title: "Senior software developer for Ecoworks",
+    description: `
+    I have supported Ecoworks in building a complex, business-critical cost-calculation and planning tool for the construction business. My main focus was on guiding team members, improving the software architecture and maintaining a high code quality.
+For example, I introduced Redux in the frontend, which greatly simplified the handling of complex, global state changes. I also championed the use of Behaviour-driven development, which increased our trust in the correctness of our cost calculation. My biggest contribution was the development of a parser and interpreter for a Domain Specific Language for specifying complex cost calculations.
+    `,
+    languages: "Kotlin, SQL, Bash",
+    technologies:
+      "React, Spring, PostgreSQL, Kotlin/JS, Material UI, Platform.sh",
+    timeframe: "June 2022 &ndash; June 2023",
+    clientUrl: "https://ecoworks.tech",
+    clientName: "ecoworks",
+    divider: true,
+  });
+</script>
+
+<script data-phantom>
+  $include("my-work/components/workItem.html", {
+    title: "Lead Software developer for Arcensus",
+    description: `
+    As the software development lead, I was responsible for the technical guidance, code quality and
+daily cooperation with the product team. With the customer portal, we built the entrypoint for the
+clients: This is the place where medical data is transmitted to Arcensus and medical reports can be
+accessed by the users. We are dealing with highly sensitive data and have been repeatedly
+security certified by Silent Breach.
+    `,
+    languages: "TypeScript, SQL, Bash",
+    technologies:
+      "React, Node.JS, PostgreSQL, Blitz.js, Prisma ORM, Chakra UI, Render, AWS",
+    timeframe: "May 2021 &ndash; ongoing",
+    clientUrl: "https://arcensus-diagnostics.com/",
+    clientName: "Arcensus",
+    divider: true,
+  });
+</script>
+
+<script data-phantom>
+  $include("my-work/components/workItem.html", {
+    title: "Lead Software developer for AeroImpulse",
+    image: "cbt.png",
+    description: `
+    We are developing an online training platform that allows clients to buy, create, schedule and administrate online trainings.
+    `,
+    languages: "TypeScript, PHP, SQL, Bash",
+    technologies:
+      "React, Laravel, MySQL, Material UI, Google Cloud Platform, Kubernetes",
+    timeframe: "September 2018 &ndash; Ongoing",
+    clientUrl: "https://www.aeroimpulse.de/",
+    clientName: "AeroImpulse",
+    divider: true,
+  });
+</script>
+
+<script data-phantom>
+  $include("my-work/components/workItem.html", {
+    title:
+      "Lead Software developer for HCP - Hanseatic Consulting Projektgesellschaft",
+    image: "hc-central.png",
+    description: `
+    We developed a project management platform for scheduling meetings, tracking todos, managing knowledge and more.
+    `,
+    languages: "TypeScript, PHP, SQL, Bash",
+    technologies: "React, Laravel, PostgreSQL, Bootstrap",
+    timeframe: "May 2017 &ndash; March 2019",
+    clientName: "HCP - Hanseatic Consulting Projektgesellschaft",
+    divider: true,
+  });
+</script>
+
+<h2>Personal projects</h2>
+
+{{ $slot("eulerdali") }}
+<p>
+  Eulerdali — a tool that lets you create beautiful images from math equations.
+</p>
+<p>
+  <script data-phantom>
+    $.externalLink(
+      "Open Eulerdali",
+      "https://vincentrolfs.github.io/eulerdali"
+    );
+  </script>
+</p>
+<p>
+  <script data-phantom>
+    $.externalLink(
+      "Check out the code on GitHub",
+      "https://github.com/vincentrolfs/eulerdali"
+    );
+  </script>
+</p>
+{{ $slot("content") }}
+
+<script data-phantom>
+  $include("my-work/components/workItem.html", {
+    title: "Tool to create art using math equations. (2021)",
+    image: "eulerdali.png",
+    description: $slots.eulerdali,
+    languages: "TypeScript",
+    technologies: "HTML Canvas",
+    timeframe: "2021",
+    divider: true,
+  });
+</script>
+
+{{ $slot("weddingGame") }}
+<p>
+  A RPG full of riddles in Pokémon style graphics. I created it as a gift for my
+  friend's wedding.
+</p>
+<p>
+  <script data-phantom>
+    $.externalLink(
+      'Play "Helena Blache und die Suche nach dem verlorenen Mirco"',
+      "https://vincentrolfs.github.io/hochzeit"
+    );
+  </script>
+</p>
+<p>
+  <script data-phantom>
+    $.externalLink(
+      "Check out the code on GitHub (very old, bad code, but fun!)",
+      "https://github.com/vincentrolfs/hochzeit"
+    );
+  </script>
+</p>
+{{ $slot("content") }}
+
+<script data-phantom>
+  $include("my-work/components/workItem.html", {
+    title: "Riddle RPG (2020)",
+    image: "hochzeit.png",
+    description: $slots.weddingGame,
+    languages: "JavaScript",
+    technologies: "Quintus game engine",
+    timeframe: "2020, based on earlier work of mine from 2014",
+    divider: false,
+  });
+</script>
+{{ $endSlot() }}
+
+<script data-phantom>
+  $include("core/components/main.html", {
+    title: "Vincent Rolfs | My work",
+    description: `Vincent Rolfs' professional software development portfolio.`,
+    navSelection: "portfolio",
+    content: $slots.content,
+  });
+</script>

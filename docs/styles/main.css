@@ -181,7 +181,6 @@ main a:hover {
 .img-with-subcaption img {
   display: block;
   width: 100%;
-  max-width: 256px;
   margin-bottom: 8px;
 }
 .work-item {

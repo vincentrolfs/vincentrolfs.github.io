@@ -4,20 +4,69 @@
       $include("../core/components/externalLink.html", { text, href }).then(
         (it) => it.trim(),
       );
+
+    $.figure = (href, caption) => `<figure class="img-with-subcaption">
+        <a href="/blog/collatz/${href}" target="_blank"><img src="/blog/collatz/${href}" alt="" /></a>
+        <figcaption>
+          ${caption} Click to open in a new tab.
+        </figcaption>
+      </figure>`;
+
+    $.ref = (num) => `<a href="#ref-${num}"><sup>[${num}]</sup></a>`;
   };
 </script>
 
-{{ $slot("content") }}
+{{ $slot("head") }}
+
+<script>
+  MathJax = {
+    output: {
+      displayOverflow: "linebreak", // break long lines
+      linebreaks: {
+        // options for when overflow is linebreak
+        inline: true, // true for browser-based breaking of in-line equations
+        width: "100%", // a fixed size or a percentage of the container width
+        lineleading: 0.2, // the default lineleading in em units
+        LinebreakVisitor: null, // The LinebreakVisitor to use
+      },
+    },
+    tex: {
+      inlineMath: [
+        ["$", "$"],
+        ["\\(", "\\)"],
+      ],
+      displayMath: [
+        ["$$", "$$"],
+        ["\\[", "\\]"],
+      ],
+      macros: {
+        zp: "{\\mathbf{Z}_p}",
+        zt: "{\\mathbf{Z}_2}",
+        abs: ["{|#1|}", 1],
+        tp: "{\\mathbf{T}_p}",
+        szo: "{\\{0,1\\}}",
+        N: "{\\mathbb{N}}",
+        Z: "{\\mathbb{Z}}",
+      },
+    },
+  };
+</script>
+<script
+  id="MathJax-script"
+  async
+  src="/include/mathjax-4/tex-chtml.js"
+></script>
+{{ $endSlot()}} {{ $slot("content") }}
 
 <p>
-  <strong>Disclaimer 1</strong><br />
+  <em>Disclaimer 1</em><br />
   The findings presented in this article are not peer reviewed. They are
   published here to gather some initial feedback. The findings should be
   submitted to a journal in the coming weeks.
 </p>
 
 <p>
-  <strong>Disclaimer 2</strong><br />
+  <em>Disclaimer 2</em><br />
   The writing and the mathematical findings in the article were produced
   <em>without AI assistance.</em> All mistakes are my own. If you have any
   questions or suggestions, feel free to contact me.
@@ -30,11 +79,16 @@
   this:
 </p>
 
-<p><img src="/blog/collatz/collatz-tree.png" alt="Collatz tree" /></p>
+<script data-phantom>
+  $.figure(
+    "collatz-tree.png",
+    "The beginning of the infinite binary tree representing the Collatz map.",
+  );
+</script>
 
 <p>
-  The labels can be defined recursively via the recurrence relation $R(x_0,
-  \ldots, x_{k+1}) = R(x_1, \ldots, x_{k+1}) - x_0 R(x_0, \ldots, x_{k})$ and
+  The labels can be defined recursively via the recurrence relation $$R(x_0,
+  \ldots, x_{k+1}) = R(x_1, \ldots, x_{k+1}) - x_0 R(x_0, \ldots, x_{k})$$ and
   $R(x_0) = -x_0$. The values $x_i$ take values in $\szo$ and determine the
   "path" through the tree. For example, $R(1, 0, 1) = -2$, because you start
   from the root and go "right, left, right", which leads you to an edge labeled
@@ -75,12 +129,12 @@
 </p>
 
 <p>
-  Here is the connection to the tree $R$. You can step through the above
-  infinite tree and start with two right turns, then two left turns, then two
-  right turns again, always writing down the labels you find. They will start
-  $-1,0,1,-2,2, \ldots$. Call these labels $r_0, r_1, \ldots$. Then the $2$-adic
-  number $n$ we are looking for will be given by $$ n = \sum_{i=0}^\infty 2^i
-  r_i. $$
+  That is where the connection to the tree $R$ takes place. You can step through
+  the above infinite tree and start with two right turns, then two left turns,
+  then two right turns again, always writing down the labels you find. They will
+  start $-1,0,1,-2,2, \ldots$. Call these labels $r_0, r_1, \ldots$. Then the
+  $2$-adic integer $n$ we are looking for will be given by $$ n =
+  \sum_{i=0}^\infty 2^i r_i. $$
 </p>
 
 <p>
@@ -106,17 +160,17 @@
   integers $\zp$. The Collatz-conjecture asserts that for positive natural
   numbers $n$, some iterate $C^k(n)$ equals $1$. It is well known that it
   suffices to show that the values $C^k(n)$ eventually alternate between odd and
-  even values [1].
+  even values {{$.ref(1)}}.
 </p>
 
 <p>
   An important tool in the study of the Collatz conjecture is the conjugacy map
-  $\phi$, first considered in 1985 [1] and extensively studied by Bernstein and
-  Lagarias [2]. Its inverse $\phi^{-1}$ can be defined directly via $$
-  \phi^{-1}(n) := \sum_{k=0}^\infty (C^k(n) \mod 2) 2^k. $$ The function
-  $\phi^{-1}$ thus encodes the parity of the iterates $C^k(n)$ as a 2-adic
-  number. It can be shown [2] that the Collatz conjecture is equivalent to
-  $\phi^{-1}[ \N_+ ] \subseteq \frac{1}{3} \Z$.
+  $\phi$, first considered in 1985 {{$.ref(1)}} and extensively studied by
+  Bernstein and Lagarias {{$.ref(2)}}. Its inverse $\phi^{-1}$ can be defined
+  directly via $$ \phi^{-1}(n) := \sum_{k=0}^\infty (C^k(n) \mod 2) 2^k. $$ The
+  function $\phi^{-1}$ thus encodes the parity of the iterates $C^k(n)$ as a
+  2-adic integer. It can be shown {{$.ref(2)}} that the Collatz conjecture is
+  equivalent to $\phi^{-1}[ \N_+ ] \subseteq \frac{1}{3} \Z$.
 </p>
 
 <p>
@@ -130,11 +184,11 @@
 </p>
 
 <p>
-  Perhaps surprisingly, it can be shown [2] that the map $\phi$ satisfies an
-  explicit formula given by $$ \phi(x) = \sum_{k=0}^\infty 2^k\frac{x_k}{3^{x_0
-  + \ldots + x_{k-1}}} $$ where $\sum_{k=0}^\infty x_k 2^k = x$ is the 2-adic
-  expansion of $x$. This representation of $\phi$ involves an infinite sum of
-  non-integer values.
+  Perhaps surprisingly, it can be shown {{$.ref(2)}} that the map $\phi$
+  satisfies an explicit formula given by $$ \phi(x) = \sum_{k=0}^\infty
+  2^k\frac{x_k}{3^{x_0 + \ldots + x_{k-1}}} $$ where $\sum_{k=0}^\infty 2^k x_k
+  = x$ is the 2-adic expansion of $x$. This representation of $\phi$ involves an
+  infinite sum of non-integer values.
 </p>
 
 <p>
@@ -155,12 +209,12 @@
 </p>
 
 <p>
-  More generally, we show that in the $p$-adic numbers ($p$ prime), the function
-  defined by $H(n) = H_i(n)$ for $n \equiv i \mod p$ with $H_i$ of the form $H_i
-  = \frac{n-i}{p} + a_i n + b_i$ admits an integer representation for the
-  conjugacy map $\phi_H$, given by $\phi_H(x) = \sum_{k=0}^\infty 2^k R_k(x)$
-  where $R_0(x_0) = x_0 - pb_{x_0}$ and $$ R_{k+1}(x_0, \ldots, x_{k+1}) =
-  R_{k}(x_1, \ldots, x_{k+1}) - a_{x_0} R_{k}(x_0, \ldots, x_{k}). $$
+  More generally, we show that in the $p$-adic integers ($p$ prime), the
+  function defined by $H(n) = H_i(n)$ for $n \equiv i \mod p$ with $H_i$ of the
+  form $H_i = \frac{n-i}{p} + a_i n + b_i$ admits an integer representation for
+  the conjugacy map $\phi_H$, given by $\phi_H(x) = \sum_{k=0}^\infty 2^k
+  R_k(x)$ where $R_0(x_0) = x_0 - pb_{x_0}$ and $$ R_{k+1}(x_0, \ldots, x_{k+1})
+  = R_{k}(x_1, \ldots, x_{k+1}) - a_{x_0} R_{k}(x_0, \ldots, x_{k}). $$
 </p>
 
 <p>
@@ -179,13 +233,13 @@
 <h3>Parity maps</h3>
 
 <p>
-  We work in $p$-adic numbers $\zp$ for $p$ prime, where there is a shift map
-  $S$ given by $S(n):=\frac{n-(n \mod p)}{p}$ as defined in [2]. Consider any
-  map $T\colon \zp \to \zp$. We define the
+  We work in the $p$-adic integers $\zp$ for $p$ prime, where there is a shift
+  map $S$ given by $S(n):=\frac{n-(n \mod p)}{p}$ as defined in {{$.ref(2)}}.
+  Consider any map $T\colon \zp \to \zp$. We define the
   <em>parity map</em> $\psi_T$ as $$ \psi_T(n) := \sum_{k=0}^\infty (T^k(n) \mod
   p) p^k. $$ The <em>parity map</em> encodes the parities that an iteration of
   $T$ produces. We find studying the parity map directly more fruitful than
-  studying the conjugacy map studied in other articles [2].
+  studying the conjugacy map studied in other articles {{$.ref(2)}}.
 </p>
 
 <p>
@@ -206,7 +260,7 @@
 <p>
   <strong>Definition</strong><br />
   Given a map $T$ on $\zp$, its <em>first normal form</em> is the collection of
-  maps $T_0, \ldots, T_{p-1}$ on $\zp$ given by $T_i(n) = T(np + i)$, so that
+  maps $T_0, \ldots, T_{p-1}$ on $\zp$ given by $$T_i(n) = T(np + i),$$ so that
   for each $n\in \zp$ with $n \equiv i \mod p$, we have $T(n) =
   T_i(\frac{n-i}{p})$.
 </p>
@@ -247,6 +301,8 @@
     \abs{n-m}$.
   </li>
 </ol>
+
+<p>□</p>
 
 <p>
   <strong>Example</strong><br />
@@ -314,6 +370,8 @@
   </li>
 </ol>
 
+<p>□</p>
+
 <p>
   <strong>Example</strong><br />
   In the case of the Collatz map $T=C$, we have $\hat{C}_0(n) = 0$ and
@@ -341,6 +399,8 @@
   i) \frac{a_i - 1}{p} + b_i$.
 </p>
 
+<p>□</p>
+
 <h3>Tree representations</h3>
 
 <p>
@@ -355,12 +415,15 @@
   \sum_{k=0}^\infty R_f(x_0(a), \ldots, x_k(a)) p^k \\ \text{where } a =
   \sum_{k=0}^\infty x_k(a) p^k \text{ and } x_k \in [p]. $$ where $R_f$ is a
   function defined on $\tp := [p] \cup [p]^2 \cup [p]^3 \cup \ldots$ with domain
-  $[p]$. The map $R_f$ can be visualized as an infinite tree where each node has
-  $p$ children. The label of the node reached after taking through the tree the
-  path $(x_0, \ldots, x_k)$ has label $R_f(x_0 \ldots, x_k)$:
+  $[p]$. We use the common shorthand $[p] := \{0, 1, \ldots, p-1\}$. The map
+  $R_f$ can be visualized as an infinite tree where each node has $p$ children.
+  The label of the node reached after taking through the tree the path $(x_0,
+  \ldots, x_k)$ has label $R_f(x_0 \ldots, x_k)$:
 </p>
 
-<p><img src="/blog/collatz/tree-labels.png" alt="Tree labels" /></p>
+<script data-phantom>
+  $.figure("tree-labels.png", "Visualization of a tree.");
+</script>
 
 <p>
   We call maps from $\tp$ to $[p]$ <em>exact trees</em> on $\zp$. It is not hard
@@ -376,7 +439,8 @@
 <p>
   <strong>Definition</strong><br />
   A <em>tree</em> on $\zp$ is a map from $\tp := [p] \cup [p]^2 \cup [p]^3 \cup
-  \ldots$ to $\zp$. It can be visualized as in the image above.
+  \ldots$ to $\zp$ (note the codomain). It can be visualized as in the image
+  above.
 </p>
 
 <p>
@@ -385,10 +449,16 @@
   $a \in \zp$ with base-$p$-expansion $a = \sum_{k=0}^\infty x_k p^k$, then we
   define $$ f_R(a) = \sum_{k=0}^\infty p^k R(x_0(a), \ldots, x_k(a)) $$ and this
   is a contracting function. On the other hand, every contracting function has
-  infinitely many tree representations, exactly one of which is exact.
+  infinitely many tree representations, exactly one of which is exact. A
+  contracting function is distance-preserving if and only if its exact tree $R$
+  is balanced, meaning that for any fixed $x_0 \ldots, x_{k-1}$ in $[p]$, the
+  set $$ \{R(x_0, \ldots, x_{k-1}, x_k) \mid x_k \in [p] \} $$ contains all
+  $[p]$ equivalences classes $\mod p$.
 </p>
 
-<p>We now get to the main theorem of the paper.</p>
+<p>□</p>
+
+<p>We now get to the main theorem of the article.</p>
 
 <p>
   <strong>Theorem</strong><br />
@@ -403,18 +473,19 @@
 </p>
 
 <p>
-  Then the parity map is invertible, and its inverse $\psi_T^{-1}$ has a tree
-  representation $R \colon [p] \cup [p]^2 \cup [p]^3 \cup \ldots \to \mathbb{Z}$
-  given by $R(x_0) = x_0 - p b_{x_0}$ and the recursive formula $$ R(x_0,
-  \ldots, x_{k+1}) = R(x_1, \ldots, x_{k+1}) - a_{x_0} R(x_0, \ldots, x_k) $$
+  Then the parity map is distance-preserving, and its inverse $\psi_T^{-1}$ has
+  a tree representation $R \colon [p] \cup [p]^2 \cup [p]^3 \cup \ldots \to
+  \mathbb{Z}$ given by $R(x_0) = x_0 - p b_{x_0}$ and the recursive formula $$
+  R(x_0, \ldots, x_{k+1}) = R(x_1, \ldots, x_{k+1}) - a_{x_0} R(x_0, \ldots,
+  x_k) $$
 </p>
 
 <p>for $k \geq 1$.</p>
 
 <p>
   In other words, for any infinite sequence $(x_k)$ with values in $[p]$, the
-  value $n := \sum_{k=0}^\infty p^k R(x_0, \ldots, x_k)$ fulfills $$ T^k(n)
-  \equiv x_k \mod p. $$
+  value $n := \sum_{k=0}^\infty p^k R(x_0, \ldots, x_k)$ is the unique $p$-adic
+  integer that fulfills $$ T^k(n) \equiv x_k \mod p. $$
 </p>
 
 <p>
@@ -425,8 +496,15 @@
 
 <p>
   <strong>Proof</strong><br />
-  Since the second normal form of $T$ is contracting, $\psi_T$ is
-  distance-preserving and thus bijective.
+  Why is $\psi_T$ distance-preserving? Take $n, m \in \zp$ with $n \neq m$ and
+  $\abs{n-m} = p^{-k}$. If $k > 0$, then $n \equiv m \equiv i \mod p$, for some
+  $i \in [p]$. Then $\abs{T(n) - T(m)} = \abs{(\hat{T}_i(n) - \hat{T}_i(m)) +
+  (S(n) - S(m))} = p^{-(k-1)}$ because $\hat{T}_i$ is contracting and can be
+  omitted. This procedure of applying $T$ can be continued to see that the
+  minimal $j \in \N_0$ with $T^j(n) \not\equiv T^j(m) \mod p$ is exactly $j =
+  k$. By definition of $\psi_T$, we thus have $\abs{n-m} =
+  \abs{\psi_T(n)-\psi_T(m)}$. Since $\psi_T$ is distance-preserving, it is
+  bijective and invertible.
 </p>
 
 <p>
@@ -495,6 +573,8 @@
 
 <p>This proves the main theorem.</p>
 
+<p>□</p>
+
 <p>
   <strong>Remark</strong><br />
   For completeness, we state a similar theorem based on the first normal form.
@@ -514,8 +594,10 @@
 
 <p>
   for $k \geq 1$. This implies the explicit formula $$ R(x_0, \ldots, x_{k+1}) =
-  \frac{ x_k a_{x_k} - p b_{x_k}}{\prod_{i=0}^{k-1}a_{x_i}} $$
+  \frac{ x_k a_{x_k} - p b_{x_k}}{\prod_{i=0}^{k-1}a_{x_i}}. $$
 </p>
+
+<p>□</p>
 
 <h3>Investigating the Collatz case</h3>
 
@@ -536,7 +618,12 @@
 
 <p>The tree visualization begins as follows:</p>
 
-<p><img src="/blog/collatz/collatz-tree.png" alt="Collatz tree" /></p>
+<script data-phantom>
+  $.figure(
+    "collatz-tree.png",
+    "The infinite binary tree representing the Collatz map.",
+  );
+</script>
 
 <p>
   <strong>Remark</strong><br />
@@ -556,38 +643,139 @@
   <li>
     Assume $y_1, \ldots, y_j \in \{0\}$ are all zero. If $j$ is even, then $R(1,
     y_1, \ldots, y_j, x_0, \ldots, x_k) = R(1, x_0, \ldots, x_k)$. If $j$ is
-    odd, then $R(1, y_1, \ldots, y_j, x_0, \ldots, x_k) = 2 (-1)^{k
+    odd, then $R(1, y_1, \ldots, y_j, x_0, \ldots, x_k) = 2 (-1)^{k+1} + R(1,
+    x_0, \ldots, x_k)$. Visually, this is the self-similarity in the left half
+    of the right side tree.
   </li>
 </ol>
 
-<script>
-  MathJax = {
-    tex: {
-      inlineMath: [
-        ["$", "$"],
-        ["\\(", "\\)"],
-      ],
-      displayMath: [
-        ["$$", "$$"],
-        ["\\[", "\\]"],
-      ],
-      macros: {
-        zp: "{\\mathbf{Z}_p}",
-        zt: "{\\mathbf{Z}_2}",
-        abs: ["{|#1|}", 1],
-        tp: "{\\mathbf{T}_p}",
-        szo: "{\\{0,1\\}}",
-        N: "{\\mathbb{N}}",
-        Z: "{\\mathbb{Z}}",
-      },
-    },
-  };
+<p>
+  <strong>Proof</strong><br />
+  (1.) This follows directly from the recursion formula. (2.) Follows directly
+  by induction. (3.) Induction on $k$. For $k=0$ we need to show $R(1, x_0) = 1
+  + R(x_0) = 1 - x_0$ which can be verified by computation (or read from the
+  above visualization). For the induction step $k \to k+1$, we have by the
+  recursion formula: $$ R(1, x_0, \ldots, x_k, x_{k+1}) \\= R(x_0, \ldots, x_k,
+  x_{k+1}) - R(1, x_0, \ldots, x_k) \\= R(x_0, \ldots, x_k, x_{k+1}) +
+  (-1)^{k+1} - \sum_{i=0}^k (-1)^{k+i} R(x_0, \ldots, x_i) \\= (-1)^{k+1} +
+  \sum_{i=0}^{k+1} (-1)^{k+1+i} R(x_0, \ldots, x_i) $$ which is what we needed
+  to show. (4.) Assume first $j=1$. Set $z_0 := 0, z_i := x_{i-1}$ for $1 \leq i
+  \leq k+1$. Then we have (using (1.) and (3.) and $R(0) = 0$): $$ R(1, 0, x_0,
+  \ldots, x_k) \\= R(1, z_0, \ldots, z_{k+1}) \\= (-1)^{k+1} + \sum_{i=0}^{k+1}
+  (-1)^{k+1+i} R(z_0, \ldots, z_i) \\= (-1)^{k+1} + (-1)^{k+1} R(0) +
+  \sum_{i=1}^{k+1} (-1)^{k+1+i} R(z_1, \ldots, z_i) \\= (-1)^{k+1} +
+  \sum_{i=1}^{k+1} (-1)^{k+1+i} R(x_0, \ldots, x_{i-1}) \\= (-1)^{k+1} +
+  \sum_{i=0}^{k} (-1)^{k+i} R(x_0, \ldots, x_{i}) \\= (-1)^{k+1} + R(1, x_0,
+  \ldots, x_k) - (-1)^{k} \\= 2(-1)^{k+1} + R(1, x_0, \ldots, x_k). $$ This is
+  the effect of adding one zero at the beginning. Adding another one cancels
+  this out, since $2(-1)^{k+1} + 2(-1)^{k+2} = 0$.
+</p>
+
+<p>□</p>
+
+<p>
+  The first fact above means that leading zeros can be omitted, which strongly
+  suggests an indexing scheme based on nonnegative integers. Indeed, for $n \in
+  \N_0$ with base-$2$ expansion $n = \sum_{i=0}^k 2^i x_i$, where $x_i \in
+  \szo$, we can define $$ r(n) := R(x_k, \ldots, x_0). $$ For example, $r(5) =
+  r(101_2) = R(1, 0, 1) = -2$.
+</p>
+
+<p>
+  This is well defined because adding zeros at the end of the base-$2$ expansion
+  of $n$ corresponds to adding zeros at the beginning of $R(x_k, \ldots, x_0)$,
+  neither of which changes the value.
+</p>
+
+<p>
+  The sequence of integers $r(0), r(1), r(2), \ldots = R(0), R(1), R(1,0),
+  \ldots$ starts with $0, -1, 1, 0, -1, -2, 1, 0, \ldots$
+</p>
+
+<p>
+  In this view, the entire left half of the visualization becomes obsolete. We
+  can visualize the tree better by only showing values $R(x_0, \ldots, x_k)$
+  with $x_0 = 1$ (essentially the right side of the previous visualization):
+</p>
+
+<script data-phantom>
+  $.figure(
+    "collatz-tree-odd.png",
+    "The right side of the tree, showing only odd starting values.",
+  );
 </script>
-<script
-  id="MathJax-script"
-  async
-  src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
-></script>
+
+<p>The sequence $r$ just reads the edge labels row by row.</p>
+
+<p>
+  <strong>Remark</strong><br />
+  The previous properties can be stated in terms of the integer sequence $r$.
+</p>
+
+<ol>
+  <li>
+    We have $r(0) = 0, r(1) = -1$ and for $n \in \N_+$ the recursive formula
+    $r(n) = r(n \mod 2^{\lfloor \log_2(n) \rfloor}) - r(\frac{n-(n \mod
+    2)}{2})$. The first summand removes the most significant bit, the second one
+    removes the least significant bit (and shifts). This can also be stated as
+    follows. For $n \in \N_+$ and $k > \lfloor \log_2(n) \rfloor$, we have $r(n)
+    = r(n+2^k) + r(S(n+2^k))$, where $S$ is the shift function.
+  </li>
+  <li>
+    Let $(x_k)$ be an infinite sequence of values in $\szo$. To find the unique
+    $2$-adic integer $n$ whose odd/even step behaviour in step $k$ under the
+    Collatz iteration is exactly $x_k$, proceed as follows. Define $a_0 := x_0$
+    and $a_{k+1} = 2 a_k + x_{k+1}$. Then $n = \sum_{k=0}^\infty 2^k r(a_k)$.
+  </li>
+  <li>If $n \in \N_0$ is even, then $r(n+1) = r(n) - 1$.</li>
+  <li>$r(2^k) = (-1)^{k+1}$.</li>
+  <li>
+    Let $n \in \N_+$ and $k = 1 + \lfloor \log_2(n) \rfloor$. Then for all $j
+    \in \N_0$, we have $r(n + 2^{k + j}) = (-1)^{k + (j \mod 2)} + \sum_{i=0}^k
+    (-1)^{i} r(S^i(n))$, where $S$ is the shift function.
+  </li>
+</ol>
+
+<p>□</p>
+
+<h3>Further work</h3>
+
+<p>
+  The findings in this article link the Fibonacci numbers and the Collatz
+  conjecture in a surprising and hopefully interesting way. They might open up
+  an opportunity to study the Conjecture from a number theoretic perspective.
+</p>
+
+<p>
+  In future articles, we will look at further properties of the tree $R$ and the
+  corresponding integer sequence $r(n)$. We will also publish some more
+  theoretical results about parity maps. A little teaser might be in order.
+  While we so far have studied the parity map $\psi_C$ for the Collatz map $C$,
+  one can show that $C$ itself is the parity map of another map $T$ - at least,
+  except for the first output bit. More precisely is a map $T$ such that
+  $S(C(n)) = S(\psi_T(n))$ for all $n \in \zp$, where $S$ is the shift function.
+  This map $T$ can be described very explicitly.
+</p>
+
+<h3>References</h3>
+
+<ol>
+  <li id="ref-1">
+    Lagarias, Jeffrey C. "The 3x + 1 Problem and Its Generalizations."
+    <em>The American Mathematical Monthly</em>, vol. 92, no. 1, 1985, pp. 3-23.
+    <a href="https://doi.org/10.2307/2322189"
+      >https://doi.org/10.2307/2322189</a
+    >
+  </li>
+  <li id="ref-2">
+    Bernstein, D. J., and Lagarias, J. C. "The 3x + 1 Conjugacy Map."
+    <em>Canadian Journal of Mathematics</em>, vol. 48, no. 6, 1996, pp.
+    1154-1169.
+    <a href="https://doi.org/10.4153/CJM-1996-060-x"
+      >https://doi.org/10.4153/CJM-1996-060-x</a
+    >
+  </li>
+</ol>
 
 {{ $endSlot() }}
 
@@ -604,6 +792,7 @@
       // hackerNews: "https://news.ycombinator.com/item?id=45437903",
     },
     content: $slots.content,
+    head: $slots.head,
     callback: $props.callback,
   });
 </script>

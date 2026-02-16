@@ -57,8 +57,10 @@
     description: `Blog of Vincent Rolfs.`,
     navSelection: "",
     content: $slots.content,
-    head: $props.prism
-      ? `	<link href="/include/prism/prism.css" rel="stylesheet" />`
-      : undefined,
+    head:
+      ($props.head ?? "") +
+      ($props.prism
+        ? `<link href="/include/prism/prism.css" rel="stylesheet" />`
+        : ""),
   });
 </script>
